@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  {%- if site.posts.size > 0 -%}
+
+    <h1 class="page-heading">{{ "This blog has been moved" }}</h1>
+
+    <h3><a class="page-link" href="https://bit.ly/obok13">New blog</a></h3>
+
+    <h3><a class="page-link" href="https://github.com/obok13">My github</a></h3>
+    
+  {%- endif -%}
+
+</div>
