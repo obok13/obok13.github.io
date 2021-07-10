@@ -1,1 +1,1 @@
-The blog has been moved [here](https://bit.ly/obok13)
+This blog has been moved [here](https://bit.ly/obok13)
