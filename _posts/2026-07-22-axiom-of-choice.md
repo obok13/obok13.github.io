@@ -21,7 +21,7 @@ date: 2026-07-22
    (조건을 만족하는 원소들만 모아 부분집합을 만들 수 있다. 교집합도 이렇게 만들 수 있다.)
 
 4. **Pairing.** For any $a, b$, the set $\{a, b\}$ exists.
-   (두 집합을 원소로 하는 집합을 만들 수 있다.)
+   (두 집합을 원소로 하는 집합을 만들 수 있다. Pair를 정의할 수 있다.)
 
 5. **Union.** For any family of sets $F$, the union $\bigcup F$ exists.
    (합집합이 가능하다.)
@@ -31,7 +31,7 @@ date: 2026-07-22
 
 7. **Infinity.** There exists an inductive set (a set from which the natural numbers can be built).
    $$\exists x\,[\emptyset \in x \wedge \forall y \in x\,(y \cup \{y\} \in x)]$$
-   (자연수 집합의 존재성. 적어도 하나의 집합이 존재한다.)
+   (자연수 집합의 존재성. 무한 집합의 존재성. 적어도 하나의 집합이 존재함.)
 
 8. **Power Set.** For every set $x$, the set of all subsets of $x$, $\mathcal{P}(x)$, exists.
    (멱집합의 존재성.)
@@ -94,7 +94,7 @@ Euclid 기하학은 다음 다섯 개의 공준으로 이루어진다.
 
 앞의 네 개에 비해 다섯 번째가 훨씬 복잡하고 부자연스러워 보였다. 2000년 넘게 수학자들은 다섯 번째 공준을 나머지 네 공준으로부터 증명하려 시도했지만 모두 실패했다.
 
-19세기에 Gauss, Bolyai, Lobachevsky가 독립적으로 평행선 공준을 부정해도 (나머지 네 공준을 만족하는) 무모순적인 기하학 — hyperbolic geometry — 이 존재함을 보였고, 이후 Beltrami, Klein, Poincaré가 Euclidean geometry 안에 hyperbolic geometry의 모델(Poincaré disk model 등)을 직접 구성해 그 무모순성을 확정지었다. 즉 평행선 공준은 나머지 네 공준으로부터 독립적이다.
+19세기에 Bolyai [5]와 Lobachevsky [6]가 각각 독립적으로, 평행선 공준을 부정해도 (나머지 네 공준을 만족하는) 무모순적인 기하학 — hyperbolic geometry — 이 존재함을 발표했다. Gauss도 이와 동등한 결과를 사적으로 얻어 두었던 것으로 알려져 있는데, 그는 논란을 우려해 이를 평생 출판하지 않았고, 이 사실은 사후에 공개된 편지와 노트를 통해서만 확인된다 [7]. 이후 Beltrami가 pseudosphere를 이용해 hyperbolic geometry의 (평면 전체가 아닌 일부만을 담아내는) 국소적인 모델을 처음 구성했고 [8], 이어서 Klein이 projective disk model을 [9], Poincaré가 (Fuchsian group에 대한 연구 과정에서) disk model을 각각 제시하며 hyperbolic plane 전체를 담아내는 모델을 완성해 그 무모순성을 확정지었다 [10]. 즉 평행선 공준은 나머지 네 공준으로부터 독립적이다. 평행선 공준 없이 나머지 4개로 전개한 기하학을 비유클리드 기하학이라고 한다.
 
 ## 참고문헌
 
@@ -102,5 +102,11 @@ Euclid 기하학은 다음 다섯 개의 공준으로 이루어진다.
 2. Gödel, K. (1940). *The Consistency of the Continuum Hypothesis*. Annals of Mathematics Studies, No. 3. Princeton University Press.
 3. Cohen, P. J. (1963). *The Independence of the Continuum Hypothesis*. Proceedings of the National Academy of Sciences, 50(6), 1143–1148.
 4. Cohen, P. J. (1964). *The Independence of the Continuum Hypothesis, II*. Proceedings of the National Academy of Sciences, 51(1), 105–110.
+5. Bolyai, J. (1832). *Appendix Scientiam Spatii Absolute Veram Exhibens*. In F. Bolyai, *Tentamen Juventutem Studiosam in Elementa Matheseos Purae Introducendi*. Maros Vásárhely.
+6. Lobachevsky, N. I. (1829–1830). О началах геометрии [On the Foundations of Geometry]. *Kazanskii Vestnik* (Kazan Messenger).
+7. O'Connor, J. J., & Robertson, E. F. *Carl Friedrich Gauss*. MacTutor History of Mathematics Archive. https://mathshistory.st-andrews.ac.uk/Biographies/Gauss/
+8. Beltrami, E. (1868). Saggio di interpretazione della geometria non-euclidea. *Giornale di Matematiche*, 6, 284–312.
+9. Klein, F. (1871). Über die sogenannte nicht-euklidische Geometrie. *Mathematische Annalen*, 4, 573–625.
+10. Poincaré, H. (1882). Théorie des groupes fuchsiens. *Acta Mathematica*, 1, 1–63.
 
 ---
