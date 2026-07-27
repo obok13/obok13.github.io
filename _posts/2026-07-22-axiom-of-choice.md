@@ -20,7 +20,7 @@ date: 2026-07-22
    $$\forall x\, \exists y\, \forall z\,[z \in y \leftrightarrow (z \in x \wedge \varphi(z))]$$
    (조건을 만족하는 원소들만 모아 부분집합을 만들 수 있다. 교집합도 이렇게 만들 수 있다.)
 
-4. **Pairing.** For any $a, b$, the set $\{a, b\}$ exists.
+4. **Pairing.** For any $a, b$, the set $$\{a, b\}$$ exists.
    (두 집합을 원소로 하는 집합을 만들 수 있다. Pair를 정의할 수 있다.)
 
 5. **Union.** For any family of sets $F$, the union $\bigcup F$ exists.
@@ -38,7 +38,7 @@ date: 2026-07-22
 
 ## 선택 공리 (Axiom of Choice)
 
-$\{A_i\}_{i \in I}$가 공집합이 아닌 집합들로 이루어진 family of sets라고 하자. Axiom of Choice(AC)는 다음과 같다.
+$$\{A_i\}_{i \in I}$$가 공집합이 아닌 집합들로 이루어진 family of sets라고 하자. Axiom of Choice(AC)는 다음과 같다.
 
 $$
 \exists\, f : I \to \bigcup_{i \in I} A_i \quad \text{such that} \quad f(i) \in A_i \ \text{ for all } i \in I.

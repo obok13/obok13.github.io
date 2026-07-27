@@ -21,15 +21,17 @@ date: 2026-07-23
 
 ## Complete Ordered Field의 존재성
 
-ZF 공리계 위에서 자연수, 정수, 유리수를 차례로 구성할 수 있다.
+> "Die ganzen Zahlen hat der liebe Gott gemacht, alles andere ist Menschenwerk." (신께서는 정수를 만드셨고, 나머지는 모두 인간이 만든 것이다.) — Leopold Kronecker
 
-**자연수 $\mathbb{N}$.** ZF에 따라 어떤 inductive set $I$가 존재한다. $\mathcal{A} = \{A \subseteq I : A\text{ is inductive}\}$라 하고 $\mathbb{N} = \bigcap \mathcal{A}$로 정의하면, $I$의 선택과 무관하게 well-defined이고 그 자신도 inductive함을 쉽게 보일 수 있다. $0=\emptyset$, $1=\emptyset \cup \{\emptyset\}$, ... 과 같은 식으로 개별 자연수도 정의된다. 나아가 $\mathbb{N}$은 다음과 같은 Induction Principle도 만족하는데, 이는 수학적 귀납법의 정당성을 확보해주는 자연수의 핵심 성질이다.
+자연수만 있으면 그 위에 정수, 유리수, 그리고 실수까지도 인간의 손으로 쌓아올릴 수 있다. ZF 공리계 위에서 자연수, 정수, 유리수를 차례로 구성해보자.
 
-**Induction Principle.** If $S \subseteq \mathbb{N}$ satisfies $\emptyset \in S$ and $\forall n\,(n\in S \to n\cup\{n\}\in S)$, then $S = \mathbb{N}$.
+**자연수 $\mathbb{N}$.** ZF에 따라 어떤 inductive set $I$가 존재한다. $$\mathcal{A} = \{A \subseteq I : A\text{ is inductive}\}$$라 하고 $\mathbb{N} = \bigcap \mathcal{A}$로 정의하면, $I$의 선택과 무관하게 well-defined이고 그 자신도 inductive함을 쉽게 보일 수 있다. $0=\emptyset$, $$1=\emptyset \cup \{\emptyset\}$$, ... 과 같은 식으로 개별 자연수도 정의된다. 나아가 $\mathbb{N}$은 다음과 같은 Induction Principle도 만족하는데, 이는 수학적 귀납법의 정당성을 확보해주는 자연수의 핵심 성질이다.
+
+**Induction Principle.** If $S \subseteq \mathbb{N}$ satisfies $\emptyset \in S$ and $$\forall n\,(n\in S \to n\cup\{n\}\in S)$$, then $S = \mathbb{N}$.
 
 **정수 $\mathbb{Z}$.** $\mathbb{N} \times \mathbb{N}$ 위에 동치관계 $(a,b) \sim (c,d) \iff a+d=b+c$를 주고, 그 quotient set으로 정의한다. $(a,b)$의 동치류는 직관적으로 $a-b$에 대응한다.
 
-**유리수 $\mathbb{Q}$.** $\mathbb{Z} \times (\mathbb{Z}\setminus\{0\})$ 위에 동치관계 $(a,b)\sim(c,d) \iff ad=bc$를 주고 그 quotient set으로 정의한다. $(a,b)$의 동치류는 직관적으로 $a/b$에 대응한다.
+**유리수 $\mathbb{Q}$.** $$\mathbb{Z} \times (\mathbb{Z}\setminus\{0\})$$ 위에 동치관계 $(a,b)\sim(c,d) \iff ad=bc$를 주고 그 quotient set으로 정의한다. $(a,b)$의 동치류는 직관적으로 $a/b$에 대응한다.
 
 자연수, 정수, 유리수에서 모두 사칙연산과 순서를 잘 정의할 수 있지만, 유리수까지는 $\sqrt{2}$와 같은 수를 담을 자리가 없다는 결정적인 빈틈이 있다. 이 빈틈에 대한 논의는 이미 고대 그리스 Pythagoras 학파로 거슬러 올라간다. Pythagoras 학파는 "만물은 수(정수와 그 비)"라는 세계관을 가지고 있었는데, 정사각형의 대각선과 변처럼 정수의 비로 나타낼 수 없는 양(incommensurable magnitude) — 오늘날 말로 무리수 — 이 존재한다는 사실이 발견되며 이 세계관 자체가 흔들렸다. 흔히 이 발견은 Hippasus of Metapontum이라는 인물의 이름과 함께, 그가 이 "금기"를 누설한 죄로 물에 빠뜨려 죽임당했다는 이야기로 전해진다.
 
@@ -43,9 +45,9 @@ ZF 공리계 위에서 자연수, 정수, 유리수를 차례로 구성할 수 �
 2. If $p \in \alpha$ and $q < p$, then $q \in \alpha$.
 3. $\alpha$ has no greatest element.
 
-$\mathbb{R}$을 이런 cut들의 모임으로 정의하고, 순서는 $\alpha < \beta \iff \alpha \subsetneq \beta$로 준다. 덧셈은 $\alpha+\beta = \{p+q : p\in\alpha,\ q\in\beta\}$로 정의하고, 곱셈은 부호에 따라 경우를 나누어 정의한다. 유리수 $r$은 cut $\{q \in \mathbb{Q} : q < r\}$과 동일시되어 $\mathbb{Q} \subset \mathbb{R}$인 embedding을 얻는다. 이 방법은 Dedekind가 1872년에 처음 제시했다 [4].
+$\mathbb{R}$을 이런 cut들의 모임으로 정의하고, 순서는 $\alpha < \beta \iff \alpha \subsetneq \beta$로 준다. 덧셈은 $$\alpha+\beta = \{p+q : p\in\alpha,\ q\in\beta\}$$로 정의하고, 곱셈은 부호에 따라 경우를 나누어 정의한다. 유리수 $r$은 cut $$\{q \in \mathbb{Q} : q < r\}$$과 동일시되어 $\mathbb{Q} \subset \mathbb{R}$인 embedding을 얻는다. 이 방법은 Dedekind가 1872년에 처음 제시했다 [4].
 
-**Cauchy sequence.** 유리수로 이루어진 수열 $(a_n)$ 중, for every $\varepsilon \in \mathbb{Q}_{>0}$ there exists $N$ such that $m,n>N \implies |a_m-a_n|<\varepsilon$을 만족하는 것들(Cauchy sequence)을 모은다. 두 Cauchy sequence $(a_n),(b_n)$을 $a_n-b_n \to 0$일 때 동치로 보는 동치관계로 quotient를 취해 $\mathbb{R}$을 정의하고, 사칙연산은 성분별로 정의한다. 이 방법은 Cantor가 1872년 논문에서 제시했다 [5].
+**Cauchy sequence.** 유리수로 이루어진 수열 $(a_n)$ 중, for every $\varepsilon \in \mathbb{Q}_{>0}$ there exists $N$ such that $m,n>N \implies \vert a_m-a_n\vert<\varepsilon$을 만족하는 것들(Cauchy sequence)을 모은다. 두 Cauchy sequence $(a_n),(b_n)$을 $a_n-b_n \to 0$일 때 동치로 보는 동치관계로 quotient를 취해 $\mathbb{R}$을 정의하고, 사칙연산은 성분별로 정의한다. 이 방법은 Cantor가 1872년 논문에서 제시했다 [5].
 
 이 두 구성 모두 complete ordered field의 세 조건을 만족함을 보일 수 있다 — 즉 존재성이 증명된 것이다.
 
