@@ -23,7 +23,7 @@ date: 2026-07-23
 
 > "Die ganzen Zahlen hat der liebe Gott gemacht, alles andere ist Menschenwerk." (신께서는 정수를 만드셨고, 나머지는 모두 인간이 만든 것이다.) — Leopold Kronecker
 
-자연수만 있으면 그 위에 정수, 유리수, 그리고 실수까지도 인간의 손으로 쌓아올릴 수 있다. ZF 공리계 위에서 자연수, 정수, 유리수를 차례로 구성해보자.
+자연수만 있으면 그 위에 정수, 유리수, 그리고 실수까지도 construct할 수 있다. ZF 공리계 위에서 자연수, 정수, 유리수를 차례로 구성해보자.
 
 **자연수 $\mathbb{N}$.** ZF에 따라 어떤 inductive set $I$가 존재한다. $$\mathcal{A} = \{A \subseteq I : A\text{ is inductive}\}$$라 하고 $\mathbb{N} = \bigcap \mathcal{A}$로 정의하면, $I$의 선택과 무관하게 well-defined이고 그 자신도 inductive함을 쉽게 보일 수 있다. $0=\emptyset$, $$1=\emptyset \cup \{\emptyset\}$$, ... 과 같은 식으로 개별 자연수도 정의된다. 나아가 $\mathbb{N}$은 다음과 같은 Induction Principle도 만족하는데, 이는 수학적 귀납법의 정당성을 확보해주는 자연수의 핵심 성질이다.
 
