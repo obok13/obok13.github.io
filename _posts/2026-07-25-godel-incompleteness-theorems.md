@@ -75,6 +75,8 @@ Then $F \vdash \mathrm{Con}(F) \to G_F$ — this holds regardless of whether $F$
 
 복잡해 보이지만 핵심은 어떤 형식체계의 공리가 recursive하고, primitive recursive function을 표현 가능하고, $F$의 provability predicate가 Hilbert–Bernays–Löb derivability conditions를 만족하면, (그 체계가 실제로 consistent한 한) 자기 자신의 무모순성을 증명할 수 없다는 것이다.
 
+괴델이 ZFC의 무모순성을 증명했을 때도 ZFC 자체의 공리로 무모순성을 증명한 것이 아니라, ZF (정확히는 von Neumann의 공리체계 S*, 오늘날 NBG의 전신이 되는, 집합 대신 class를 다루는 체계) 위에서 증명한 것이다. 그리고 같은 논리로, ZF의 무모순성을 ZF 안에서 증명할 수 없으므로, ZF의 무모순성은 가정된 것이다. 즉, 괴델이 보인 것은 ZF가 무모순하다면 ZFC가 무모순하다는 사실이다.
+
 Gödel은 1931년 논문에서 이 정리의 완전한 증명은 스케치 수준으로만 남겼다. $F$의 provability predicate가 만족해야 할 조건들을 엄밀하게 정리하고 이로부터 제2불완전성 정리를 완전하게 증명한 것은 훗날 Hilbert와 Bernays의 1939년 저작에서였다 [9]. 다만 이때의 증명은 70쪽에 달하는 다소 임기응변적인 조건들에 의존했는데, 이를 오늘날 널리 쓰이는 깔끔한 D1–D3 형태로 다듬고 이로부터 얻어지는 일반적인 결과(Löb's Theorem)를 정리한 것은 Löb의 1955년 논문이었다 [10].
 
 ## 참고문헌
