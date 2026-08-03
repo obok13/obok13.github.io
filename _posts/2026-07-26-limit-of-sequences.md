@@ -6,7 +6,7 @@ date: 2026-07-26
 
 ## 실수 수열의 극한
 
-**Definition (Limit of a Sequence).** A sequence $(a_n)_{n=1}^\infty$ of real numbers *converges* to $L \in \mathbb{R}$, written $\lim_{n\to\infty} a_n = L$ or $a_n \to L$, if for every $\varepsilon > 0$ there exists $N \in \mathbb{N}$ such that $\vert a_n - L\vert < \varepsilon$ for all $n \ge N$.
+**Definition (Limit of a Sequence).** A sequence $ (a_n)_{n=1}^\infty$ of real numbers *converges* to $L \in \mathbb{R}$, written $\lim_{n\to\infty} a_n = L$ or $a_n \to L$, if for every $\varepsilon > 0$ there exists $N \in \mathbb{N}$ such that $\vert a_n - L\vert < \varepsilon$ for all $n \ge N$.
 
 극한의 개념을 다룰 때 주로 등장하는 수학자는 Cauchy인데, Cauchy가 위의 정의를 엄밀하게 한 것은 아니지만, 1821년 *Cours d'Analyse*에서 극한의 개념을 명시적으로 정식화하고, 그 위에 미적분학의 모든 핵심 개념을 체계적으로 재건축했다. 위와 같은 형태의 정의는 Bolzano가 1817년 논문에서, 그리고 Weierstrass가 1870년대 베를린에서의 강의를 통해 각각 독자적으로 다듬은 것으로 알려져 있다 [1].
 
@@ -202,7 +202,7 @@ $$(L+\varepsilon)(b_{n+1}-b_n) < a_{n+1}-a_n < (L-\varepsilon)(b_{n+1}-b_n)$$
 
 ## Fekete's Subadditive Lemma
 
-마지막으로 소개할 결과는 앞의 둘과는 결이 조금 다르다. 수열 $(a_n)_{n\ge1}$이 *subadditive*라는 것은 모든 $n,m\ge1$에 대해 $a_{n+m} \le a_n+a_m$이 성립한다는 뜻이다.
+마지막으로 소개할 결과는 앞의 둘과는 결이 조금 다르다. 수열 $ (a_n)_{n\ge1}$이 *subadditive*라는 것은 모든 $n,m\ge1$에 대해 $a_{n+m} \le a_n+a_m$이 성립한다는 뜻이다.
 
 **Theorem (Fekete's Subadditive Lemma, 1923 [6]).** If $(a_n)_{n\ge1}$ is subadditive, then $\lim_{n\to\infty} \dfrac{a_n}{n}$ exists in $[-\infty,\infty)$ and equals $\inf_{n\ge1} \dfrac{a_n}{n}$.
 
