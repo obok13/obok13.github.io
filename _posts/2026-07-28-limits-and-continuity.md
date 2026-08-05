@@ -66,6 +66,22 @@ $f(c)>y$라 가정하자. $\varepsilon:=f(c)-y>0$에 대해 어떤 $\delta>0$이
 
 이 정리는 Bolzano에 의해 1830년에 엄밀하게 증명되었고 한참 뒤인 1930년에 출판되었다 [3]. Weierstrass는 이를 일반적인 compact space로 확장한 형태를 1860년대에 증명했다고 알려져 있다.
 
+## 단조함수의 불연속점
+
+단조함수는 일반적인 함수보다 불연속점이 훨씬 제한적이다. 그 이유는 단조함수의 한쪽 극한이 언제나 존재하기 때문이다.
+
+**Proposition.** Let $f:(a,b)\to\mathbb{R}$ be monotonically increasing. Then for every $x\in(a,b)$, the one-sided limits $f(x^-):=\lim_{t\to x^-}f(t)$ and $f(x^+):=\lim_{t\to x^+}f(t)$ both exist, and $f(x^-) \le f(x) \le f(x^+)$.
+
+*Proof.* $$\{f(t):t<x\}$$는 $f(x)$로 위로 유계이므로 완비성에 의해 $L:=\sup_{t<x}f(t)$가 존재하고 $L\le f(x)$이다. $\varepsilon>0$이 주어지면 $\sup$의 정의에 의해 어떤 $t_0<x$가 있어 $f(t_0)>L-\varepsilon$이고, $t_0<t<x$인 모든 $t$에 대해 단조성에 의해 $L-\varepsilon<f(t_0)\le f(t)\le L$이므로 $f(t)\to L$ ($t\to x^-$), 즉 $f(x^-)=L\le f(x)$이다. 오른쪽 극한도 $\inf_{t>x}f(t)$에 대해 대칭적인 논증으로 $f(x)\le f(x^+)$를 얻는다. $\blacksquare$
+
+특히 $f$가 $x$에서 연속인 것과 $f(x^-)=f(x)=f(x^+)$인 것은 동치이므로, $x$가 불연속점이면 반드시 $f(x^-)<f(x^+)$(진짜 "jump")이다.
+
+**Theorem. [6,8]** If $f:(a,b)\to\mathbb{R}$ is monotonic, then the set of points of $(a,b)$ at which $f$ is discontinuous is countable.
+
+*Proof.* $f$가 증가하는 경우만 보면 충분하다 (감소하면 $-f$에 적용하면 된다). $x$가 불연속점이면 $$I_x:=(f(x^-),f(x^+))$$는 공집합이 아닌 열린구간이다. $x<y$가 둘 다 불연속점이라 하자. $(x,y)$의 아무 점 $t$에 대해서나 단조성에 의해 $f(x^+)=\inf_{s>x}f(s)\le f(t) \le \sup_{s<y}f(s)=f(y^-)$이므로 $f(x^+)\le f(y^-)$, 즉 $I_x$와 $I_y$는 서로 겹치지 않는다.
+
+$\mathbb{Q}$는 $\mathbb{R}$에서 조밀하므로 각 $I_x$는 유리수를 적어도 하나 포함하는데, 서로 다른 불연속점의 $I_x$들이 겹치지 않으므로 이렇게 고른 유리수들도 서로 다르다. 즉 불연속점들의 집합에서 $\mathbb{Q}$로 가는 단사함수가 존재하므로, 이 집합은 가산(countable)이다. $\blacksquare$
+
 ## 균등연속성과 Lipschitz 연속성
 
 **Definition (Uniform Continuity).** $f$ is *uniformly continuous* on $S$ if for every $\varepsilon>0$ there exists $\delta>0$ such that for all $x,y\in S$, $\vert x-y\vert<\delta$ implies $\vert f(x)-f(y)\vert<\varepsilon$.
@@ -99,22 +115,6 @@ $$K_f := \sup_{\substack{x,y\in S \\ x\ne y}} \frac{\vert f(x)-f(y)\vert}{\vert 
 *Proof.* $K=0$이면 $f$는 상수함수라 자명하다. $K>0$이면, $\varepsilon>0$에 대해 $\delta:=\varepsilon/K$로 두면 $\vert x-y\vert<\delta$일 때 $\vert f(x)-f(y)\vert \le K\vert x-y\vert < K\delta=\varepsilon$이다. 이 $\delta$는 점의 위치와 무관하므로 균등연속성의 정의를 만족한다. $\blacksquare$
 
 역시 역은 성립하지 않는다. $f(x)=\sqrt{x}$는 $[0,1]$에서 (닫힌유계구간 위의 연속함수이므로 Heine–Cantor Theorem에 의해) 균등연속이지만, Lipschitz 연속은 아니다. 만약 어떤 $K$에 대해 모든 $x\in[0,1]$에서 $\sqrt{x}=\vert\sqrt x-\sqrt0\vert\le K\vert x-0\vert=Kx$가 성립한다면, 양변을 $\sqrt x>0$으로 나눠 $1\le K\sqrt x$, 즉 모든 $x>0$에 대해 $x\ge 1/K^2$이어야 하는데, $x:=1/(4K^2)<1/K^2$을 대입하면 모순이다. 따라서 그런 $K$는 존재하지 않는다.
-
-## 단조함수의 불연속점
-
-단조함수는 일반적인 함수보다 불연속점이 훨씬 제한적이다. 그 이유는 단조함수의 한쪽 극한이 언제나 존재하기 때문이다.
-
-**Proposition.** Let $f:(a,b)\to\mathbb{R}$ be monotonically increasing. Then for every $x\in(a,b)$, the one-sided limits $f(x^-):=\lim_{t\to x^-}f(t)$ and $f(x^+):=\lim_{t\to x^+}f(t)$ both exist, and $f(x^-) \le f(x) \le f(x^+)$.
-
-*Proof.* $$\{f(t):t<x\}$$는 $f(x)$로 위로 유계이므로 완비성에 의해 $L:=\sup_{t<x}f(t)$가 존재하고 $L\le f(x)$이다. $\varepsilon>0$이 주어지면 $\sup$의 정의에 의해 어떤 $t_0<x$가 있어 $f(t_0)>L-\varepsilon$이고, $t_0<t<x$인 모든 $t$에 대해 단조성에 의해 $L-\varepsilon<f(t_0)\le f(t)\le L$이므로 $f(t)\to L$ ($t\to x^-$), 즉 $f(x^-)=L\le f(x)$이다. 오른쪽 극한도 $\inf_{t>x}f(t)$에 대해 대칭적인 논증으로 $f(x)\le f(x^+)$를 얻는다. $\blacksquare$
-
-특히 $f$가 $x$에서 연속인 것과 $f(x^-)=f(x)=f(x^+)$인 것은 동치이므로, $x$가 불연속점이면 반드시 $f(x^-)<f(x^+)$(진짜 "jump")이다.
-
-**Theorem. [6,8]** If $f:(a,b)\to\mathbb{R}$ is monotonic, then the set of points of $(a,b)$ at which $f$ is discontinuous is countable.
-
-*Proof.* $f$가 증가하는 경우만 보면 충분하다 (감소하면 $-f$에 적용하면 된다). $x$가 불연속점이면 $$I_x:=(f(x^-),f(x^+))$$는 공집합이 아닌 열린구간이다. $x<y$가 둘 다 불연속점이라 하자. $(x,y)$의 아무 점 $t$에 대해서나 단조성에 의해 $f(x^+)=\inf_{s>x}f(s)\le f(t) \le \sup_{s<y}f(s)=f(y^-)$이므로 $f(x^+)\le f(y^-)$, 즉 $I_x$와 $I_y$는 서로 겹치지 않는다.
-
-$\mathbb{Q}$는 $\mathbb{R}$에서 조밀하므로 각 $I_x$는 유리수를 적어도 하나 포함하는데, 서로 다른 불연속점의 $I_x$들이 겹치지 않으므로 이렇게 고른 유리수들도 서로 다르다. 즉 불연속점들의 집합에서 $\mathbb{Q}$로 가는 단사함수가 존재하므로, 이 집합은 가산(countable)이다. $\blacksquare$
 
 ## 반연속성
 
