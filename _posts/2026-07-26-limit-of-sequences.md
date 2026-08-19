@@ -2,7 +2,7 @@
 layout: post
 title: "실수 수열의 극한"
 date: 2026-07-26
-mathematicians: [Stolz, Cesàro, Weierstrass, Cauchy, Bolzano]
+mathematicians: [Stolz, Cesàro, Weierstrass, Cauchy, Bolzano, l'Hôpital, Stirling, Fekete]
 ---
 
 ## 실수 수열의 극한

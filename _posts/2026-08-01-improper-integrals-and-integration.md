@@ -2,7 +2,7 @@
 layout: post
 title: "Improper Integral과 적분 계산"
 date: 2026-08-01
-mathematicians: [Cauchy, Liouville, Risch, Gauss, Hadamard, de la Vallée Poussin, Euler, Legendre, Fagnano, Abel, Jacobi, Weierstrass]
+mathematicians: [Cauchy, Liouville, Risch, Gauss, Hadamard, de la Vallée Poussin, Euler, Legendre, Fagnano, Abel, Jacobi, Weierstrass, Fresnel, Dirichlet]
 ---
 
 ## Improper integral

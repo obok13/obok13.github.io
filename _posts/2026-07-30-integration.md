@@ -2,7 +2,7 @@
 layout: post
 title: "적분"
 date: 2026-07-30
-mathematicians: [Riemann, Darboux, Lebesgue, Lipschitz, Leibniz, Cauchy, Heine, Cantor, Barrow, Vitali, Newton]
+mathematicians: [Riemann, Darboux, Lebesgue, Lipschitz, Leibniz, Cauchy, Heine, Cantor, Barrow, Vitali, Newton, Froda]
 ---
 
 ## Riemann 적분

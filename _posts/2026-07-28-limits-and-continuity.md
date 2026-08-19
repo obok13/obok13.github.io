@@ -2,7 +2,7 @@
 layout: post
 title: "함수의 극한과 연속성"
 date: 2026-07-28
-mathematicians: [Bolzano, Lipschitz, Weierstrass, Heine, Cauchy, Cantor, Darboux, Baire]
+mathematicians: [Bolzano, Lipschitz, Weierstrass, Heine, Cauchy, Cantor, Darboux, Baire, Brouwer, Froda]
 ---
 
 ## 함수의 극한

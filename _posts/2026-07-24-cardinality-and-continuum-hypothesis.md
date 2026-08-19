@@ -2,7 +2,7 @@
 layout: post
 title: "무한집합의 크기: Cardinality"
 date: 2026-07-24
-mathematicians: [Cantor, Gödel, Cohen, Borel, Hilbert, Hartogs, Dedekind, von Neumann]
+mathematicians: [Cantor, Gödel, Cohen, Borel, Hilbert, Hartogs, Dedekind, von Neumann, Schröder, Felix Bernstein, Korselt, Mittag-Leffler, Moore]
 ---
 
 ## Cardinality

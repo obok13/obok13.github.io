@@ -2,7 +2,7 @@
 layout: post
 title: "괴델의 불완전성 정리 (Gödel's Incompleteness Theorems)"
 date: 2026-07-25
-mathematicians: [Gödel, Hilbert, Bernays, von Neumann, Russell]
+mathematicians: [Gödel, Hilbert, Bernays, von Neumann, Russell, Turing, Church, Kleene, Rosser, Löb, Presburger, Henkin, Goldbach]
 ---
 
 ## 무모순적이고 완전한 형식체계

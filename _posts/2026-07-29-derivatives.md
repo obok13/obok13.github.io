@@ -2,8 +2,10 @@
 layout: post
 title: "미분"
 date: 2026-07-29
-mathematicians: [Rolle, Cauchy, Fermat, Lagrange]
+mathematicians: [Rolle, Cauchy, Fermat, Lagrange, Newton, Leibniz, l'Hôpital, Johann Bernoulli]
 ---
+
+미분법은 17세기 후반 Isaac Newton과 Gottfried Wilhelm Leibniz가 서로 독립적으로 세웠다. Newton은 물체의 운동에서 출발해 시간에 대한 순간변화율을 유율(fluxion)이라 부르며 다뤘고 [1], Leibniz는 오늘날 우리가 그대로 쓰는 $dy/dx$와 적분기호 $\int$을 도입해 접선 문제를 하나의 형식적 계산법으로 다듬었다 [2]. 두 사람 사이의 우선권 논쟁은 수학사에서 가장 격렬한 분쟁으로 남았지만, 정작 미분을 극한으로 엄밀하게 정의한 것은 한참 뒤 Cauchy와 Weierstrass에 이르러서였다. 이 글은 그 엄밀한 정의에서 출발한다.
 
 ## 도함수
 
@@ -57,7 +59,7 @@ $$\frac{g(f(x))-g(f(a))}{x-a} = \varphi(f(x))\cdot\frac{f(x)-f(a)}{x-a}$$
 
 *Proof.* $f$가 $c$에서 local maximum을 가지는 경우만 보면 충분하다 (minimum이면 $-f$에 적용). $c$가 내부점이므로, 충분히 작은 $\delta>0$에 대해 $(c-\delta,c+\delta)$가 정의역에 포함되고 이 구간에서 $f(x)\le f(c)$이다. $0<h<\delta$이면 $\dfrac{f(c+h)-f(c)}{h}\le0$ (분자 $\le0$, 분모 $>0$)이므로, $h\to0^+$로 보내면 $f'(c)\le0$이다. $-\delta<h<0$이면 $\dfrac{f(c+h)-f(c)}{h}\ge0$ (분자 $\le0$, 분모 $<0$)이므로, $h\to0^-$로 보내면 $f'(c)\ge0$이다. $f'(c)$가 (양쪽 극한이 일치하는) 하나의 값으로 존재하므로 $f'(c)=0$이다. $\blacksquare$
 
-Fermat가 이 정리를 증명할 당시에 미분이나 극한의 개념은 없었으나, 아이디어는 비슷하다 [1].
+Fermat가 이 정리를 증명할 당시에 미분이나 극한의 개념은 없었으나, 아이디어는 비슷하다 [3].
 
 ## Rolle's Theorem
 
@@ -65,7 +67,7 @@ Fermat가 이 정리를 증명할 당시에 미분이나 극한의 개념은 없
 
 *Proof.* Extreme Value Theorem에 의해 $f$는 $[a,b]$에서 최댓값과 최솟값을 가진다. 만약 이 최댓값과 최솟값이 (같은 값이든 다른 값이든) 둘 다 끝점 $$\{a,b\}$$에서만 달성된다면, $f(a)=f(b)$이므로 사실 최댓값과 최솟값이 서로 같은 값이 되어 $f$는 $[a,b]$에서 상수함수이고, 이 경우 임의의 $c\in(a,b)$에서 $f'(c)=0$이다. 그렇지 않다면 최댓값이나 최솟값 중 하나가 어떤 내부점 $c\in(a,b)$에서 달성되는데, 이는 $f$가 $c$에서 (내부점에서의) local extremum을 가진다는 뜻이므로, Fermat's Theorem에 의해 $f'(c)=0$이다. $\blacksquare$
 
-이 정리는 Michel Rolle이 미분과 무관하게 다항방정식에 대해서만 순수하게 대수적으로 증명했으나 [2], 후대에 일반적인 미분가능 함수로 확장되었다.
+이 정리는 Michel Rolle이 미분과 무관하게 다항방정식에 대해서만 순수하게 대수적으로 증명했으나 [4], 후대에 일반적인 미분가능 함수로 확장되었다.
 
 ## Mean Value Theorem
 
@@ -77,7 +79,7 @@ $$f'(c) = \frac{f(b)-f(a)}{b-a}.$$
 
 기하학적으로는, 두 끝점을 잇는 할선(secant line)과 평행한 접선이 그래프 위 어딘가에 있다는 뜻이다. Rolle's Theorem은 정확히 그 할선의 기울기가 $0$인 특수한 경우다.
 
-Mean Value Theorem은 일반적인 형태로는 Lagrange가 처음 다뤘고 [3] 오늘날처럼 엄밀한 증명은 Cauchy가 제시했다 [4].
+Mean Value Theorem은 일반적인 형태로는 Lagrange가 처음 다뤘고 [5] 오늘날처럼 엄밀한 증명은 Cauchy가 제시했다 [6].
 
 **Corollary.** If $f'(x)=0$ for every $x$ in an interval $I$, then $f$ is constant on $I$.
 
@@ -113,7 +115,7 @@ $$\frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f'(c)}{g'(c)}.$$
 
 $g(x)=x$로 두면 $g'(x)=1\ne0$, $g(b)-g(a)=b-a$가 되어 곧바로 (일반) Mean Value Theorem이 나오므로, 이 정리는 정확히 그 일반화다.
 
-이 정리는 실제로 Cauchy가 Mean Value Theorem의 엄밀한 증명을 실었던 저서에 함께 실려 있다 [4].
+이 정리는 실제로 Cauchy가 Mean Value Theorem의 엄밀한 증명을 실었던 저서에 함께 실려 있다 [6].
 
 ## L'Hôpital's Rule
 
@@ -151,13 +153,15 @@ $$(A-\varepsilon)\left(1-\frac{g(c_1)}{g(x)}\right)+\frac{f(c_1)}{g(x)} < \frac{
 
 $a$가 유한한 실수이고 (i)의 조건($f,g\to0$)으로 국한하면, 이것이 바로 전통적으로 알려진 $0/0$ 꼴의 L'Hôpital's Rule이다. $x\to b^-$인 경우나 $g(x)\to-\infty$인 경우도 (부등식의 방향이나 치환을 적절히 바꾸면) 대칭적으로 성립한다. Rudin의 책에서도 정확히 이 경우들을 "analogous"라는 말로 남겨둔다.
 
-L'Hôpital's Rule은 사실 Johann Bernoulli에 의해 발견되었다. 이 정리가 l'Hôpital's Rule로 알려진 이유는 l'Hôpital이 1694년 Bernoulli와 계약을 맺어, Bernoulli의 수학적 발견들을 독점적으로 넘겨받아 자신의 이름으로 출판할 권리를 얻었기 때문이라고 추측이 되었다 [5]. 그러다가 Paul Schafheitlin이 1924년 Johann Bernoulli의 조카 Nicolaus (I) Bernoulli가 1705년경 그 강의 내용을 옮겨 적은 사본을 공개했고, 그 내용이 l'Hôpital의 책과 거의 그대로 일치해 추측이 뒷받침됐다 [6].
+L'Hôpital's Rule은 사실 Johann Bernoulli에 의해 발견되었다. 이 정리가 l'Hôpital's Rule로 알려진 이유는 l'Hôpital이 1694년 Bernoulli와 계약을 맺어, Bernoulli의 수학적 발견들을 독점적으로 넘겨받아 자신의 이름으로 출판할 권리를 얻었기 때문이라고 추측이 되었다 [7]. 그러다가 Paul Schafheitlin이 1924년 Johann Bernoulli의 조카 Nicolaus (I) Bernoulli가 1705년경 그 강의 내용을 옮겨 적은 사본을 공개했고, 그 내용이 l'Hôpital의 책과 거의 그대로 일치해 추측이 뒷받침됐다 [8].
 
 ## 참고문헌
 
-1. Fermat, P. de (written c. 1636, published 1679). *Methodus ad disquirendam maximam et minimam*. In *Varia Opera Mathematica*. Toulouse.
-2. Rolle, M. (1691). *Démonstration d'une méthode pour résoudre les égalitéz de tous les degréz*. Paris.
-3. Lagrange, J.-L. (1797). *Théorie des fonctions analytiques*. Paris.
-4. Cauchy, A.-L. (1823). *Résumé des leçons données à l'École royale polytechnique sur le calcul infinitésimal*. Paris.
-5. Truesdell, C. (1958). The New Bernoulli Edition. *Isis*, 49(1), 54–62.
-6. Schafheitlin, P. (Ed. & Trans.) (1924). *Die Differentialrechnung von Johann Bernoulli aus dem Jahre 1691/92*. Ostwalds Klassiker der exakten Wissenschaften, Nr. 211. Leipzig: Akademische Verlagsgesellschaft.
+1. Newton, I. (written 1671, published 1736). *The Method of Fluxions and Infinite Series* (De methodis serierum et fluxionum). London: Henry Woodfall.
+2. Leibniz, G. W. (1684). Nova methodus pro maximis et minimis. *Acta Eruditorum*, 467–473.
+3. Fermat, P. de (written c. 1636, published 1679). *Methodus ad disquirendam maximam et minimam*. In *Varia Opera Mathematica*. Toulouse.
+4. Rolle, M. (1691). *Démonstration d'une méthode pour résoudre les égalitéz de tous les degréz*. Paris.
+5. Lagrange, J.-L. (1797). *Théorie des fonctions analytiques*. Paris.
+6. Cauchy, A.-L. (1823). *Résumé des leçons données à l'École royale polytechnique sur le calcul infinitésimal*. Paris.
+7. Truesdell, C. (1958). The New Bernoulli Edition. *Isis*, 49(1), 54–62.
+8. Schafheitlin, P. (Ed. & Trans.) (1924). *Die Differentialrechnung von Johann Bernoulli aus dem Jahre 1691/92*. Ostwalds Klassiker der exakten Wissenschaften, Nr. 211. Leipzig: Akademische Verlagsgesellschaft.

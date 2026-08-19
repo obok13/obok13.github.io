@@ -2,7 +2,7 @@
 layout: post
 title: "실수 (Real number)"
 date: 2026-07-23
-mathematicians: [Cauchy, Dedekind, Cantor, Hilbert, Kronecker]
+mathematicians: [Cauchy, Dedekind, Cantor, Hilbert, Kronecker, Pythagoras, Hippasus, Huntington, Padoa]
 ---
 
 ## 실수의 정의: Complete Ordered Field

@@ -2,7 +2,7 @@
 layout: post
 title: "실수 급수의 수렴"
 date: 2026-07-27
-mathematicians: [Dirichlet, Riemann, Cauchy, Abel, Euclid, Leibniz, Dedekind]
+mathematicians: [Dirichlet, Riemann, Cauchy, Abel, Euclid, Leibniz, Dedekind, Oresme, Mengoli, Jakob Bernoulli, d'Alembert]
 ---
 
 ## 급수와 그 수렴
