@@ -1,0 +1,144 @@
+---
+layout: default
+title: 관계 그래프
+permalink: /graph/
+---
+
+<style>
+  .graph-wrap { position: relative; width: 96vw; left: 50%; transform: translateX(-50%); }
+  #mesh { width: 100%; height: 78vh; min-height: 460px; border: 1px solid #e2e2e2; border-radius: 10px; background: #fbfbfc; }
+  .graph-toolbar { display: flex; flex-wrap: wrap; gap: 1.2em; align-items: center; margin: .5em 0; font-size: .95em; }
+  .graph-legend .dot { display: inline-block; width: .8em; height: .8em; margin-right: .35em; vertical-align: middle; }
+  .graph-legend .dot.post { border-radius: 50%; background: #4f6ef2; }
+  .graph-legend .dot.math { background: #e6a020; transform: rotate(45deg); }
+  .graph-toolbar input[type="search"] { padding: .3em .6em; border: 1px solid #ccc; border-radius: 6px; font-size: .95em; min-width: 12em; }
+  .graph-panel { margin: .6em 0 1.4em; padding: .7em 1em; border: 1px solid #e2e2e2; border-radius: 10px; background: #fff; min-height: 3.2em; font-size: .95em; }
+  .graph-panel h3 { margin: .1em 0 .45em; font-size: 1.05em; }
+  .graph-panel ul { margin: .3em 0; padding-left: 1.25em; columns: 2; }
+  .graph-panel ul li { break-inside: avoid; }
+  .graph-hint { color: #8a8a8a; font-size: .9em; }
+  @media (max-width: 600px) { .graph-panel ul { columns: 1; } }
+</style>
+
+<p class="graph-hint">각 글에 등장하는 수학자를 노드로 이어 만든 관계망입니다. 노드를 클릭하면 연결된 것들이 밝아지고 아래 패널에 목록이 나옵니다. 포스트 노드를 더블클릭하면 그 글로 이동합니다. 드래그로 옮기고 스크롤로 확대·축소할 수 있습니다.</p>
+
+<div class="graph-toolbar graph-legend">
+  <span><span class="dot post"></span>포스트</span>
+  <span><span class="dot math"></span>수학자</span>
+  <input type="search" id="graph-search" placeholder="이름으로 찾기…" autocomplete="off">
+</div>
+
+<div class="graph-wrap"><div id="mesh"></div></div>
+
+<div class="graph-panel" id="panel"><span class="graph-hint">노드를 클릭하면 여기에 연결 정보가 표시됩니다.</span></div>
+
+<script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+<script>
+  const POSTS = [
+{% for post in site.posts %}    { title: {{ post.title | jsonify }}, url: {{ post.url | relative_url | jsonify }}, mathematicians: [{% for m in post.mathematicians %}{{ m | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}] }{% unless forloop.last %},{% endunless %}
+{% endfor %}  ];
+
+  (function () {
+    const nodes = new vis.DataSet();
+    const edges = new vis.DataSet();
+    const mathId = new Map();
+
+    POSTS.forEach((p, i) => {
+      const pid = 'p' + i;
+      nodes.add({ id: pid, label: p.title, group: 'post', url: p.url });
+      (p.mathematicians || []).forEach(name => {
+        if (!mathId.has(name)) {
+          mathId.set(name, 'm' + mathId.size);
+          nodes.add({ id: mathId.get(name), label: name, group: 'math' });
+        }
+        edges.add({ from: pid, to: mathId.get(name) });
+      });
+    });
+
+    // size nodes by number of connections
+    const deg = {};
+    edges.forEach(e => { deg[e.from] = (deg[e.from] || 0) + 1; deg[e.to] = (deg[e.to] || 0) + 1; });
+    nodes.forEach(n => nodes.update({ id: n.id, value: (deg[n.id] || 1) }));
+
+    const options = {
+      nodes: {
+        shape: 'dot',
+        borderWidth: 1.5,
+        font: { size: 15, face: 'Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif', color: '#1a1a1a' },
+        scaling: { min: 10, max: 40, label: { enabled: true, min: 13, max: 22 } }
+      },
+      groups: {
+        post: { color: { background: '#4f6ef2', border: '#3a55c8' } },
+        math: { shape: 'diamond', color: { background: '#e6a020', border: '#c8871a' } }
+      },
+      edges: { color: { color: '#cdcdcd', highlight: '#6f6f6f', hover: '#9a9a9a' }, width: 1, smooth: { type: 'continuous' } },
+      physics: {
+        solver: 'forceAtlas2Based',
+        forceAtlas2Based: { gravitationalConstant: -60, centralGravity: 0.012, springLength: 120, springConstant: 0.08, damping: 0.5 },
+        stabilization: { iterations: 220 }
+      },
+      interaction: { hover: true, tooltipDelay: 120, hideEdgesOnDrag: false }
+    };
+
+    const network = new vis.Network(document.getElementById('mesh'), { nodes, edges }, options);
+    const panel = document.getElementById('panel');
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    function highlight(id) {
+      const keep = new Set([id, ...network.getConnectedNodes(id)]);
+      nodes.forEach(n => nodes.update({ id: n.id, opacity: keep.has(n.id) ? 1 : 0.12 }));
+      edges.forEach(e => edges.update({
+        id: e.id,
+        color: (e.from === id || e.to === id) ? { color: '#6f6f6f' } : { color: 'rgba(205,205,205,0.12)' }
+      }));
+    }
+    function resetHighlight() {
+      nodes.forEach(n => nodes.update({ id: n.id, opacity: 1 }));
+      edges.forEach(e => edges.update({ id: e.id, color: { color: '#cdcdcd' } }));
+    }
+
+    function showPanel(id) {
+      const n = nodes.get(id);
+      const nb = network.getConnectedNodes(id).map(x => nodes.get(x));
+      let html = '<h3>' + escapeHtml(n.label) + ' <span class="graph-hint">(' + (n.group === 'post' ? '포스트' : '수학자') + ')</span></h3>';
+      if (n.group === 'post') {
+        html += '<div><a href="' + n.url + '">이 글 열기 →</a></div>';
+        html += '<div style="margin-top:.45em">등장 수학자 (' + nb.length + '): ' +
+          (nb.length ? nb.map(x => escapeHtml(x.label)).join(', ') : '없음') + '</div>';
+      } else {
+        nb.sort((a, b) => a.label < b.label ? -1 : 1);
+        html += '<div>이 수학자가 등장하는 글 (' + nb.length + '):</div><ul>' +
+          nb.map(x => '<li><a href="' + x.url + '">' + escapeHtml(x.label) + '</a></li>').join('') + '</ul>';
+      }
+      panel.innerHTML = html;
+    }
+
+    network.on('click', params => {
+      if (params.nodes.length) { highlight(params.nodes[0]); showPanel(params.nodes[0]); }
+      else { resetHighlight(); panel.innerHTML = '<span class="graph-hint">노드를 클릭하면 여기에 연결 정보가 표시됩니다.</span>'; }
+    });
+    network.on('doubleClick', params => {
+      if (!params.nodes.length) return;
+      const n = nodes.get(params.nodes[0]);
+      if (n.group === 'post' && n.url) window.location.href = n.url;
+    });
+
+    // search: focus & select the first matching node
+    const search = document.getElementById('graph-search');
+    search.addEventListener('keydown', ev => {
+      if (ev.key !== 'Enter') return;
+      const q = search.value.trim().toLowerCase();
+      if (!q) return;
+      let hit = null;
+      nodes.forEach(n => { if (!hit && String(n.label).toLowerCase().includes(q)) hit = n.id; });
+      if (hit) {
+        network.selectNodes([hit]);
+        network.focus(hit, { scale: 1.1, animation: true });
+        highlight(hit); showPanel(hit);
+      }
+    });
+  })();
+</script>

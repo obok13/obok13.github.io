@@ -2,6 +2,7 @@
 layout: post
 title: "실수 급수의 수렴"
 date: 2026-07-27
+mathematicians: [Dirichlet, Riemann, Cauchy, Abel, Euclid, Leibniz, Dedekind]
 ---
 
 ## 급수와 그 수렴
@@ -12,11 +13,11 @@ date: 2026-07-27
 
 *Proof.* $s_n \to L$이라 하면 $s_{n-1}\to L$이기도 하므로 $a_n = s_n-s_{n-1} \to L-L=0$이다. $\blacksquare$
 
-이 조건은 충분조건은 아니다. 조화급수(harmonic series) $\sum 1/n$이 대표적인 반례다 — 항 $1/n$은 $0$으로 수렴하지만 급수 자체는 발산한다. 이 사실의 가장 오래된 증명은 14세기 프랑스의 스콜라 철학자 Nicole Oresme의 저작 *Quaestiones super Geometriam Euclidis* (약 1350~1360년경)까지 거슬러 올라간다 [6]. 항을 $2$의 거듭제곱 길이로 묶는 방식인데,
+이 조건은 충분조건은 아니다. 조화급수(harmonic series) $\sum 1/n$이 대표적인 반례다. 항 $1/n$은 $0$으로 수렴하지만 급수 자체는 발산한다. 이 사실의 가장 오래된 증명은 14세기 프랑스의 스콜라 철학자 Nicole Oresme의 저작 *Quaestiones super Geometriam Euclidis* (약 1350~1360년경)까지 거슬러 올라간다 [6]. 항을 $2$의 거듭제곱 길이로 묶는 방식인데,
 
 $$1+\frac12+\left(\frac13+\frac14\right)+\left(\frac15+\frac16+\frac17+\frac18\right)+\cdots$$
 
-에서 괄호 안의 각 블록은 항상 $\dfrac12$ 이상이다 — 예를 들어 $\dfrac13+\dfrac14 > \dfrac14+\dfrac14=\dfrac12$이고, $\dfrac15+\cdots+\dfrac18 > 4\cdot\dfrac18=\dfrac12$이다. 이런 블록이 무한히 이어지므로 부분합은 한계 없이 커진다. 이 증명은 17세기에 Mengoli와 Jacob Bernoulli가 각각 독립적으로 재발견했다 [7, 8].
+에서 괄호 안의 각 블록은 항상 $\dfrac12$ 이상이다. 예를 들어 $\dfrac13+\dfrac14 > \dfrac14+\dfrac14=\dfrac12$이고, $\dfrac15+\cdots+\dfrac18 > 4\cdot\dfrac18=\dfrac12$이다. 이런 블록이 무한히 이어지므로 부분합은 한계 없이 커진다. 이 증명은 17세기에 Mengoli와 Jacob Bernoulli가 각각 독립적으로 재발견했다 [7, 8].
 
 ## 절대수렴과 조건수렴
 
@@ -26,7 +27,7 @@ $$1+\frac12+\left(\frac13+\frac14\right)+\left(\frac15+\frac16+\frac17+\frac18\r
 
 *Proof.* $p_n := \max(a_n,0)$, $q_n:=\max(-a_n,0)$이라 하면 $a_n=p_n-q_n$, $\vert a_n\vert=p_n+q_n$이고 $0\le p_n,q_n\le\vert a_n\vert$이다. $\sum\vert a_n\vert$이 수렴한다고 가정하면, $\sum p_n$과 $\sum q_n$의 부분합은 각각 단조증가하면서 $\sum\vert a_n\vert$의 부분합(수렴하므로 유계)에 의해 위로 유계이므로, 지난 글의 Monotone Convergence Theorem에 의해 둘 다 수렴한다. 따라서 $\sum a_n = \sum p_n - \sum q_n$도 두 수렴하는 수열의 차이이므로 수렴한다. $\blacksquare$
 
-역은 성립하지 않는다 — 대표적인 예가 교대조화급수(alternating harmonic series) $\sum (-1)^{n+1}/n = 1-\frac12+\frac13-\frac14+\cdots$다. $\sum 1/n$이 발산하므로 절대수렴하지는 않지만, 다음과 같이 정확한 수렴값을 직접 계산할 수 있다.
+역은 성립하지 않는다. 대표적인 예가 교대조화급수(alternating harmonic series) $\sum (-1)^{n+1}/n = 1-\frac12+\frac13-\frac14+\cdots$다. $\sum 1/n$이 발산하므로 절대수렴하지는 않지만, 다음과 같이 정확한 수렴값을 직접 계산할 수 있다.
 
 **Proposition.** $\displaystyle\sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} = \ln 2$.
 
@@ -144,9 +145,9 @@ $$\sum_{k=0}^\infty 2^k a_{2^k} = \sum_{k=0}^\infty 2^k\cdot\frac1{(2^k)^p} = \s
 
 (iii) $\sum 1/n$과 $\sum 1/n^2$은 둘 다 $L=1$이지만 각각 발산·수렴한다. $\blacksquare$
 
-두 판정법을 나란히 놓고 보면 자연스러운 질문이 생긴다 — 둘 중 어느 쪽이 더 강력한가?
+두 판정법을 나란히 놓고 보면 자연스러운 질문이 생긴다. 둘 중 어느 쪽이 더 강력한가?
 
-**Corollary.** Whenever the Ratio Test determines convergence or divergence, the Root Test reaches the same conclusion — i.e., the Root Test is at least as strong.
+**Corollary.** Whenever the Ratio Test determines convergence or divergence, the Root Test reaches the same conclusion; i.e., the Root Test is at least as strong.
 
 *Proof.* 지난 글의 Lemma를 $b_n:=\vert a_n\vert$에 적용하면
 
@@ -154,7 +155,7 @@ $$\liminf_n \frac{\vert a_{n+1}\vert}{\vert a_n\vert} \le \liminf_n \vert a_n\ve
 
 을 얻는다. 비율판정법이 수렴을 판정한다면($\limsup\vert a_{n+1}/a_n\vert<1$) 위 부등식의 가장 오른쪽이 $1$보다 작으므로 $\limsup\vert a_n\vert^{1/n}<1$도 성립해 거듭제곱근판정법도 수렴을 판정한다. 비율판정법이 발산을 판정한다면($\liminf\vert a_{n+1}/a_n\vert>1$) 가장 왼쪽이 $1$보다 크므로 $\liminf\vert a_n\vert^{1/n}>1$, 따라서 $\limsup\vert a_n\vert^{1/n}\ge\liminf\vert a_n\vert^{1/n}>1$이 되어 거듭제곱근판정법도 발산을 판정한다. $\blacksquare$
 
-역은 성립하지 않는다 — 거듭제곱근판정법은 판정 가능한데 비율판정법은 완전히 무력한 경우가 있다. $a_n := 1/2^k$ ($n=2k-1$, 홀수항)와 $a_n:=1/3^k$ ($n=2k$, 짝수항)로 정의된 수열, 즉
+역은 성립하지 않는다. 거듭제곱근판정법은 판정 가능한데 비율판정법은 완전히 무력한 경우가 있다. $a_n := 1/2^k$ ($n=2k-1$, 홀수항)와 $a_n:=1/3^k$ ($n=2k$, 짝수항)로 정의된 수열, 즉
 
 $$\frac12+\frac13+\frac1{2^2}+\frac1{3^2}+\frac1{2^3}+\frac1{3^3}+\cdots$$
 
@@ -196,7 +197,7 @@ $$2\sin(\theta/2)\sum_{k=1}^n \sin(k\theta) = \cos(\theta/2)-\cos\big((n+\tfrac1
 
 $$\left\vert\sum_{k=1}^n \sin(k\theta)\right\vert \le \frac{1}{\vert\sin(\theta/2)\vert}$$
 
-로 부분합이 유계임을 알 수 있다. $a_n=1/n$은 단조감소하며 $0$으로 수렴하므로, Dirichlet's Test에 의해 $\sum \sin(n\theta)/n$은 (모든 실수 $\theta$에 대해) 수렴한다. 이 급수는 대부분의 $\theta$에서 절대수렴하지 않으므로 — $\vert\sin(n\theta)\vert$는 평균적으로 $0$에서 멀리 떨어져 있어 $\sum\vert\sin(n\theta)\vert/n$은 조화급수처럼 발산한다 — 비율판정법이나 거듭제곱근판정법으로는 손댈 수 없는, summation by parts가 아니면 잡아내기 어려운 결과다.
+로 부분합이 유계임을 알 수 있다. $a_n=1/n$은 단조감소하며 $0$으로 수렴하므로, Dirichlet's Test에 의해 $\sum \sin(n\theta)/n$은 (모든 실수 $\theta$에 대해) 수렴한다. 이 급수는 대부분의 $\theta$에서 절대수렴하지 않으므로 ($\vert\sin(n\theta)\vert$는 평균적으로 $0$에서 멀리 떨어져 있어 $\sum\vert\sin(n\theta)\vert/n$은 조화급수처럼 발산한다) 비율판정법이나 거듭제곱근판정법으로는 손댈 수 없는, summation by parts가 아니면 잡아내기 어려운 결과다.
 
 ## 참고문헌
 

@@ -2,6 +2,7 @@
 layout: post
 title: "실수 수열의 극한"
 date: 2026-07-26
+mathematicians: [Stolz, Cesàro, Weierstrass, Cauchy, Bolzano]
 ---
 
 ## 실수 수열의 극한
@@ -26,7 +27,7 @@ $(a_n)$이 수렴하지 않으면 발산한다(diverges)고 하는데, 발산하
 
 **Theorem (Monotone Convergence Theorem).** A bounded, monotone increasing sequence $(a_n)$ converges, and $\lim_{n\to\infty} a_n = \sup_n a_n$.
 
-*Proof.* $L := \sup_n a_n$이라 하자 (수열이 bounded이므로 이 sup은 실수로 존재한다 — 여기서 실수의 완비성, 즉 위로 유계인 집합은 상한을 갖는다는 성질이 쓰인다). 임의의 $\varepsilon>0$에 대해, sup의 정의상 $L-\varepsilon < a_N \le L$인 $N$이 존재한다. 수열이 monotone increasing이므로 $n\ge N$이면 $L-\varepsilon < a_N \le a_n \le L$이고, 따라서 $\vert a_n - L\vert < \varepsilon$. $\blacksquare$
+*Proof.* $L := \sup_n a_n$이라 하자 (수열이 bounded이므로 이 sup은 실수로 존재한다. 여기서 실수의 완비성, 즉 위로 유계인 집합은 상한을 갖는다는 성질이 쓰인다). 임의의 $\varepsilon>0$에 대해, sup의 정의상 $L-\varepsilon < a_N \le L$인 $N$이 존재한다. 수열이 monotone increasing이므로 $n\ge N$이면 $L-\varepsilon < a_N \le a_n \le L$이고, 따라서 $\vert a_n - L\vert < \varepsilon$. $\blacksquare$
 
 같은 논리로, bounded monotone decreasing sequence $(a_n)$은 $\inf_n a_n$으로 수렴한다.
 
@@ -46,7 +47,7 @@ $\lim$은 항상 존재하는 것은 아니지만, $\limsup, \liminf$는 (유한
 
 **Proposition (수렴 판정).** $(a_n)$ converges to $L \in \mathbb{R}$ if and only if $\liminf_{n\to\infty} a_n = \limsup_{n\to\infty} a_n = L$.
 
-이 성질이 실전에서 가장 유용하다 — 수열이 수렴하는지, 수렴한다면 그 값이 무엇인지를 liminf와 limsup을 각각 계산해서 확인할 수 있다.
+이 성질이 실전에서 가장 유용하다. 수열이 수렴하는지, 수렴한다면 그 값이 무엇인지를 liminf와 limsup을 각각 계산해서 확인할 수 있다.
 
 **Proposition (Duality).** $\limsup_{n\to\infty}(-a_n) = -\liminf_{n\to\infty} a_n$.
 
@@ -72,19 +73,19 @@ $\lim$은 항상 존재하는 것은 아니지만, $\limsup, \liminf$는 (유한
 
 ## 실수 수열 극한의 여러 가지 성질과 관계성
 
-$\lim$은 항상 존재하는 것은 아니므로, 그보다 약하지만 유용한 성질들을 알아보자. 자연스럽게 등장하는 네 가지 성질 — **수렴한다(convergent)**, **유계다(bounded)**, **$\limsup, \liminf$ 중 하나 이상이 유한하다**, **수렴하는 부분수열을 갖는다** — 사이의 관계를 하나씩 밝혀나가보자.
+$\lim$은 항상 존재하는 것은 아니므로, 그보다 약하지만 유용한 성질들을 알아보자. 자연스럽게 등장하는 네 가지 성질(**수렴한다(convergent)**, **유계다(bounded)**, **$\limsup, \liminf$ 중 하나 이상이 유한하다**, **수렴하는 부분수열을 갖는다**) 사이의 관계를 하나씩 밝혀나가보자.
 
 **Proposition.** If $(a_n)$ converges, then $(a_n)$ is bounded.
 
 *Proof.* $a_n\to L$이라 하자. $\varepsilon=1$로 두면 어떤 $N$이 있어 $n\ge N$이면 $\vert a_n-L\vert<1$이다. $a_1,\dots,a_{N-1}$은 유한히 많으므로, 전체 수열은 $\max(\vert a_1\vert,\dots,\vert a_{N-1}\vert,\vert L\vert+1)$로 bound된다. $\blacksquare$
 
-역은 성립하지 않는다 — $a_n=(-1)^n$은 bounded이지만 발산한다.
+역은 성립하지 않는다. $a_n=(-1)^n$은 bounded이지만 발산한다.
 
 한편, boundedness는 다음 성질과 동치다.
 
 **Proposition.** $(a_n)$ is bounded if and only if both $\limsup_{n\to\infty} a_n$ and $\liminf_{n\to\infty} a_n$ are finite (i.e., in $\mathbb{R}$, not $\pm\infty$).
 
-*Proof.* ($\Rightarrow$) $(a_n)$이 bounded이면 모든 $N$에 대해 $\sup_{n\ge N}a_n$과 $\inf_{n\ge N}a_n$이 이미 유한하므로, 그 극한인 $\limsup, \liminf$도 유한하다. ($\Leftarrow$) 대우를 보이자. $(a_n)$이 위로 유계가 아니라면, 임의의 $N$에 대해 $$\{a_n : n\ge N\}$$도 위로 유계가 아니다 — 그렇지 않다면 앞의 유한히 많은 항 $a_1,\dots,a_{N-1}$을 더해도 전체 수열이 위로 유계가 되어 모순이기 때문이다. 따라서 모든 $N$에 대해 $\sup_{n\ge N} a_n=\infty$이고, $\limsup a_n=\infty$. 아래로 유계가 아닌 경우도 대칭적으로 $\liminf a_n=-\infty$가 된다. $\blacksquare$
+*Proof.* ($\Rightarrow$) $(a_n)$이 bounded이면 모든 $N$에 대해 $\sup_{n\ge N}a_n$과 $\inf_{n\ge N}a_n$이 이미 유한하므로, 그 극한인 $\limsup, \liminf$도 유한하다. ($\Leftarrow$) 대우를 보이자. $(a_n)$이 위로 유계가 아니라면, 임의의 $N$에 대해 $$\{a_n : n\ge N\}$$도 위로 유계가 아니다. 그렇지 않다면 앞의 유한히 많은 항 $a_1,\dots,a_{N-1}$을 더해도 전체 수열이 위로 유계가 되어 모순이기 때문이다. 따라서 모든 $N$에 대해 $\sup_{n\ge N} a_n=\infty$이고, $\limsup a_n=\infty$. 아래로 유계가 아닌 경우도 대칭적으로 $\liminf a_n=-\infty$가 된다. $\blacksquare$
 
 이제 boundedness보다는 약하지만 매우 유용한 다음 성질을 살펴보자.
 
@@ -100,7 +101,7 @@ Bolzano가 1817년 논문에서 실질적으로 이와 동등한 내용을 다�
 
 이 Proposition을 $a=\limsup_{n\to\infty}a_n$에 적용하면 Bolzano–Weierstrass의 증명이 끝난다. $\blacksquare$
 
-Boundedness가 "$\limsup,\liminf$ 둘 다 유한"과 동치이므로, 방금 보인 것은 사실상 "$\limsup,\liminf$ 둘 다 유한하면 수렴하는 부분수열이 있다"는 것과 같은 말이다. 그런데 증명을 다시 보면 실제로는 $\limsup$ 하나가 유한하다는 것만 썼다 — 즉 둘 중 하나만 유한해도 이미 충분하다.
+Boundedness가 "$\limsup,\liminf$ 둘 다 유한"과 동치이므로, 방금 보인 것은 사실상 "$\limsup,\liminf$ 둘 다 유한하면 수렴하는 부분수열이 있다"는 것과 같은 말이다. 그런데 증명을 다시 보면 실제로는 $\limsup$ 하나가 유한하다는 것만 썼다. 즉 둘 중 하나만 유한해도 이미 충분하다.
 
 그리고 $\limsup$과 $\liminf$는 정확히 이 convergent subsequence들이 수렴할 수 있는 값의 범위를 특징짓는다.
 
@@ -116,7 +117,7 @@ $$\text{수렴} \implies \text{bounded} \;(=\; \limsup,\liminf \text{ 둘 다 �
 
 **Proposition.** $a_n \to a$ if and only if every subsequence of $(a_n)$ has a further subsequence that converges to $a$.
 
-*Proof.* ($\Rightarrow$) 자명하다 — $a_n\to a$이면 모든 부분수열도 $a$로 수렴하니, 그 부분수열 자신을 "더 나아간 부분수열"로 잡으면 된다. ($\Leftarrow$) 대우를 보이자. $a_n\not\to a$라 하면, 어떤 $\varepsilon>0$이 있어 $\vert a_n-a\vert\ge\varepsilon$인 $n$이 무한히 많다. 이 $n$들만 모아 부분수열 $(a_{n_k})$를 만들면, 이 부분수열의 **어떤 부분수열도** $\vert\cdot-a\vert\ge\varepsilon$을 유지하므로 $a$로 수렴할 수 없다. $\blacksquare$
+*Proof.* ($\Rightarrow$) 자명하다. $a_n\to a$이면 모든 부분수열도 $a$로 수렴하니, 그 부분수열 자신을 "더 나아간 부분수열"로 잡으면 된다. ($\Leftarrow$) 대우를 보이자. $a_n\not\to a$라 하면, 어떤 $\varepsilon>0$이 있어 $\vert a_n-a\vert\ge\varepsilon$인 $n$이 무한히 많다. 이 $n$들만 모아 부분수열 $(a_{n_k})$를 만들면, 이 부분수열의 **어떤 부분수열도** $\vert\cdot-a\vert\ge\varepsilon$을 유지하므로 $a$로 수렴할 수 없다. $\blacksquare$
 
 ## $\limsup$, $\liminf$의 응용
 
@@ -146,7 +147,7 @@ $$\frac{a_{n+1}}{a_n} = \frac{(n+1)^{n+1}/(n+1)!}{n^n/n!} = \left(\frac{n+1}{n}\
 
 이므로 (마지막 극한은 $e$의 정의 그 자체다), lemma에 의해 $a_n^{1/n} = n/\sqrt[n]{n!} \to e$, 즉 $\sqrt[n]{n!}/n \to 1/e$이다.
 
-이 lemma는 흔히 미적분학에서 급수의 수렴을 판정할 때 쓰는 ratio test(비율판정법)와 root test(거듭제곱근판정법)가 왜 서로 호환되는지 — ratio test가 통하는 급수라면 root test도 항상 같은 결론을 준다는 것 — 를 설명해준다. 이 이야기는 나중에 멱급수를 다룰 때 다시 등장할 것이다.
+이 lemma는 흔히 미적분학에서 급수의 수렴을 판정할 때 쓰는 ratio test(비율판정법)와 root test(거듭제곱근판정법)가 왜 서로 호환되는지(ratio test가 통하는 급수라면 root test도 항상 같은 결론을 준다는 것)를 설명해준다. 이 이야기는 나중에 멱급수를 다룰 때 다시 등장할 것이다.
 
 ## Stolz–Cesàro Theorem
 
@@ -182,7 +183,7 @@ $$\frac{a_{n+1}-a_n}{b_{n+1}-b_n} = \frac{\ln(n+1)/\ln n}{1+(n+1)\ln(1+1/n)/\ln 
 
 이다. Stolz–Cesàro($\infty/\infty$ 버전)에 의해 $\ln(n!)/(n\ln n) \to 1$. $\blacksquare$
 
-즉 $n!$의 로그는 $n\ln n$과 같은 속도로 자란다 — Stirling의 공식 $n!\sim\sqrt{2\pi n}\,(n/e)^n$에서 지수 부분만 남긴 가장 거친(leading-order) 형태다.
+즉 $n!$의 로그는 $n\ln n$과 같은 속도로 자란다. Stirling의 공식 $n!\sim\sqrt{2\pi n}\,(n/e)^n$에서 지수 부분만 남긴 가장 거친(leading-order) 형태다.
 
 Stolz–Cesàro Theorem의 다음과 같은 0/0 버전도 생각해볼 수 있다.
 
@@ -196,9 +197,9 @@ exists, then $\lim_{n\to\infty} a_n/b_n$ also exists and equals $L$.
 
 $$(L+\varepsilon)(b_{n+1}-b_n) < a_{n+1}-a_n < (L-\varepsilon)(b_{n+1}-b_n)$$
 
-이걸 telescoping하면 $(L+\varepsilon)(b_n-b_N) < a_n-a_N < (L-\varepsilon)(b_n-b_N)$을 얻는다. 여기서 $\infty/\infty$ 버전과 결정적으로 다른 지점이 나온다 — 그쪽에서는 $b_n\to\infty$이므로 양변을 $b_n$으로 나누고 $n\to\infty$를 보내 $b_N/b_n\to0$을 활용했는데, 여기서는 그 대신 $N$을 **고정한 채** $n\to\infty$로 보낸다 ($a_n\to0$, $b_n\to0$이므로): 부등식이 $(L+\varepsilon)(-b_N) \le -a_N \le (L-\varepsilon)(-b_N)$, 즉 $(L-\varepsilon)b_N \le a_N \le (L+\varepsilon)b_N$으로 정리되고, $b_N>0$으로 나누면 $\vert a_N/b_N-L\vert\le\varepsilon$을 얻는다. 이는 임의로 크게 잡을 수 있는 모든 $N$에 대해 성립하므로 $a_N/b_N\to L$이다.
+이걸 telescoping하면 $(L+\varepsilon)(b_n-b_N) < a_n-a_N < (L-\varepsilon)(b_n-b_N)$을 얻는다. 여기서 $\infty/\infty$ 버전과 결정적으로 다른 지점이 나온다. 그쪽에서는 $b_n\to\infty$이므로 양변을 $b_n$으로 나누고 $n\to\infty$를 보내 $b_N/b_n\to0$을 활용했는데, 여기서는 그 대신 $N$을 **고정한 채** $n\to\infty$로 보낸다 ($a_n\to0$, $b_n\to0$이므로): 부등식이 $(L+\varepsilon)(-b_N) \le -a_N \le (L-\varepsilon)(-b_N)$, 즉 $(L-\varepsilon)b_N \le a_N \le (L+\varepsilon)b_N$으로 정리되고, $b_N>0$으로 나누면 $\vert a_N/b_N-L\vert\le\varepsilon$을 얻는다. 이는 임의로 크게 잡을 수 있는 모든 $N$에 대해 성립하므로 $a_N/b_N\to L$이다.
 
-즉 $\infty/\infty$ 쪽은 "$n\to\infty$, 그다음 $N\to\infty$"라는 이중 극한 구조인 반면, $0/0$ 쪽은 "고정된 $N$에 대해 다른 변수를 $\infty$로 보내는" 다른 구조의 증명이다 — 그래서 두 버전은 단순히 서로 뒤집어서 되는 관계가 아니다. $\infty/\infty$ 버전이 부분합(더할수록 커져서 $\infty$로 발산하는 방향)에 자연스럽게 대응된다면, $0/0$ 버전은 그 거울상 — 나머지항(뒤로 갈수록 작아져서 $0$으로 수렴하는 방향) — 에 대응된다.
+즉 $\infty/\infty$ 쪽은 "$n\to\infty$, 그다음 $N\to\infty$"라는 이중 극한 구조인 반면, $0/0$ 쪽은 "고정된 $N$에 대해 다른 변수를 $\infty$로 보내는" 다른 구조의 증명이다. 그래서 두 버전은 단순히 서로 뒤집어서 되는 관계가 아니다. $\infty/\infty$ 버전이 부분합(더할수록 커져서 $\infty$로 발산하는 방향)에 자연스럽게 대응된다면, $0/0$ 버전은 그 거울상, 즉 나머지항(뒤로 갈수록 작아져서 $0$으로 수렴하는 방향)에 대응된다.
 
 ## Fekete's Subadditive Lemma
 
@@ -222,7 +223,7 @@ Subadditivity라는 순전히 대수적인 조건 하나만으로 극한의 존�
 
 $$\mu := \lim_{n\to\infty} c_n^{1/n} = \inf_{n\ge1} c_n^{1/n}$$
 
-이 항상 존재한다 (이 $\mu$를 connective constant라 부른다). 그런데 이 극한의 *존재*는 이렇게 손쉽게 보장되는 반면, 정작 그 *값*은 대부분의 격자에서 여전히 정확히 알려져 있지 않다 — 흔히 다루는 $\mathbb{Z}^2$(사각격자)도 마찬가지다. 예외적으로 육각격자(hexagonal lattice)에 대해서는 Duminil-Copin과 Smirnov가 2012년에 $\mu=\sqrt{2+\sqrt2}$임을 증명해, Nienhuis가 물리학적 논증(Coulomb gas 방법)으로 예측했던 값을 엄밀하게 확인했다 [7].
+이 항상 존재한다 (이 $\mu$를 connective constant라 부른다). 그런데 이 극한의 *존재*는 이렇게 손쉽게 보장되는 반면, 정작 그 *값*은 대부분의 격자에서 여전히 정확히 알려져 있지 않다. 흔히 다루는 $\mathbb{Z}^2$(사각격자)도 마찬가지다. 예외적으로 육각격자(hexagonal lattice)에 대해서는 Duminil-Copin과 Smirnov가 2012년에 $\mu=\sqrt{2+\sqrt2}$임을 증명해, Nienhuis가 물리학적 논증(Coulomb gas 방법)으로 예측했던 값을 엄밀하게 확인했다 [7].
 
 ## 참고문헌
 

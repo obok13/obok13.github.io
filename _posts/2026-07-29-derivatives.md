@@ -2,6 +2,7 @@
 layout: post
 title: "미분"
 date: 2026-07-29
+mathematicians: [Rolle, Cauchy, Fermat, Lagrange]
 ---
 
 ## 도함수
@@ -98,7 +99,7 @@ Mean Value Theorem은 일반적인 형태로는 Lagrange가 처음 다뤘고 [3]
 
 *Proof.* $f''(c)>0$인 경우만 보이면 충분하다 (부호가 반대면 $-f$에 적용). $f''(c) = \lim_{h\to0}\dfrac{f'(c+h)-f'(c)}{h} = \lim_{h\to0}\dfrac{f'(c+h)}{h}$ ($f'(c)=0$이므로)인데, 이 극한이 $f''(c)>0$이므로, $\varepsilon:=f''(c)/2>0$에 대해 어떤 $\eta>0$이 있어 $0<\vert h\vert<\eta$이면 $\dfrac{f'(c+h)}{h} > f''(c)-\varepsilon = \varepsilon$이다. $0<h<\eta$이면 이로부터 $f'(c+h) > \varepsilon h>0$이고, $-\eta<h<0$이면 (부등식의 양변에 음수 $h$를 곱하며 부등호가 뒤집혀) $f'(c+h) < \varepsilon h<0$이다. 즉 $f'$은 $c$ 바로 왼쪽에서 음수, 바로 오른쪽에서 양수이므로, 제1차 도함수 판정법에 의해 $f$는 $c$에서 local minimum을 가진다. $\blacksquare$
 
-이 증명이 $f''$가 $c$ 근방에서 연속이라고 가정하지 않고 $f''(c)$의 존재만으로 끝난다는 점을 눈여겨볼 만하다 — $f''$가 $c$에서만 저 값을 가지고 다른 곳에서는 어떻게 행동하는지 전혀 몰라도 판정법이 성립한다.
+이 증명이 $f''$가 $c$ 근방에서 연속이라고 가정하지 않고 $f''(c)$의 존재만으로 끝난다는 점을 눈여겨볼 만하다. $f''$가 $c$에서만 저 값을 가지고 다른 곳에서는 어떻게 행동하는지 전혀 몰라도 판정법이 성립한다.
 
 ## Cauchy's Mean Value Theorem
 
@@ -148,7 +149,7 @@ $$(A-\varepsilon)\left(1-\frac{g(c_1)}{g(x)}\right)+\frac{f(c_1)}{g(x)} < \frac{
 
 를 얻는다. $x\to a^+$이면 $g(x)\to+\infty$이므로 $\dfrac{g(c_1)}{g(x)}\to0$, $\dfrac{f(c_1)}{g(x)}\to0$ ($f(c_1),g(c_1)$은 고정된 값)이 되어, 좌변은 $A-\varepsilon$으로, 우변은 $A+\varepsilon$으로 수렴한다. 따라서 어떤 $c_2\in(a,c_1)$이 있어 $a<x<c_2$이면 좌변은 $A-2\varepsilon$보다 크고 우변은 $A+2\varepsilon$보다 작으므로, $\left\vert\dfrac{f(x)}{g(x)}-A\right\vert<2\varepsilon$이다. $\varepsilon$이 임의였으므로 $\displaystyle\lim_{x\to a^+}\frac{f(x)}{g(x)}=A$이다. $\blacksquare$
 
-$a$가 유한한 실수이고 (i)의 조건($f,g\to0$)으로 국한하면, 이것이 바로 전통적으로 알려진 $0/0$ 꼴의 L'Hôpital's Rule이다. $x\to b^-$인 경우나 $g(x)\to-\infty$인 경우도 (부등식의 방향이나 치환을 적절히 바꾸면) 대칭적으로 성립한다 — Rudin의 책에서도 정확히 이 경우들을 "analogous"라는 말로 남겨둔다.
+$a$가 유한한 실수이고 (i)의 조건($f,g\to0$)으로 국한하면, 이것이 바로 전통적으로 알려진 $0/0$ 꼴의 L'Hôpital's Rule이다. $x\to b^-$인 경우나 $g(x)\to-\infty$인 경우도 (부등식의 방향이나 치환을 적절히 바꾸면) 대칭적으로 성립한다. Rudin의 책에서도 정확히 이 경우들을 "analogous"라는 말로 남겨둔다.
 
 L'Hôpital's Rule은 사실 Johann Bernoulli에 의해 발견되었다. 이 정리가 l'Hôpital's Rule로 알려진 이유는 l'Hôpital이 1694년 Bernoulli와 계약을 맺어, Bernoulli의 수학적 발견들을 독점적으로 넘겨받아 자신의 이름으로 출판할 권리를 얻었기 때문이라고 추측이 되었다 [5]. 그러다가 Paul Schafheitlin이 1924년 Johann Bernoulli의 조카 Nicolaus (I) Bernoulli가 1705년경 그 강의 내용을 옮겨 적은 사본을 공개했고, 그 내용이 l'Hôpital의 책과 거의 그대로 일치해 추측이 뒷받침됐다 [6].
 

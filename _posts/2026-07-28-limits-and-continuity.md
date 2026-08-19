@@ -2,6 +2,7 @@
 layout: post
 title: "함수의 극한과 연속성"
 date: 2026-07-28
+mathematicians: [Bolzano, Lipschitz, Weierstrass, Heine, Cauchy, Cantor, Darboux, Baire]
 ---
 
 ## 함수의 극한
@@ -42,7 +43,7 @@ $f(c)>y$라 가정하자. $\varepsilon:=f(c)-y>0$에 대해 어떤 $\delta>0$이
 
 따라서 $f(c)=y$이다. $f(a)<y=f(c)$이므로 $c\ne a$이고, $f(c)=y<f(b)$이므로 $c\ne b$이다. 즉 $c\in(a,b)$. $\blacksquare$
 
-이 증명이 실수의 완비성(sup의 존재)을 직접 사용한다는 점을 눈여겨볼 만하다 — 유리수 위에서는 이 정리가 성립하지 않는다(예: $f(x)=x^2-2$는 $f(0)<0<f(2)$이지만 $f(c)=0$인 유리수 $c$는 없다).
+이 증명이 실수의 완비성(sup의 존재)을 직접 사용한다는 점을 눈여겨볼 만하다. 유리수 위에서는 이 정리가 성립하지 않는다(예: $f(x)=x^2-2$는 $f(0)<0<f(2)$이지만 $f(c)=0$인 유리수 $c$는 없다).
 
 이 정리를 처음 엄밀하게 증명한 사람은 Bolzano다 [1]. Cauchy도 1821년 *Cours d'analyse* 제2장에서 독립적으로 이 정리를 다뤘다 [2].
 
@@ -58,7 +59,7 @@ $f(c)>y$라 가정하자. $\varepsilon:=f(c)-y>0$에 대해 어떤 $\delta>0$이
 
 ## 극값 정리
 
-**Theorem (Extreme Value Theorem).** If $f:[a,b]\to\mathbb{R}$ is continuous, then $f$ attains a maximum and a minimum value on $[a,b]$ — i.e., there exist $c,d\in[a,b]$ such that $f(c)\le f(x)\le f(d)$ for all $x\in[a,b]$.
+**Theorem (Extreme Value Theorem).** If $f:[a,b]\to\mathbb{R}$ is continuous, then $f$ attains a maximum and a minimum value on $[a,b]$; i.e., there exist $c,d\in[a,b]$ such that $f(c)\le f(x)\le f(d)$ for all $x\in[a,b]$.
 
 *Proof.* 먼저 $f$가 위로 유계임을 보이자. 그렇지 않다면 각 $n$에 대해 $f(x_n)>n$인 $x_n\in[a,b]$가 존재한다. $(x_n)$은 $[a,b]$에 속하는 유계수열이므로, 지난 글의 Bolzano–Weierstrass Theorem에 의해 수렴하는 부분수열 $x_{n_k}\to c$가 있고, $[a,b]$가 닫힌구간이므로 $c\in[a,b]$이다. $f$의 연속성에 의해 $f(x_{n_k})\to f(c)$인데, $f(x_{n_k})>n_k\to\infty$이므로 이는 유계인 수렴 수열이 될 수 없어 모순이다. 따라서 $f$는 위로 유계이고, 대칭적으로 아래로도 유계이다.
 
@@ -86,9 +87,9 @@ $\mathbb{Q}$는 $\mathbb{R}$에서 조밀하므로 각 $I_x$는 유리수를 적
 
 **Definition (Uniform Continuity).** $f$ is *uniformly continuous* on $S$ if for every $\varepsilon>0$ there exists $\delta>0$ such that for all $x,y\in S$, $\vert x-y\vert<\delta$ implies $\vert f(x)-f(y)\vert<\varepsilon$.
 
-보통의 연속성과 다른 점은 $\delta$가 있는 위치다 — 연속성의 정의에서는 $\delta$가 $\varepsilon$뿐 아니라 점 $a$에도 의존해도 되지만, 균등연속성에서는 $S$ 전체에서 통하는 $\delta$ 하나를 $\varepsilon$만 보고 잡아야 한다. 정의에서 바로, 균등연속이면 (각 점에서) 연속이다.
+보통의 연속성과 다른 점은 $\delta$가 있는 위치다. 연속성의 정의에서는 $\delta$가 $\varepsilon$뿐 아니라 점 $a$에도 의존해도 되지만, 균등연속성에서는 $S$ 전체에서 통하는 $\delta$ 하나를 $\varepsilon$만 보고 잡아야 한다. 정의에서 바로, 균등연속이면 (각 점에서) 연속이다.
 
-역은 성립하지 않는다. $f(x)=x^2$은 $\mathbb{R}$에서 연속이지만 균등연속은 아니다 — $\varepsilon_0=1$을 고정하면, 임의의 $\delta>0$에 대해 $x:=1/\delta$, $y:=x+\delta/2$로 두면 $\vert x-y\vert=\delta/2<\delta$이지만
+역은 성립하지 않는다. $f(x)=x^2$은 $\mathbb{R}$에서 연속이지만 균등연속은 아니다. $\varepsilon_0=1$을 고정하면, 임의의 $\delta>0$에 대해 $x:=1/\delta$, $y:=x+\delta/2$로 두면 $\vert x-y\vert=\delta/2<\delta$이지만
 
 $$f(y)-f(x) = (y-x)(y+x) = \frac{\delta}{2}\left(\frac2\delta+\frac\delta2\right) = 1+\frac{\delta^2}4 > 1$$
 
@@ -142,13 +143,13 @@ LSC에 대해 비슷한 명제가 성립한다.
 
 **첫째, Extreme Value Theorem은 사실 연속성 전체가 필요한 게 아니다.**
 
-**Theorem.** If $f:[a,b]\to\mathbb{R}$ is upper semicontinuous, then $f$ attains a maximum on $[a,b]$ — i.e., there exists $d\in[a,b]$ such that $f(x)\le f(d)$ for all $x\in[a,b]$.
+**Theorem.** If $f:[a,b]\to\mathbb{R}$ is upper semicontinuous, then $f$ attains a maximum on $[a,b]$; i.e., there exists $d\in[a,b]$ such that $f(x)\le f(d)$ for all $x\in[a,b]$.
 
 *Proof.* 먼저 $f$가 위로 유계임을 보이자. 그렇지 않다면 각 $n$에 대해 $f(x_n)>n$인 $x_n\in[a,b]$가 존재한다. Bolzano–Weierstrass에 의해 수렴하는 부분수열 $x_{n_k}\to c\in[a,b]$가 있다. $f$가 $c$에서 USC이므로, $\varepsilon=1$에 대해 어떤 $\delta>0$이 있어 $\vert x-c\vert<\delta$이면 $f(x)<f(c)+1$인데, 충분히 큰 $k$에서는 $\vert x_{n_k}-c\vert<\delta$가 되어 $f(x_{n_k})<f(c)+1$이어야 한다. 그런데 $f(x_{n_k})>n_k\to\infty$이므로 모순이다.
 
 이제 $M:=\sup_{[a,b]}f$ (유한, 위 단계에 의해)라 하고, $f(x_n)>M-1/n$인 $x_n\in[a,b]$를 잡자. Bolzano–Weierstrass에 의해 $x_{n_k}\to d\in[a,b]$인 부분수열이 있다. $f(d)<M$이라 가정하면, $\varepsilon:=(M-f(d))/2>0$에 대해 USC로부터 어떤 $\delta>0$이 있어 $\vert x-d\vert<\delta$이면 $f(x)<f(d)+\varepsilon=(f(d)+M)/2<M$이다. 충분히 큰 $k$에서는 $\vert x_{n_k}-d\vert<\delta$이면서 동시에 $f(x_{n_k})>M-1/n_k>(f(d)+M)/2$가 되는데, 이는 방금 얻은 $f(x_{n_k})<(f(d)+M)/2$와 모순된다. 따라서 $f(d)=M$이다. $\blacksquare$
 
-대칭적으로, lower semicontinuous 함수는 $[a,b]$에서 최솟값을 가진다 — 즉 Extreme Value Theorem의 최댓값 쪽은 USC만으로, 최솟값 쪽은 LSC만으로 충분하다. 예컨대 세금 구간처럼 특정 임계값에서 값이 위로 튀어 오르는(하지만 그 외에는 연속인) 함수는 완전히 연속은 아니어도 USC이기만 하면 최댓값의 존재가 여전히 보장된다.
+대칭적으로, lower semicontinuous 함수는 $[a,b]$에서 최솟값을 가진다. 즉 Extreme Value Theorem의 최댓값 쪽은 USC만으로, 최솟값 쪽은 LSC만으로 충분하다. 예컨대 세금 구간처럼 특정 임계값에서 값이 위로 튀어 오르는(하지만 그 외에는 연속인) 함수는 완전히 연속은 아니어도 USC이기만 하면 최댓값의 존재가 여전히 보장된다.
 
 **둘째, 반연속성은 sup·inf를 취해도 깨지지 않는다.** 연속함수들의 모임에서 sup(또는 inf)을 취하면 일반적으로 연속성은 사라지지만, 반연속성은 살아남는다.
 

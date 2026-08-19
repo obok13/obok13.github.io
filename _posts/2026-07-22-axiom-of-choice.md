@@ -2,6 +2,7 @@
 layout: post
 title: "선택 공리 (Axiom of Choice)"
 date: 2026-07-22
+mathematicians: [Zermelo, Fraenkel, Zorn, Russell, Gödel, Cohen, von Neumann, Tarski, Banach, Cantor, Lebesgue, Bona, Gauss, Euclid, Bolyai, Lobachevsky, Beltrami, Klein, Poincaré, Fuchs]
 ---
 
 ## Zermelo–Fraenkel (ZF) 공리계
@@ -52,7 +53,7 @@ $$R = \{x : x \notin x\}$$
 
 $$R_y = \{x \in y : x \notin x\}$$
 
-를 만들 수 있다. 이때 $R_y \in y$라고 가정하면, 위와 같은 논증으로 $R_y \in R_y \leftrightarrow R_y \notin R_y$라는 모순이 나온다. 따라서 $R_y \notin y$일 수밖에 없다 — 이것은 모순이 아니라 그저 "$y$의 원소 중에는 $R_y$가 없다"는 사실일 뿐이다. 특히 이로부터 모든 집합을 원소로 갖는 "전체 집합"은 존재할 수 없음이 따라온다 — 만약 그런 집합 $V$가 있었다면 $R_V \in V$가 당연히 성립해야 하는데, 방금 보인 것과 모순이기 때문이다.
+를 만들 수 있다. 이때 $R_y \in y$라고 가정하면, 위와 같은 논증으로 $R_y \in R_y \leftrightarrow R_y \notin R_y$라는 모순이 나온다. 따라서 $R_y \notin y$일 수밖에 없다. 이것은 모순이 아니라 그저 "$y$의 원소 중에는 $R_y$가 없다"는 사실일 뿐이다. 특히 이로부터 모든 집합을 원소로 갖는 "전체 집합"은 존재할 수 없음이 따라온다. 만약 그런 집합 $V$가 있었다면 $R_V \in V$가 당연히 성립해야 하는데, 방금 보인 것과 모순이기 때문이다.
 
 ## 선택 공리 (Axiom of Choice)
 
@@ -112,7 +113,7 @@ Euclid 기하학은 다음 다섯 개의 공준으로 이루어진다.
 
 앞의 네 개에 비해 다섯 번째가 훨씬 복잡하고 부자연스러워 보였다. 2000년 넘게 수학자들은 다섯 번째 공준을 나머지 네 공준으로부터 증명하려 시도했지만 모두 실패했다.
 
-19세기에 Bolyai [7]와 Lobachevsky [8]가 각각 독립적으로, 평행선 공준을 부정해도 (나머지 네 공준을 만족하는) 무모순적인 기하학 — hyperbolic geometry — 이 존재함을 발표했다. Gauss도 이와 동등한 결과를 사적으로 얻어 두었던 것으로 알려져 있는데, 그는 논란을 우려해 이를 평생 출판하지 않았고, 이 사실은 사후에 공개된 편지와 노트를 통해서만 확인된다 [9]. 이후 Beltrami가 pseudosphere를 이용해 hyperbolic geometry의 (평면 전체가 아닌 일부만을 담아내는) 국소적인 모델을 처음 구성했고 [10], 이어서 Klein이 projective disk model을 [11], Poincaré가 (Fuchsian group에 대한 연구 과정에서) disk model을 각각 제시하며 hyperbolic plane 전체를 담아내는 모델을 완성해 그 무모순성을 확정지었다 [12]. 즉 평행선 공준은 나머지 네 공준으로부터 독립적이다. 평행선 공준 없이 나머지 4개로 전개한 기하학을 비유클리드 기하학이라고 한다.
+19세기에 Bolyai [7]와 Lobachevsky [8]가 각각 독립적으로, 평행선 공준을 부정해도 (나머지 네 공준을 만족하는) 무모순적인 기하학(hyperbolic geometry)이 존재함을 발표했다. Gauss도 이와 동등한 결과를 사적으로 얻어 두었던 것으로 알려져 있는데, 그는 논란을 우려해 이를 평생 출판하지 않았고, 이 사실은 사후에 공개된 편지와 노트를 통해서만 확인된다 [9]. 이후 Beltrami가 pseudosphere를 이용해 hyperbolic geometry의 (평면 전체가 아닌 일부만을 담아내는) 국소적인 모델을 처음 구성했고 [10], 이어서 Klein이 projective disk model을 [11], Poincaré가 (Fuchsian group에 대한 연구 과정에서) disk model을 각각 제시하며 hyperbolic plane 전체를 담아내는 모델을 완성해 그 무모순성을 확정지었다 [12]. 즉 평행선 공준은 나머지 네 공준으로부터 독립적이다. 평행선 공준 없이 나머지 4개로 전개한 기하학을 비유클리드 기하학이라고 한다.
 
 ## 참고문헌
 

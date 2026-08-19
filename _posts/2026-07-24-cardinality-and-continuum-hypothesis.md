@@ -2,6 +2,7 @@
 layout: post
 title: "무한집합의 크기: Cardinality"
 date: 2026-07-24
+mathematicians: [Cantor, Gödel, Cohen, Borel, Hilbert, Hartogs, Dedekind, von Neumann]
 ---
 
 ## Cardinality
@@ -14,7 +15,7 @@ Cantor는 무한집합 사이의 크기를 비교하는 방법으로 두 집합 
 
 **Theorem (Cantor–Schröder–Bernstein).** If $\vert A\vert\le\vert B\vert$ and $\vert B\vert\le\vert A\vert$, then $\vert A\vert=\vert B\vert$.
 
-즉 양방향으로 injection이 존재하면 bijection도 존재한다. 증명이 쉬워 보이지만 막상 엄밀하게 하려면 꽤 까다롭다. 실제로 엄밀한 증명을 얻기까지의 과정은 복잡했다. Cantor는 1895년 논문에서 이 명제를 증명 없이 언급했는데 [1], 그의 논증은 임의의 두 cardinality가 항상 비교 가능하다는 trichotomy($\vert A\vert<\vert B\vert$, $\vert A\vert=\vert B\vert$, $\vert A\vert>\vert B\vert$ 중 하나가 성립)에 의존하고 있었다. 그런데 이 trichotomy 자체가 실질적으로 선택 공리와 동치라는 사실이 훗날 Hartogs에 의해 밝혀졌다 [2] — 즉 Cantor의 논증은 사실상 AC를 암묵적으로 쓰고 있었던 셈이다. Dedekind는 1887년 (well-ordering에 기대지 않는) 독자적인 증명을 chain theory로 얻었지만 발표하지 않았고, 이는 그의 사후 전집에 실리고 나서야 알려지게 되었다 [3, 4]. Schröder는 1896–97년에 증명을 발표했지만 1902년 Korselt가 그 증명의 결함을 발견했고 (논문은 1911년) [5], 결국 최초로 인정받는 완전한 증명은 1897년 Cantor의 세미나에서 당시 19세였던 학생 Felix Bernstein이 낸 것이었다 — Cantor가 이를 Borel에게 전달해 Borel의 1898년 저서에 처음 소개되었다 [6, 7]. 오늘날 정리 이름에 Cantor, Schröder, Bernstein이 함께 붙어 있는 것은 이런 사정 때문이다.
+즉 양방향으로 injection이 존재하면 bijection도 존재한다. 증명이 쉬워 보이지만 막상 엄밀하게 하려면 꽤 까다롭다. 실제로 엄밀한 증명을 얻기까지의 과정은 복잡했다. Cantor는 1895년 논문에서 이 명제를 증명 없이 언급했는데 [1], 그의 논증은 임의의 두 cardinality가 항상 비교 가능하다는 trichotomy($\vert A\vert<\vert B\vert$, $\vert A\vert=\vert B\vert$, $\vert A\vert>\vert B\vert$ 중 하나가 성립)에 의존하고 있었다. 그런데 이 trichotomy 자체가 실질적으로 선택 공리와 동치라는 사실이 훗날 Hartogs에 의해 밝혀졌다 [2]. 즉 Cantor의 논증은 사실상 AC를 암묵적으로 쓰고 있었던 셈이다. Dedekind는 1887년 (well-ordering에 기대지 않는) 독자적인 증명을 chain theory로 얻었지만 발표하지 않았고, 이는 그의 사후 전집에 실리고 나서야 알려지게 되었다 [3, 4]. Schröder는 1896–97년에 증명을 발표했지만 1902년 Korselt가 그 증명의 결함을 발견했고 (논문은 1911년) [5], 결국 최초로 인정받는 완전한 증명은 1897년 Cantor의 세미나에서 당시 19세였던 학생 Felix Bernstein이 낸 것이었다. Cantor가 이를 Borel에게 전달해 Borel의 1898년 저서에 처음 소개되었다 [6, 7]. 오늘날 정리 이름에 Cantor, Schröder, Bernstein이 함께 붙어 있는 것은 이런 사정 때문이다.
 
 ## 가산 집합 (Countable Set)
 
@@ -38,7 +39,7 @@ $$
 
 **Theorem (Cantor, 1874 [8]).** $\mathbb{R}$ is uncountable.
 
-*Proof.* 임의의 수열 $(x_n)_{n\in\mathbb{N}} \subset \mathbb{R}$이 주어졌다고 하자. 닫힌 구간 $[a_0,b_0]$에서 시작해서, $x_1, x_2$를 피하는 부분구간 $[a_1,b_1]\subset[a_0,b_0]$를 고르고, 그 안에서 다시 $x_3,x_4$를 피하는 $[a_2,b_2]$를 고르는 식으로 구간을 계속 좁혀 나간다. 이렇게 얻은 nested closed interval $[a_0,b_0]\supset[a_1,b_1]\supset\cdots$는 completeness에 의해 공통으로 포함하는 점을 적어도 하나 갖는데, 그 점은 구성 방법상 어떤 $x_n$과도 같을 수 없다. 즉 임의의 수열은 $\mathbb{R}$의 모든 점을 나열하지 못하므로 $\mathbb{R}$은 가산이 아니다.
+*Proof.* 임의의 수열 $$(x_n)_{n\in\mathbb{N}} \subset \mathbb{R}$$이 주어졌다고 하자. 닫힌 구간 $[a_0,b_0]$에서 시작해서, $x_1, x_2$를 피하는 부분구간 $[a_1,b_1]\subset[a_0,b_0]$를 고르고, 그 안에서 다시 $x_3,x_4$를 피하는 $[a_2,b_2]$를 고르는 식으로 구간을 계속 좁혀 나간다. 이렇게 얻은 nested closed interval $[a_0,b_0]\supset[a_1,b_1]\supset\cdots$는 completeness에 의해 공통으로 포함하는 점을 적어도 하나 갖는데, 그 점은 구성 방법상 어떤 $x_n$과도 같을 수 없다. 즉 임의의 수열은 $\mathbb{R}$의 모든 점을 나열하지 못하므로 $\mathbb{R}$은 가산이 아니다.
 
 오늘날 이 정리는 흔히 대각선 논법으로 증명되는데, 이는 17년 뒤인 1891년에 가서야 등장하며, 그것도 애초 목적은 실수의 비가산성 자체보다 더 일반적인 정리를 증명하는 데 있었다.
 
@@ -60,11 +61,11 @@ Cantor의 대각선 논법을 확장한 것이 Cantor's Theorem이다.
 
 **Continuum Hypothesis (CH).** There is no set $S$ with $\aleph_0 < \vert S\vert < 2^{\aleph_0}$.
 
-Cantor는 1878년 논문에서 "$\mathbb{R}$의 모든 무한 부분집합은 가산이거나 $\mathbb{R}$과 같은 cardinality를 가진다"는 형태로 이미 이 추측의 약한 버전(weak CH)을 제시했다 [10] — 이것이 오늘날 우리가 아는 일반적인 형태(어떤 무한 부분집합이든 상관없이 $\aleph_0$과 $2^{\aleph_0}$ 사이에 다른 cardinality가 없다는 명제)와 구별된다는 점은 집합론사학자 Gregory Moore의 연구에 기반한다 [11]. 오늘날의 형태로 다듬어진 것은 1882년 Mittag-Leffler에게 보낸 편지에서라고 알려져 있다 [12]. Hilbert는 1900년 국제수학자대회 연설에서 이를 첫 번째 문제로 꼽으며 "Cantors Problem von der Mächtigkeit des Continuums"라 불렀다 [13].
+Cantor는 1878년 논문에서 "$\mathbb{R}$의 모든 무한 부분집합은 가산이거나 $\mathbb{R}$과 같은 cardinality를 가진다"는 형태로 이미 이 추측의 약한 버전(weak CH)을 제시했다 [10]. 이것이 오늘날 우리가 아는 일반적인 형태(어떤 무한 부분집합이든 상관없이 $\aleph_0$과 $2^{\aleph_0}$ 사이에 다른 cardinality가 없다는 명제)와 구별된다는 점은 집합론사학자 Gregory Moore의 연구에 기반한다 [11]. 오늘날의 형태로 다듬어진 것은 1882년 Mittag-Leffler에게 보낸 편지에서라고 알려져 있다 [12]. Hilbert는 1900년 국제수학자대회 연설에서 이를 첫 번째 문제로 꼽으며 "Cantors Problem von der Mächtigkeit des Continuums"라 불렀다 [13].
 
 CH가 참인지 거짓인지는 20세기 집합론의 오랜 난제였다. 그 답은, CH가 ZF로부터 독립일 뿐 아니라 ZFC로부터도 독립이라는 것이다. Gödel은 [14, 15]에서 constructible universe $L$을 구성하는 방법으로 ZF 위에서 AC와 CH가 모두 성립하는 모델을 구성했다 (정확히는 ZF가 아니라 von Neumann의 공리체계 S*, 오늘날 NBG의 전신이 되는 체계 위에서 구성한 것이었지만, ZF 위에서 구성해도 핵심 아이디어는 같다). Cohen은 forcing 기법으로 ZFC 위에서 CH가 성립하지 않는 모델을 구성했다 [16, 17]. 두 결과를 합치면 ZFC와 CH는 독립이고, 더 적은 공리로는 결정할 수 없으니 그보다 약한 ZF에서도 당연히 독립이다.
 
-그렇다면 ZF+CH와 AC는 독립일까? 이것 역시 독립이다. 한쪽 방향은 이미 확인했다 — Gödel의 모델은 ZF 위에서 CH와 AC가 모두 성립하는 모델이었다. 반대로 ZF+CH이면서 AC는 성립하지 않는 모델도 존재하는데, Keremedis, Tachtsis, Wajch가 2021년 논문에서 실제로 이런 모델을 구성했다 [18]. 즉 ZF 위에서 AC와 CH는 서로에 대해서도 독립이다.
+그렇다면 ZF+CH와 AC는 독립일까? 이것 역시 독립이다. 한쪽 방향은 이미 확인했다. Gödel의 모델은 ZF 위에서 CH와 AC가 모두 성립하는 모델이었다. 반대로 ZF+CH이면서 AC는 성립하지 않는 모델도 존재하는데, Keremedis, Tachtsis, Wajch가 2021년 논문에서 실제로 이런 모델을 구성했다 [18]. 즉 ZF 위에서 AC와 CH는 서로에 대해서도 독립이다.
 
 ## 참고문헌
 
