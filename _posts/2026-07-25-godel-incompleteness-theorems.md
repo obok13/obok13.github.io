@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "괴델의 불완전성 정리 (Gödel's Incompleteness Theorems)"
+title: "괴델의 불완전성 정리"
 date: 2026-07-25
 mathematicians: [Gödel, Hilbert, Bernays, von Neumann, Russell, Turing, Church, Kleene, Rosser, Löb, Presburger, Henkin, Goldbach]
 ---

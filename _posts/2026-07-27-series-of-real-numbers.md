@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "실수 급수의 수렴"
+title: "실수 수열의 급수"
 date: 2026-07-27
 mathematicians: [Dirichlet, Riemann, Cauchy, Abel, Euclid, Leibniz, Dedekind, Oresme, Mengoli, Jakob Bernoulli, d'Alembert]
 ---

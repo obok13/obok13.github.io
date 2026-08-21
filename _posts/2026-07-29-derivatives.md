@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "미분"
+title: "실수함수의 미분"
 date: 2026-07-29
-mathematicians: [Rolle, Cauchy, Fermat, Lagrange, Newton, Leibniz, l'Hôpital, Johann Bernoulli]
+mathematicians: [Rolle, Cauchy, Fermat, Lagrange, Newton, Leibniz, l'Hôpital, Johann Bernoulli, Darboux]
 ---
 
 미분법은 17세기 후반 Isaac Newton과 Gottfried Wilhelm Leibniz가 서로 독립적으로 세웠다. Newton은 물체의 운동에서 출발해 시간에 대한 순간변화율을 유율(fluxion)이라 부르며 다뤘고 [1], Leibniz는 오늘날 우리가 그대로 쓰는 $dy/dx$와 적분기호 $\int$을 도입해 접선 문제를 하나의 형식적 계산법으로 다듬었다 [2]. 두 사람 사이의 우선권 논쟁은 수학사에서 가장 격렬한 분쟁으로 남았지만, 정작 미분을 극한으로 엄밀하게 정의한 것은 한참 뒤 Cauchy와 Weierstrass에 이르러서였다. 이 글은 그 엄밀한 정의에서 출발한다.
@@ -89,6 +89,23 @@ Mean Value Theorem은 일반적인 형태로는 Lagrange가 처음 다뤘고 [5]
 
 *Proof.* $x<y\in I$에 대해 Mean Value Theorem으로 $f(y)-f(x)=f'(c)(y-x)$인 $c\in(x,y)$를 얻는데, $f'(c)>0$이고 $y-x>0$이므로 $f(y)-f(x)>0$이다. 감소하는 경우도 대칭적이다. $\blacksquare$
 
+## 역함수의 미분
+
+방금 Corollary는 도함수의 부호가 함수의 단조성을, 따라서 역함수의 존재를 좌우함을 보여준다. 이 역함수 역시 미분가능하며, 그 도함수가 원래 함수의 도함수로 결정된다.
+
+**Theorem (역함수의 미분).** Let $f$ be continuous and strictly monotone on an interval $I$. Then $J:=f(I)$ is an interval and $f^{-1}:J\to I$ is continuous and strictly monotone. If moreover $f$ is differentiable at $x_0\in I$ with $f'(x_0)\ne0$, then $f^{-1}$ is differentiable at $y_0:=f(x_0)$ with
+$$(f^{-1})'(y_0) = \frac{1}{f'(x_0)} = \frac{1}{f'\big(f^{-1}(y_0)\big)}.$$
+
+*Proof.* $f$가 순단조이므로 단사이고, Intermediate Value Theorem에 의해 연속함수 $f$의 상 $J=f(I)$은 구간이다. 역함수 $f^{-1}$은 순단조이며, 그 상 $I$가 구간이므로 연속이다. 단조함수는 도약(jump) 불연속만 가질 수 있는데, $f^{-1}$에 도약이 있다면 그 상 $I$에 구멍이 생겨 $I$가 구간이라는 데 모순이기 때문이다.
+
+이제 미분가능성을 보자. $y_0=f(x_0)$이라 하고, $y\ne y_0$에 대해 $x:=f^{-1}(y)$라 하면 $f$가 단사이므로 $x\ne x_0$이다. $f^{-1}$이 연속이므로 $y\to y_0$일 때 $x\to x_0$이고, 그때
+
+$$\frac{f^{-1}(y)-f^{-1}(y_0)}{y-y_0} = \frac{x-x_0}{f(x)-f(x_0)} = \frac{1}{\dfrac{f(x)-f(x_0)}{x-x_0}} \longrightarrow \frac{1}{f'(x_0)}$$
+
+이다. 여기서 $f'(x_0)\ne0$이라 분모의 극한이 $0$이 아님을 썼다. $\blacksquare$
+
+이 정리가 초등함수의 도함수를 낳는다. 예컨대 $\exp$의 역함수 $\log$는 $(\log)'(y)=1/\exp(x)=1/y$이고, $\sin$을 $[-\tfrac\pi2,\tfrac\pi2]$로 제한한 것의 역함수 $\arcsin$은 $(\arcsin)'(y)=1/\cos x=1/\sqrt{1-y^2}$이며, 같은 방식으로 $(\arctan)'(y)=1/(1+y^2)$을 얻는다.
+
 ## 도함수 판정법
 
 앞서 본 Fermat's Theorem은 극값의 필요조건이다. 즉, $f'(c)=0$이라고 해서 $c$가 실제로 극값인 것은 아니다. $f(x)=x^3$은 $f'(0)=0$이지만 0에서 극값을 가지지 않는다. 실제로 극값인지 판정하기 위해서 도함수를 좀 더 폭넓게 사용하면 된다.
@@ -117,6 +134,16 @@ $g(x)=x$로 두면 $g'(x)=1\ne0$, $g(b)-g(a)=b-a$가 되어 곧바로 (일반) M
 
 이 정리는 실제로 Cauchy가 Mean Value Theorem의 엄밀한 증명을 실었던 저서에 함께 실려 있다 [6].
 
+## Darboux's Theorem
+
+도함수는 연속이라는 보장이 없다. 그런데도 도함수는 연속함수처럼 중간값 성질(intermediate value property)을 가진다.
+
+**Theorem (Darboux).** Let $f$ be differentiable on $[a,b]$. Then for any $\lambda$ strictly between $f'(a)$ and $f'(b)$, there exists $c\in(a,b)$ with $f'(c)=\lambda$.
+
+*Proof.* $f'(a)<\lambda<f'(b)$인 경우만 보이면 충분하다 (반대 경우는 $-f$에 적용). $g(x):=f(x)-\lambda x$라 하면 $g$는 $[a,b]$에서 미분가능하여 연속이고 $g'(x)=f'(x)-\lambda$이다. Extreme Value Theorem에 의해 $g$는 $[a,b]$에서 최솟값을 가진다. $g'(a)=f'(a)-\lambda<0$이므로 충분히 작은 $h>0$에서 $g(a+h)<g(a)$이라 최솟값은 $a$에서 달성되지 않고, $g'(b)=f'(b)-\lambda>0$이므로 충분히 작은 $h>0$에서 $g(b-h)<g(b)$이라 $b$에서도 아니다. 따라서 최솟값은 내부점 $c\in(a,b)$에서 달성되고, Fermat's Theorem에 의해 $g'(c)=0$, 즉 $f'(c)=\lambda$이다. $\blacksquare$
+
+$f'$이 연속일 필요가 전혀 없다는 점이 핵심이다. 예컨대 $f(x)=x^2\sin(1/x)$ ($x\ne0$), $f(0)=0$의 도함수는 $x=0$에서 불연속이지만($x\ne0$에서 $f'(x)=2x\sin(1/x)-\cos(1/x)$이고 $f'(0)=0$인데 $\cos(1/x)$이 진동한다), Darboux's Theorem에 따라 여전히 중간값을 빠짐없이 취한다. 이 성질은 곧 아래 L'Hôpital's Rule의 증명에서, 영이 아닌 도함수가 부호를 바꾸지 못한다는 사실로 쓰인다.
+
 ## L'Hôpital's Rule
 
 **Theorem (L'Hôpital's Rule).** Let $-\infty\le a<b\le+\infty$, and let $f,g$ be differentiable on $(a,b)$ with $g'(x)\ne0$ for every $x\in(a,b)$. Suppose $\lim_{x\to a^+}\dfrac{f'(x)}{g'(x)}=A$ exists, where $A\in\overline{\mathbb{R}}$. If either (i) $\displaystyle\lim_{x\to a^+}f(x)=\lim_{x\to a^+}g(x)=0$, or (ii) $\displaystyle\lim_{x\to a^+}g(x)=+\infty$, then $\displaystyle\lim_{x\to a^+}\frac{f(x)}{g(x)}=A$.
@@ -137,7 +164,7 @@ $$A-\varepsilon \le \frac{f(y)}{g(y)} \le A+\varepsilon.$$
 
 이것이 (그 예외적인 점을 제외한) 모든 $y\in(a,c)$에서 성립하고, $\varepsilon$이 임의였으므로 $\displaystyle\lim_{y\to a^+}\frac{f(y)}{g(y)}=A$이다.
 
-**(ii)의 경우.** $g'\ne0$이므로 Intermediate Value Theorem에 의해 $g'$은 $(a,b)$에서 부호가 일정한데, $x\to a^+$일 때(즉 $x$가 $a$에 가까워질수록) $g(x)\to+\infty$이려면 그 부호가 음이어야 하므로 $g$는 $(a,b)$에서 (엄밀히) 감소한다. $c_1\in(a,c)$를 ($g(c_1)>0$이 되도록, $g\to+\infty$이니 가능하다) 하나 고정하면, $g$가 감소하므로 $a<x<c_1$인 모든 $x$에서 $g(x)>g(c_1)>0$이다. $(*)$에서 $y:=c_1$로 두면
+**(ii)의 경우.** $g'\ne0$이므로 방금 본 Darboux's Theorem에 의해 (도함수가 부호를 바꾸려면 중간값 $0$을 지나야 하는데 그럴 수 없으므로) $g'$은 $(a,b)$에서 부호가 일정한데, $x\to a^+$일 때(즉 $x$가 $a$에 가까워질수록) $g(x)\to+\infty$이려면 그 부호가 음이어야 하므로 $g$는 $(a,b)$에서 (엄밀히) 감소한다. $c_1\in(a,c)$를 ($g(c_1)>0$이 되도록, $g\to+\infty$이니 가능하다) 하나 고정하면, $g$가 감소하므로 $a<x<c_1$인 모든 $x$에서 $g(x)>g(c_1)>0$이다. $(*)$에서 $y:=c_1$로 두면
 
 $$A-\varepsilon < \frac{f(x)-f(c_1)}{g(x)-g(c_1)} < A+\varepsilon$$
 

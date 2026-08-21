@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "함수열의 균등수렴 (Uniform Convergence)"
+title: "Uniform convergence"
 date: 2026-08-02
 mathematicians: [Weierstrass, Cauchy, Abel, Dini, Sergei Bernstein, Seidel, Stokes, Stone, Arzelà, Ascoli, Fourier, Cantor, Lebesgue, van der Waerden]
 ---

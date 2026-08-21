@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "적분"
+title: "실수 함수의 적분"
 date: 2026-07-30
 mathematicians: [Riemann, Darboux, Lebesgue, Lipschitz, Leibniz, Cauchy, Heine, Cantor, Barrow, Vitali, Newton, Froda]
 ---

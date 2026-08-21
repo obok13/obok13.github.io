@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "매끄러움과 멱급수, Taylor 급수 (Power Series and Taylor Series)"
+title: "Power series"
 date: 2026-08-03
 mathematicians: [Taylor, Maclaurin, Cauchy, Hadamard, Abel, Lagrange, Weierstrass, Borel, Leibniz, Newton, Cesàro]
 ---
