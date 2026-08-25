@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "실수함수의 미분"
+title: "실수 함수의 미분"
 date: 2026-07-29
 mathematicians: [Rolle, Cauchy, Fermat, Lagrange, Newton, Leibniz, l'Hôpital, Johann Bernoulli, Darboux]
 ---

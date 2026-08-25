@@ -2,7 +2,7 @@
 layout: post
 title: "Improper Integral과 적분 계산"
 date: 2026-08-01
-mathematicians: [Cauchy, Liouville, Risch, Gauss, Hadamard, de la Vallée Poussin, Euler, Legendre, Fagnano, Abel, Jacobi, Weierstrass, Fresnel, Dirichlet]
+mathematicians: [Cauchy, Liouville, Risch, Fresnel, Dirichlet]
 ---
 
 ## Improper integral
@@ -197,49 +197,7 @@ $e^{-x^2}$의 부정적분이 초등함수가 아니라서 이렇게 따로 이�
 
 광학의 회절 이론에서 나온다. 진폭은 줄지 않는데도 $t^2$ 때문에 진동이 점점 빨라져, $\int_0^\infty \sin(x^2)\,dx=\int_0^\infty \cos(x^2)\,dx=\frac{1}{2}\sqrt{\frac{\pi}{2}}$로 (절대수렴은 아니지만) 수렴한다.
 
-**Definition (Logarithmic Integral).** $\displaystyle\operatorname{li}(x):=\int_0^x \frac{dt}{\ln t}$ (여기서 $t=1$의 특이점은 principal value로 처리한다).
-
-$\dfrac{1}{\ln x}$의 부정적분인 이 함수는 다음 정리를 통해 정수론의 심장부에 닿는다.
-
-**Theorem (Prime Number Theorem).** Let $\pi(x)$ denote the number of primes not exceeding $x$. Then $\pi(x)\sim\operatorname{li}(x)$ as $x\to\infty$, that is, $\pi(x)/\operatorname{li}(x)\to1$ (equivalently, $\pi(x)\sim x/\ln x$).
-
-Carl Friedrich Gauss가 소수의 분포를 $\operatorname{li}(x)$로 근사할 수 있으리라 추측했고 [3], Jacques Hadamard와 Charles-Jean de la Vallée Poussin이 1896년에 독립적으로 증명했다 [4, 5]. 초등적으로 적분되지 않는 함수가 소수의 개수라는 전혀 다른 문제의 답을 준다는 점이 인상적이다.
-
-역사적으로 가장 유명한 예는 elliptic integral이다.
-
-**Definition (Elliptic Integral).** An *elliptic integral* is an integral of the form $\int R\big(t,\sqrt{P(t)}\big)\,dt$, where $R$ is a rational function and $P$ is a cubic or quartic polynomial with no repeated root. Apart from degenerate cases such integrals are not elementary.
-
-이름은 타원에서 나왔다. 타원 $x=a\cos\theta$, $y=b\sin\theta$의 넓이는 $\pi ab$로 쉽게 구하지만, 둘레의 길이 $\int\sqrt{a^2\sin^2\theta+b^2\cos^2\theta}\,d\theta$는 위 꼴의 elliptic integral이라 초등함수로 나오지 않는다. 특히 lemniscate(방정식 $(x^2+y^2)^2=x^2-y^2$)의 호의 길이에서 나오는 $\displaystyle\varphi(x):=\int_0^x \frac{dt}{\sqrt{1-t^4}}$ (즉 $P(t)=1-t^4$)가 역사적으로 결정적인 역할을 했다.
-
-Giulio Fagnano는 이 적분에서 놀라운 규칙을 발견했다. 원에서 $\int_0^r\frac{dt}{\sqrt{1-t^2}}=\arcsin r$이 배각 공식 $2\arcsin r=\arcsin\!\big(2r\sqrt{1-r^2}\big)$을 만족하듯, $\varphi$도 배각 공식을 갖는다는 것이다 [6]. 이를 눈여겨본 Leonhard Euler는 그것이 훨씬 일반적인 덧셈정리의 특수한 경우임을 간파했다.
-
-**Theorem (Euler's Addition Theorem).** For $\displaystyle\varphi(x):=\int_0^x \frac{dt}{\sqrt{1-t^4}}$, one has $\varphi(x)+\varphi(y)=\varphi(z)$ where
-
-$$z=\frac{x\sqrt{1-y^4}+y\sqrt{1-x^4}}{1+x^2 y^2}.$$
-
-원의 $\arcsin x+\arcsin y=\arcsin\!\big(x\sqrt{1-y^2}+y\sqrt{1-x^2}\big)$과 정확히 같은 꼴로, 두 적분의 합이 상한을 $x,y$의 **대수적** 함수로 갖는 하나의 적분으로 묶인다. $x=y$로 두면 Fagnano가 먼저 발견했던 배각 공식 $z=\frac{2x\sqrt{1-x^4}}{1+x^4}$이 된다. Euler는 이를 분모에 일반적인 4차식의 제곱근이 오는 elliptic integral로까지 확장했다 [7].
-
-Adrien-Marie Legendre는 40년 넘게 매달려 모든 elliptic integral을 세 가지 표준형으로 환원하고 방대한 수치표를 만들었다 [8]. 하지만 적분을 상한의 함수로 본 $\varphi(x)$는 초등함수도 아니고, 이 형태 그대로는 덧셈정리 말고는 뚜렷한 구조가 잘 드러나지 않았다.
-
-돌파구는 관점을 뒤집는 데서 나왔다. 원에서 $\arcsin$의 역함수가 다루기 좋은 $\sin$이었듯, elliptic integral도 그 **역함수**를 보자는 것이다. 그 역함수를 복소평면 전체로 확장하면 다음 성질을 갖는다.
-
-**Definition (Elliptic Function).** A meromorphic function $f$ on $\mathbb{C}$ is *elliptic* (doubly periodic) if there exist $\omega_1,\omega_2\in\mathbb{C}$, linearly independent over $\mathbb{R}$, such that $f(z+\omega_1)=f(z+\omega_2)=f(z)$ for all $z$.
-
-$\sin$은 주기가 $2\pi$ 하나뿐이지만 elliptic function은 서로 독립인 두 주기를 가져, 함숫값이 복소평면을 $\omega_1,\omega_2$가 만드는 평행사변형 격자를 따라 반복된다. 실변수 함수는 상수가 아닌 한 이런 두 주기를 가질 수 없으니, 이중주기성은 적분의 역함수를 복소수까지 밀어붙였을 때 비로소 드러나는 성질이다. 1827년과 1829년 사이 Niels Henrik Abel과 Carl Gustav Jacob Jacobi가 거의 동시에 이 아이디어를 밀어붙여 elliptic function 이론을 열었다 [9][10]. 가난 속에 스물여섯으로 요절한 Abel과 그와 우선권을 다투던 Jacobi가 불과 몇 달 사이로 결과를 쏟아낸 이 경쟁은 수학사의 유명한 장면이다 (사실 Gauss는 이미 수십 년 전 개인 노트에 같은 것을 적어두고도 발표하지 않았다).
-
-이 이론의 대표 함수가 Karl Weierstrass의 $\wp$-함수다.
-
-**Definition (Weierstrass $\wp$-function).** For a lattice consisting of the points $\omega=m\omega_1+n\omega_2$ ($m,n\in\mathbb{Z}$),
-
-$$\wp(z):=\frac{1}{z^2}+\sum_{\omega\ne0}\left(\frac{1}{(z-\omega)^2}-\frac{1}{\omega^2}\right),$$
-
-the sum ranging over the nonzero lattice points.
-
-이는 각 격자점에서 이차 pole을 갖는 elliptic function이며, 다음을 만족한다.
-
-**Theorem.** $\wp$ satisfies the differential equation $(\wp')^2=4\wp^3-g_2\wp-g_3$ for constants $g_2,g_3$ determined by the lattice. Consequently $\displaystyle z=\int_{\wp(z)}^{\infty}\frac{dt}{\sqrt{4t^3-g_2 t-g_3}}$, so that $\wp$ is the inverse of this elliptic integral.
-
-$y=\sin z$가 $(y')^2=1-y^2$을 만족해 $\arcsin y=\int_0^y\frac{dt}{\sqrt{1-t^2}}$를 뒤집은 것과 똑같은 구조로, $\sin$에서 원 $\sqrt{1-t^2}$이 놓이던 자리에 삼차곡선 $\sqrt{4t^3-g_2 t-g_3}$이 들어간 셈이다. 초등함수로 표현되지 않는 적분 하나가 완전히 새로운 함수의 세계로 가는 문이었던 것이다.
+역사적으로 가장 유명한 예는 elliptic integral이다. 타원 $x=a\cos\theta$, $y=b\sin\theta$의 넓이는 $\pi ab$로 쉽게 구하지만, 둘레의 길이 $\int\sqrt{a^2\sin^2\theta+b^2\cos^2\theta}\,d\theta$는 초등함수로 나오지 않는다. 이런 elliptic integral에 관한 내용은 나중에 복소해석에서 자세히 다룰 예정이다.
 
 ## 정적분 계산
 
@@ -271,11 +229,3 @@ $x=0$에서 $\ln\sin x\to-\infty$인 특이점이 있지만 적분은 수렴하�
 
 1. Liouville, J. (1835). Mémoire sur l'intégration d'une classe de fonctions transcendantes. *Journal für die reine und angewandte Mathematik*, 13, 93–118.
 2. Risch, R. H. (1969). The problem of integration in finite terms. *Transactions of the American Mathematical Society*, 139, 167–189.
-3. Gauss, C. F. (1863). Brief an J. F. Encke (24. Dezember 1849). In *Werke*, Band 2 (pp. 444–447). Göttingen: Königliche Gesellschaft der Wissenschaften.
-4. Hadamard, J. (1896). Sur la distribution des zéros de la fonction $\zeta(s)$ et ses conséquences arithmétiques. *Bulletin de la Société Mathématique de France*, 24, 199–220.
-5. de la Vallée Poussin, C.-J. (1896). Recherches analytiques sur la théorie des nombres premiers. *Annales de la Société Scientifique de Bruxelles*, 20, 183–256.
-6. Fagnano dei Toschi, G. C. (1750). *Produzioni matematiche* (2 vols.). Pesaro: Gavelli.
-7. Euler, L. (1761). Observationes de comparatione arcuum curvarum irrectificabilium. *Novi Commentarii Academiae Scientiarum Petropolitanae*, 6, 58–84.
-8. Legendre, A.-M. (1825–1828). *Traité des fonctions elliptiques et des intégrales eulériennes* (3 vols.). Paris: Huzard-Courcier.
-9. Abel, N. H. (1827–1828). Recherches sur les fonctions elliptiques. *Journal für die reine und angewandte Mathematik*, 2, 101–181; 3, 160–190.
-10. Jacobi, C. G. J. (1829). *Fundamenta nova theoriae functionum ellipticarum*. Königsberg: Borntraeger.
