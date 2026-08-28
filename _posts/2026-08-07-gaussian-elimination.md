@@ -29,7 +29,7 @@ $$\{\,x_p+z : z\in N(A)\,\}$$
 
 *Proof.* 왼쪽 열부터 $0$이 아닌 성분을 pivot으로 골라 그 아래를 (3)번 연산으로 소거하고, 다음 열로 내려가며 반복하면 REF에 도달한다. pivot이 있는 열들은 앞선 열들의 조합이 아닌 열이고, 이들이 $C(A)$의 기저를 이루므로 pivot 개수는 $\dim C(A)=\operatorname{rank}A$이다. $\blacksquare$
 
-**Example (소거).** $A=\begin{pmatrix}1&2&1\\2&4&3\end{pmatrix}$에서 둘째 행에 첫째 행의 $-2$배를 더하면 $\begin{pmatrix}1&2&1\\0&0&1\end{pmatrix}$이 되어 REF다. pivot은 1열과 3열에 있고 $\operatorname{rank}A=2$이다.
+**Example (소거).** $$A=\begin{pmatrix}1&2&1\\2&4&3\end{pmatrix}$$에서 둘째 행에 첫째 행의 $-2$배를 더하면 $$\begin{pmatrix}1&2&1\\0&0&1\end{pmatrix}$$이 되어 REF다. pivot은 1열과 3열에 있고 $\operatorname{rank}A=2$이다.
 
 ## RREF와 Gauss-Jordan
 
@@ -43,9 +43,9 @@ REF에서 한 걸음 더 나아가면 표준형에 도달한다.
 
 *Proof.* elementary row operation은 가역행렬 $E$를 왼쪽에 곱하는 것이고, $E$가 가역이므로 열들 사이의 일차결합 관계가 보존된다. 즉 $\sum_j c_j a_j=0$인 것과 $\sum_j c_j(Ea_j)=0$인 것이 동치다. 그러면 "어떤 열이 앞선 열들의 일차결합인가"(곧 non-pivot 열이 무엇이고 그 조합의 계수가 얼마인가)가 $A$만으로 정해진다. RREF에서 pivot 열은 standard basis vector가 되고 non-pivot 열은 앞선 pivot 열들로 그 계수만큼 표현되므로, RREF의 모든 성분이 이 불변 정보로 결정된다. 따라서 RREF는 유일하다. $\blacksquare$
 
-**Example (RREF).** $A=\begin{pmatrix}2&4&6\\2&8&10\end{pmatrix}$를 보자. $R_2\leftarrow R_2-R_1$로 소거하면 REF $\begin{pmatrix}2&4&6\\0&4&4\end{pmatrix}$을 얻는데, pivot이 $2,4$라 아직 $1$이 아니다. 각 pivot 행을 그 pivot으로 나눠($R_1\leftarrow\tfrac12R_1$, $R_2\leftarrow\tfrac14R_2$)
+**Example (RREF).** $$A=\begin{pmatrix}2&4&6\\2&8&10\end{pmatrix}$$를 보자. $R_2\leftarrow R_2-R_1$로 소거하면 REF $$\begin{pmatrix}2&4&6\\0&4&4\end{pmatrix}$$을 얻는데, pivot이 $2,4$라 아직 $1$이 아니다. 각 pivot 행을 그 pivot으로 나눠($R_1\leftarrow\tfrac12R_1$, $R_2\leftarrow\tfrac14R_2$)
 $$\begin{pmatrix}1&2&3\\0&1&1\end{pmatrix}$$
-로 만든 뒤, 2열 pivot 위쪽을 $R_1\leftarrow R_1-2R_2$로 마저 소거하면 RREF $\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}$에 이른다.
+로 만든 뒤, 2열 pivot 위쪽을 $R_1\leftarrow R_1-2R_2$로 마저 소거하면 RREF $$\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}$$에 이른다.
 
 ## $Ax=b$의 general solution
 
@@ -57,7 +57,7 @@ $$x = x_p + t_1s_1 + \cdots + t_{n-r}s_{n-r}$$
 
 *Proof.* RREF에서 pivot variable을 free variable로 풀어낸 것이 곧 위 표현이며, $x_p$는 particular solution, $\operatorname{span}\{s_i\}=N(A)$이므로 앞 Proposition의 $x_p+N(A)$와 일치한다. $\blacksquare$
 
-**Example (general solution).** $A=\begin{pmatrix}1&2&1\\2&4&3\end{pmatrix}$, $b=(3,7)$을 보자. augmented matrix를 소거하면 둘째 행이 $(0,0,1\mid 1)$이 되어 $x_3=1$이고, 첫째 행에서 $x_1+2x_2+x_3=3$, 즉 $x_1=2-2x_2$이다. $x_2$가 free variable이므로 general solution은
+**Example (general solution).** $$A=\begin{pmatrix}1&2&1\\2&4&3\end{pmatrix}$$, $b=(3,7)$을 보자. augmented matrix를 소거하면 둘째 행이 $(0,0,1\mid 1)$이 되어 $x_3=1$이고, 첫째 행에서 $x_1+2x_2+x_3=3$, 즉 $x_1=2-2x_2$이다. $x_2$가 free variable이므로 general solution은
 $$x = (2,0,1) + x_2\,(-2,1,0)$$
 이다. particular solution $(2,0,1)$에 $N(A)$의 기저 $(-2,1,0)$이 붙었다.
 
@@ -69,7 +69,7 @@ $$x = (2,0,1) + x_2\,(-2,1,0)$$
 
 이 분해가 있으면 $Ax=b$는 $Ly=b$를 forward substitution으로, $Ux=y$를 back substitution으로 풀어 두 번의 triangular system으로 쪼개진다.
 
-**Example (LU).** $A=\begin{pmatrix}2&1&1\\4&3&3\\8&7&9\end{pmatrix}$를 소거하자. 1열에서 $R_2\leftarrow R_2-2R_1$, $R_3\leftarrow R_3-4R_1$ (multiplier $2,4$)을 하면
+**Example (LU).** $$A=\begin{pmatrix}2&1&1\\4&3&3\\8&7&9\end{pmatrix}$$를 소거하자. 1열에서 $R_2\leftarrow R_2-2R_1$, $R_3\leftarrow R_3-4R_1$ (multiplier $2,4$)을 하면
 $$\begin{pmatrix}2&1&1\\0&1&1\\0&3&5\end{pmatrix}$$
 이 되고, 이어 2열에서 $R_3\leftarrow R_3-3R_2$ (multiplier $3$)을 하면 upper triangular matrix
 $$U=\begin{pmatrix}2&1&1\\0&1&1\\0&0&2\end{pmatrix}$$
@@ -99,9 +99,9 @@ pivot 자리에 $0$이 나오면 행을 바꿔야 한다. 소거 중에 필요�
 
 **Example (PA=LDU, 그리고 RREF).** 직사각행렬
 $$A=\begin{pmatrix}0&1&2&2\\2&4&2&6\\4&8&6&14\end{pmatrix}$$
-를 소거하자. $(1,1)$ 성분이 $0$이라 $R_1\leftrightarrow R_2$로 행을 바꾼다. 이 교환을 담은 $P=\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}$에 대해 $PA$를 소거하면, $R_3\leftarrow R_3-2R_1$ 뒤
+를 소거하자. $(1,1)$ 성분이 $0$이라 $R_1\leftrightarrow R_2$로 행을 바꾼다. 이 교환을 담은 $$P=\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}$$에 대해 $PA$를 소거하면, $R_3\leftarrow R_3-2R_1$ 뒤
 $$U=\begin{pmatrix}2&4&2&6\\0&1&2&2\\0&0&2&2\end{pmatrix}, \qquad L=\begin{pmatrix}1&0&0\\0&1&0\\2&0&1\end{pmatrix}$$
-로 $PA=LU$이다. pivot이 $2,1,2$이므로 $D=\operatorname{diag}(2,1,2)$, $U'=\begin{pmatrix}1&2&1&3\\0&1&2&2\\0&0&1&1\end{pmatrix}$로 갈라 $PA=LDU'$을 얻는다.
+로 $PA=LU$이다. pivot이 $2,1,2$이므로 $D=\operatorname{diag}(2,1,2)$, $$U'=\begin{pmatrix}1&2&1&3\\0&1&2&2\\0&0&1&1\end{pmatrix}$$로 갈라 $PA=LDU'$을 얻는다.
 
 여기서 멈추지 않고 pivot을 $1$로 만든 뒤 위쪽까지 소거하면(Gauss-Jordan) RREF
 $$\begin{pmatrix}1&0&0&2\\0&1&0&0\\0&0&1&1\end{pmatrix}$$
@@ -111,7 +111,7 @@ $$\begin{pmatrix}1&0&0&2\\0&1&0&0\\0&0&1&1\end{pmatrix}$$
 
 ## 역행렬
 
-정사각행렬에서 소거가 끝까지 통하면 그 자체가 역행렬을 준다.
+RREF가 identity matrix이면 $A$가 역행렬은 갖게 된다.
 
 **Definition (Inverse).** 정사각행렬 $A\in F^{n\times n}$에 대해 $AB=BA=I$인 $B$가 있으면 $A$를 가역(invertible)이라 하고 $B$를 $A^{-1}$로 쓴다. 가역이 아닌 정사각행렬은 singular(특이행렬)이라 한다.
 
@@ -119,7 +119,7 @@ $$\begin{pmatrix}1&0&0&2\\0&1&0&0\\0&0&1&1\end{pmatrix}$$
 
 *Proof.* $B,B'$이 모두 $A$의 역행렬이면 $B'=B'(AB)=(B'A)B=B$이다. $\blacksquare$
 
-**Theorem (가역성 동치조건).** 정사각행렬 $A\in F^{n\times n}$에 대해 다음은 모두 동치다. (a) $A$가 가역이다. (b) $$N(A)=\{0\}$$. (c) $\operatorname{rank}A=n$. (d) $A$의 열이 $F^n$의 기저다. (e) 모든 $b$에 대해 $Ax=b$가 유일한 해를 가진다. (f) $A$의 RREF가 $I$다.
+**Theorem (가역성 동치조건).** 정사각행렬 $A\in F^{n\times n}$에 대해 다음은 모두 동치다. (a) $A$가 가역이다. (b) $$N(A)=\{0\}$$. (c) $\operatorname{rank}A=n$. (d) $A$의 열이 $F^n$의 기저다. (e) 모든 $b$에 대해 $Ax=b$가 유일한 해를 가진다 ($x=A^{-1}b$). (f) $A$의 RREF가 $I$다.
 
 *Proof.* (b)$\iff$(c)는 rank-nullity($n=\operatorname{rank}A+\dim N(A)$)에서, (c)$\iff$(d)는 $n$개의 일차독립인 열이 곧 기저라는 데서 나온다. (c)$\iff$(f)는 pivot이 $n$개면 RREF가 $I$이기 때문이다. (e)는 앞 Proposition에서 존재($C(A)=F^n$)와 유일($N(A)=\{0\}$)을 합친 것이라 (b),(c)와 동치다. 끝으로 RREF가 $I$이면 소거에 쓴 가역행렬들의 곱 $E_k\cdots E_1$이 $A$의 양쪽 역행렬이 되어 (a)가 나오고, 역으로 가역이면 (e)가 성립한다. $\blacksquare$
 
@@ -137,7 +137,7 @@ $(AB)^{-1}=B^{-1}A^{-1}$, $(A^{-1})^{-1}=A$, $(A^{\mathsf T})^{-1}=(A^{-1})^{\ma
 
 *Proof.* elementary row operation은 왼쪽 곱이므로, RREF로 만드는 과정은 어떤 가역행렬 $M=E_k\cdots E_1$을 왼쪽에 곱하는 것이다. 왼쪽 블록이 $MA=I$가 되었다면 $M=A^{-1}$이고, 같은 연산이 오른쪽 블록 $I$에는 $MI=A^{-1}$을 남긴다. $\blacksquare$
 
-**Example (역행렬).** $A=\begin{pmatrix}1&0&1\\2&1&2\\1&1&2\end{pmatrix}$의 역행렬을 구하자. augmented matrix $$[\,A\mid I\,]$$에 Gauss-Jordan을 적용한다.
+**Example (역행렬).** $$A=\begin{pmatrix}1&0&1\\2&1&2\\1&1&2\end{pmatrix}$$의 역행렬을 구하자. augmented matrix $$[\,A\mid I\,]$$에 Gauss-Jordan을 적용한다.
 $$\left[\begin{array}{ccc}1&0&1\\2&1&2\\1&1&2\end{array}\middle\vert\begin{array}{ccc}1&0&0\\0&1&0\\0&0&1\end{array}\right]$$
 1열 아래를 $R_2\leftarrow R_2-2R_1$, $R_3\leftarrow R_3-R_1$로 소거하면
 $$\left[\begin{array}{ccc}1&0&1\\0&1&0\\0&1&1\end{array}\middle\vert\begin{array}{ccc}1&0&0\\-2&1&0\\-1&0&1\end{array}\right]$$
@@ -160,9 +160,9 @@ $$\left[\begin{array}{ccc}1&0&0\\0&1&0\\0&0&1\end{array}\middle\vert\begin{array
 
 정사각이 아닌 경우 한쪽 역행렬은 유일하지 않다(확장의 자유가 있기 때문이다). 양쪽 역행렬만 유일하다.
 
-**Example (left inverse).** $A=\begin{pmatrix}1&0\\0&1\\1&1\end{pmatrix}$은 $3\times2$이고 열이 일차독립이라 full column rank다. $B=\begin{pmatrix}1&0&0\\0&1&0\end{pmatrix}$이 $BA=I_2$를 만족하는 left inverse인데, $B=\begin{pmatrix}0&-1&1\\-1&0&1\end{pmatrix}$ 역시 $BA=I_2$라 left inverse가 여럿임을 볼 수 있다.
+**Example (left inverse).** $$A=\begin{pmatrix}1&0\\0&1\\1&1\end{pmatrix}$$은 $3\times2$이고 열이 일차독립이라 full column rank다. $$B=\begin{pmatrix}1&0&0\\0&1&0\end{pmatrix}$$이 $BA=I_2$를 만족하는 left inverse인데, $$B=\begin{pmatrix}0&-1&1\\-1&0&1\end{pmatrix}$$ 역시 $BA=I_2$라 left inverse가 여럿임을 볼 수 있다.
 
-**Example (right inverse).** $A=\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}$은 $2\times3$이고 행이 일차독립이라 full row rank다. $C=\begin{pmatrix}1&0\\0&1\\0&0\end{pmatrix}$이 $AC=I_2$인 right inverse이고, $C=\begin{pmatrix}0&-1\\-1&0\\1&1\end{pmatrix}$ 역시 $AC=I_2$라 right inverse도 여럿이다.
+**Example (right inverse).** $$A=\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}$$은 $2\times3$이고 행이 일차독립이라 full row rank다. $$C=\begin{pmatrix}1&0\\0&1\\0&0\end{pmatrix}$$이 $AC=I_2$인 right inverse이고, $$C=\begin{pmatrix}0&-1\\-1&0\\1&1\end{pmatrix}$$ 역시 $AC=I_2$라 right inverse도 여럿이다.
 
 한쪽 역행렬을 실행렬에서는 $A^{\mathsf T}A$로 명시적으로 만들 수 있는데, 그 바탕에 다음 사실이 있다.
 
@@ -170,7 +170,7 @@ $$\left[\begin{array}{ccc}1&0&0\\0&1&0\\0&0&1\end{array}\middle\vert\begin{array
 
 *Proof.* $Ax=0$이면 당연히 $A^{\mathsf T}Ax=0$이다. 역으로 $A^{\mathsf T}Ax=0$이면 $\lVert Ax\rVert^2=x^{\mathsf T}A^{\mathsf T}Ax=0$이라 $Ax=0$이다(여기서 실수 성분의 표준 내적을 썼다). 따라서 두 null space가 같다. full column rank이면 $$N(A)=\{0\}$$이므로 $$N(A^{\mathsf T}A)=\{0\}$$, 곧 정사각행렬 $A^{\mathsf T}A$가 가역이다. $\blacksquare$
 
-이 덕분에 full column rank인 실행렬은 $B=(A^{\mathsf T}A)^{-1}A^{\mathsf T}$라는 명시적 left inverse를 가진다($BA=(A^{\mathsf T}A)^{-1}A^{\mathsf T}A=I_n$).
+이 덕분에 full column rank인 행렬의 left inverse 중에 $B=(A^{\mathsf T}A)^{-1}A^{\mathsf T}$라는 명시적 left inverse가 존재한다 ($BA=(A^{\mathsf T}A)^{-1}A^{\mathsf T}A=I_n$). 반대로 full row rank인 행렬의 right inverse 중 하나는 $A^T(AA^T)^{-1}$이다.
 
 ## 참고문헌
 

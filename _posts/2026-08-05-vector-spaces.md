@@ -107,6 +107,15 @@ $$\operatorname{span}S := \{\,a_1v_1+\cdots+a_kv_k : k\ge0,\ a_i\in F,\ v_i\in S
 
 **Example (무한차원).** $\mathbb{R}[x]$는 $1,x,x^2,\dots$가 일차독립이라 유한 기저를 가질 수 없으므로 무한차원이다. 무한차원에서도 임의의 두 기저는 같은 cardinality를 가지지만, 그 증명은 무한 cardinal 산술이 필요하므로 여기서는 넘어간다.
 
+두 부분공간의 합의 차원은 각 차원과 교집합의 차원으로 정해진다.
+
+**Theorem (Grassmann's Dimension Formula).** 벡터공간의 유한차원 부분공간 $U,W$에 대해
+$$\dim(U+W)=\dim U+\dim W-\dim(U\cap W).$$
+
+*Proof.* $U\cap W$의 기저 $$\{x_1,\dots,x_k\}$$를 잡아, 이를 $U$의 기저 $$\{x_1,\dots,x_k,u_1,\dots,u_p\}$$와 $W$의 기저 $$\{x_1,\dots,x_k,w_1,\dots,w_q\}$$로 각각 확장한다(일차독립 집합의 기저 확장). 그러면 $$\{x_1,\dots,x_k,u_1,\dots,u_p,w_1,\dots,w_q\}$$가 $U+W$의 기저임을 보이면 되고, 이들이 $U+W$를 span하는 것은 분명하다. 일차독립을 보자. $\sum_i a_ix_i+\sum_j b_ju_j+\sum_l c_lw_l=0$이면 $\sum_l c_lw_l=-\sum_i a_ix_i-\sum_j b_ju_j\in U$인데 동시에 $W$에도 있으니 $U\cap W$에 속해 $\sum_l c_lw_l=\sum_i d_ix_i$로도 쓰인다. $W$의 기저에서 $w_l$과 $x_i$가 일차독립이라 모든 $c_l=0$이고, 남은 $\sum_i a_ix_i+\sum_j b_ju_j=0$에서 $U$의 기저가 일차독립이라 나머지 계수도 모두 $0$이다. 따라서 기저의 크기가 $k+p+q=(k+p)+(k+q)-k=\dim U+\dim W-\dim(U\cap W)$이다. $\blacksquare$
+
+**Corollary.** 합이 직합이면(곧 $$U\cap W=\{0\}$$) $\dim(U\oplus W)=\dim U+\dim W$이다.
+
 ## 기저의 존재
 
 **Theorem.** 유한개의 벡터로 span되는 벡터공간은 기저를 가진다. 더욱이 임의의 일차독립 집합은 기저로 확장할 수 있고, 임의의 span 집합은 기저를 포함한다.

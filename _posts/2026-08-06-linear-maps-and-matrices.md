@@ -84,7 +84,7 @@ $$Ax = x_1a_1 + x_2a_2 + \cdots + x_na_n$$
 $$C(A) := \{\,Ax : x\in F^n\,\} = \operatorname{span}\{a_1,\dots,a_n\}\subseteq F^m, \qquad N(A) := \{\,x\in F^n : Ax=0\,\}\subseteq F^n$$
 으로 정의한다. 곧 $C(A)=\operatorname{im}A$는 열들이 생성하는 공간이고 $N(A)=\ker A$이다.
 
-**Example (열공간과 영공간).** $A=\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}$의 열은 $(1,0),(0,1),(1,1)$이라 이미 $F^2$ 전체를 생성하므로 $C(A)=F^2$이고 $\operatorname{rank}A=2$이다. 영공간은 $Ax=0$, 즉 $x_1+x_3=0$과 $x_2+x_3=0$을 푸는 $x=t(-1,-1,1)$ 전체라 $\dim N(A)=1$이다. rank-nullity대로 $2+1=3=n$이다.
+**Example (열공간과 영공간).** $$A=\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}$$의 열은 $(1,0),(0,1),(1,1)$이라 이미 $F^2$ 전체를 생성하므로 $C(A)=F^2$이고 $\operatorname{rank}A=2$이다. 영공간은 $Ax=0$, 즉 $x_1+x_3=0$과 $x_2+x_3=0$을 푸는 $x=t(-1,-1,1)$ 전체라 $\dim N(A)=1$이다. rank-nullity대로 $2+1=3=n$이다.
 
 ## Transpose와 행공간
 
@@ -100,7 +100,7 @@ $$y^{\mathsf T}A = y_1r_1 + y_2r_2 + \cdots + y_mr_m$$
 
 이렇게 한 행렬 $A$에는 네 개의 부분공간이 딸린다. $F^n$ 안에는 행공간 $C(A^{\mathsf T})$와 영공간 $N(A)$가, $F^m$ 안에는 열공간 $C(A)$와 left null space $N(A^{\mathsf T})$가 있다.
 
-**Example (네 부분공간).** $A=\begin{pmatrix}1&2&3\\2&4&6\end{pmatrix}$은 두 번째 행이 첫 번째 행의 두 배라 $\operatorname{rank}A=1$이다. 열공간 $C(A)=\operatorname{span}\{(1,2)\}$은 차원 $1$, 영공간 $N(A)$는 $x_1+2x_2+3x_3=0$을 푸는 평면이라 차원 $2$, 행공간 $C(A^{\mathsf T})=\operatorname{span}\{(1,2,3)\}$은 차원 $1$, left null space $N(A^{\mathsf T})=\operatorname{span}\{(-2,1)\}$은 차원 $1$이다.
+**Example (네 부분공간).** $$A=\begin{pmatrix}1&2&3\\2&4&6\end{pmatrix}$$은 두 번째 행이 첫 번째 행의 두 배라 $\operatorname{rank}A=1$이다. 열공간 $C(A)=\operatorname{span}\{(1,2)\}$은 차원 $1$, 영공간 $N(A)$는 $x_1+2x_2+3x_3=0$을 푸는 평면이라 차원 $2$, 행공간 $C(A^{\mathsf T})=\operatorname{span}\{(1,2,3)\}$은 차원 $1$, left null space $N(A^{\mathsf T})=\operatorname{span}\{(-2,1)\}$은 차원 $1$이다.
 
 ## Fundamental Theorem of Linear Algebra
 
