@@ -41,6 +41,8 @@ eigenvalue는 같지만 eigenvector까지 같을 이유는 없다.
 
 **Definition (Diagonalizable).** $A\in F^{n\times n}$이 어떤 invertible $P$와 diagonal matrix $D$로 $A=PDP^{-1}$로 쓰이면 diagonalizable이라 한다.
 
+$A=PDP^{-1}$은 $A$가 diagonal matrix $D$와 similar하다는 뜻이다. Linear map 글의 기저 변환으로 읽으면, $P$의 열인 eigenvector들을 기저로 잡을 때 그 기저에서 $A$가 $D$로 표현된다는 것이다. 대각화란 결국 선형사상이 diagonal로 보이는 기저를 찾는 일이다.
+
 **Theorem (eigenvector basis).** $A$가 diagonalizable인 것은 $F^n$이 $A$의 eigenvector로 이루어진 basis를 가지는 것과 동치다.
 
 *Proof.* $A=PDP^{-1}$이면 $AP=PD$이라, $P$의 $j$번째 열 $p_j$에 대해 $Ap_j=d_{jj}p_j$이다. $P$가 invertible이라 그 열들이 basis이고 각각 eigenvector다. 역으로 eigenvector $p_1,\dots,p_n$이 basis를 이루면 이들을 열로 하는 $P$는 invertible이고, 대응 eigenvalue를 대각에 놓은 $D$에 대해 $AP=PD$, 곧 $A=PDP^{-1}$이다. $\blacksquare$

@@ -74,6 +74,36 @@ $$S(T(v_j))=\sum_k a_{kj}S(w_k)=\sum_k a_{kj}\sum_i b_{ik}u_i=\sum_i\Big(\sum_k 
 $$\begin{pmatrix} 0&1&0\\ 0&0&2\\ 0&0&0\end{pmatrix}$$
 이다. 이 행렬을 두 번 곱하면 $D^2$(이계도함수)의 행렬이 되고, 세 번 곱하면 영행렬이 된다($P_2$에서 세 번 미분하면 $0$).
 
+## 기저 변환과 similarity
+
+두 vector space 사이의 linear map은 두 vector space의 basis를 어떻게 정하느냐에 따라서 다른 행렬로 나타난다. Basis $$\mathcal{B}=\{v_1,\dots,v_n\}$$에 대해서 벡터 $v$의 좌표벡터를 $$[v]_\mathcal{B}$$(곧 $$v=\sum_i([v]_\mathcal{B})_iv_i$$), $T$의 행렬 표현을 $$[T]_\mathcal{B}$$로 쓴다.
+
+근데 $T$는 2개의 vector space의 basis 표현에 의존하잖아. 여기 다시 써줘.
+
+**Definition (Change-of-Basis Matrix).** 새 기저 $$\mathcal{C}=\{c_1,\dots,c_n\}$$의 각 벡터를 $\mathcal{B}$-좌표로 적은 열들을 모은 행렬 $$P=\big(\,[c_1]_\mathcal{B}\ \cdots\ [c_n]_\mathcal{B}\,\big)$$을 $\mathcal{C}$에서 $\mathcal{B}$로의 change-of-basis 행렬이라 한다. $P$는 invertible이고, 모든 벡터에서 $$[v]_\mathcal{B}=P[v]_\mathcal{C}$$, 곧 $$[v]_\mathcal{C}=P^{-1}[v]_\mathcal{B}$$이다.
+
+*Proof.* $$v=\sum_j([v]_\mathcal{C})_jc_j$$의 $\mathcal{B}$-좌표를 취하면 $$[v]_\mathcal{B}=\sum_j([v]_\mathcal{C})_j[c_j]_\mathcal{B}=P[v]_\mathcal{C}$$이다. $\mathcal{C}$가 기저라 $P$의 열이 일차독립, 곧 $P$가 invertible이다. $\blacksquare$
+
+**Example (벡터의 좌표 변환).** $\mathbb{R}^2$에서 표준기저로 $v=(3,1)$인 벡터를 새 기저 $$\mathcal{C}=\{(1,1),(1,-1)\}$$로 보면, $v=2\,(1,1)+1\,(1,-1)$이라 $$[v]_\mathcal{C}=(2,1)$$이다. 같은 벡터가 기저에 따라 $(3,1)$로도 $(2,1)$로도 표현된다.
+
+선형사상의 행렬은 좌표 변환을 앞뒤로 끼워 바뀐다.
+
+**Theorem (기저 변환).** $T:V\to V$에 대해 $$[T]_\mathcal{C}=P^{-1}[T]_\mathcal{B}\,P$$이다.
+
+*Proof.* $$[Tv]_\mathcal{C}=P^{-1}[Tv]_\mathcal{B}=P^{-1}[T]_\mathcal{B}[v]_\mathcal{B}=P^{-1}[T]_\mathcal{B}P[v]_\mathcal{C}$$가 모든 $v$에서 성립하므로 $$[T]_\mathcal{C}=P^{-1}[T]_\mathcal{B}P$$이다. $\blacksquare$
+
+**Definition (Similar).** 정사각행렬 $A,B$가 어떤 invertible $P$로 $B=P^{-1}AP$를 만족하면 $A$와 $B$가 similar하다고 한다. 곧 similar란 같은 선형사상을 서로 다른 기저에서 표현한 것이다.
+
+**Example (기저를 바꾸면 단순해지는 선형사상).** 직선 $y=x$에 대한 반사 $T(x,y)=(y,x)$는 표준기저에서 $$[T]=\begin{pmatrix}0&1\\1&0\end{pmatrix}$$이다. 그런데 반사축 방향과 그에 수직인 방향을 기저로 잡아 $$\mathcal{C}=\{(1,1),(1,-1)\}$$로 보면 $T(1,1)=(1,1)$, $T(1,-1)=(-1,1)=-(1,-1)$이라 $$[T]_\mathcal{C}=\begin{pmatrix}1&0\\0&-1\end{pmatrix}$$로 diagonal이 된다. 같은 반사가 기저에 따라 뒤섞인 행렬로도, 깔끔한 diagonal로도 나타난다. 이렇게 선형사상이 diagonal이 되는 기저를 찾는 것이 뒤 글들의 대각화다.
+
+기저를 바꿔도 변하지 않는 양이 곧 선형사상 자체의 성질이다.
+
+**Proposition (similarity invariant).** similar한 $A$와 $B=P^{-1}AP$는 rank가 같다.
+
+*Proof.* $A$와 $B$가 같은 선형사상 $T$를 서로 다른 기저에서 표현한 것이라, 둘 다 $\dim\operatorname{im}T$와 같은 rank를 가진다. $\blacksquare$
+
+rank뿐 아니라 determinant, trace, characteristic polynomial, 그리고 eigenvalue도 similar 행렬끼리 모두 같다. 이들은 좌표(기저) 선택과 무관한 선형사상 자체의 양이며, 각 개념을 세우는 뒤 글들에서 곧바로 확인된다.
+
 ## 열공간과 영공간
 
 이제 처음부터 행렬로 주어진 경우, 곧 $A\in F^{m\times n}$이 정하는 선형사상 $x\mapsto Ax$ ($F^n\to F^m$)를 보자. 핵심은 $Ax$를 열의 조합으로 읽는 것이다. $A$의 열을 $a_1,\dots,a_n\in F^m$이라 하면
