@@ -8,7 +8,7 @@ permalink: /roadmap/
 
 해석학 전체를 향한 계획표다 (커리큘럼 v10, 929개 주제 / 26개 부). 각 포스트 뒤 괄호 숫자는 담당하는 커리큘럼 주제 번호다. 순서와 묶음은 쓰다 보면 바뀔 수 있다.
 
-**전체 진행률: 20 / 191 posts**
+**전체 진행률: 21 / 191 posts**
 
 `██░░░░░░░░░░░░░░░░░░░░░░░` 약 10%
 
@@ -38,7 +38,7 @@ permalink: /roadmap/
 - ✅ 멱급수와 Taylor 급수 (29, 52–54, 84–87): Cauchy product·Mertens, Taylor·나머지항, 비해석적 매끄러움·bump, 멱급수·Cauchy–Hadamard, Abel 정리, real-analytic, 매끄러움과 해석성의 간극
 - ✅ 복소수 (91–95): ℂ 구성·대수적 폐포, polar·단위근·de Moivre, 복소수열·급수, exp·sin·cos, Euler 공식·복소로그 문제
 
-## 제3부. 선형대수학 (6/11)
+## 제3부. 선형대수학 (7/11)
 
 - ✅ 벡터공간과 기저 (47, 97–100): field·vector space 공리, 부분공간·직합, 일차독립·기저·차원, Hamel basis, Cauchy 함수방정식
 - ✅ Linear map (101–103): 선형사상·kernel·image, rank–nullity, 행렬표현·transpose·네 부분공간·FTLA
@@ -46,7 +46,7 @@ permalink: /roadmap/
 - ✅ Inner product space (115–117): real·complex 내적, Cauchy–Schwarz, orthogonality·orthonormal, 직교여공간·정사영, Gram–Schmidt·QR, 최소제곱, 네 부분공간의 직교성
 - ✅ Determinant (108–110): alternating multilinear form, Leibniz big formula, row reduction, multiplicativity·Matrix Determinant Lemma, cofactor·adjugate, Cramer, Vandermonde
 - ✅ Eigenvalue and diagonalization (111–112): characteristic polynomial, eigenspace, 대각화·불변부분공간, symmetric 대각화, trace·det와 eigenvalue, 거듭제곱·commuting·Fibonacci
-- Cayley–Hamilton과 Jordan form (113–114): minimal polynomial·Cayley–Hamilton, Jordan canonical form
+- ✅ Cayley–Hamilton과 Jordan form (113–114): minimal polynomial·Cayley–Hamilton, coprime kernel·diagonalizability 판정, generalized eigenspace·primary decomposition, Jordan canonical form
 - 몫공간과 쌍대공간 (105–107): quotient space, dual space·annihilator, bilinear·multilinear form
 - 유한차원 Riesz와 spectral theorem (118–121): 유한차원 Riesz, adjoint, self-adjoint·unitary·normal, spectral theorem
 - 양작용소와 SVD (122–125): 양작용소·Cholesky, SVD·polar, 저계근사·Eckart–Young, 이차형식·Sylvester
