@@ -2,32 +2,36 @@
 layout: post
 title: "Inner product space"
 date: 2026-08-08
-mathematicians: [Cauchy, Bunyakovsky, Schwarz, Gram, Schmidt, Legendre, Gauss, Hilbert]
+mathematicians: [Cauchy, Bunyakovsky, Schwarz, Gram, Schmidt, Legendre, Gauss, Hilbert, Pascual Jordan, von Neumann]
 ---
 
-## 내적
+## inner product
 
 먼저 실수 위에서 정의한다.
 
-**Definition (Real Inner Product).** $\mathbb{R}$ 위의 vector space $V$에서 $\langle\cdot,\cdot\rangle:V\times V\to\mathbb{R}$가 다음을 만족하면 내적이라 한다. (i) 대칭성 $\langle u,v\rangle=\langle v,u\rangle$. (ii) 첫 인수에 대한 선형성 $\langle\alpha u+\beta u',v\rangle=\alpha\langle u,v\rangle+\beta\langle u',v\rangle$. (iii) 양의 정부호성(positive-definiteness) $\langle v,v\rangle\ge0$이고 등호는 $v=0$일 때뿐. 대칭성과 (ii)를 합치면 둘째 인수에 대해서도 선형이다.
+**Definition (Real Inner Product).** $\mathbb{R}$ 위의 vector space $V$에서 $\langle\cdot,\cdot\rangle:V\times V\to\mathbb{R}$가 다음을 만족하면 inner product이라 한다. (i) 대칭성 $\langle u,v\rangle=\langle v,u\rangle$. (ii) 첫 인수에 대한 선형성 $\langle\alpha u+\beta u',v\rangle=\alpha\langle u,v\rangle+\beta\langle u',v\rangle$. (iii) 양의 정부호성(positive-definiteness) $\langle v,v\rangle\ge0$이고 등호는 $v=0$일 때뿐. 대칭성과 (ii)를 합치면 둘째 인수에 대해서도 선형이다.
 
-**Example (dot product).** $\mathbb{R}^n$에서 $\langle x,y\rangle:=x^{\mathsf T}y=\sum_{i=1}^n x_iy_i$가 표준 내적이다. $\langle x,x\rangle=\sum x_i^2$이라 (iii)이 성립한다.
+**Example (dot product).** $\mathbb{R}^n$에서 $\langle x,y\rangle:=x^{\mathsf T}y=\sum_{i=1}^n x_iy_i$가 표준 inner product이다. $\langle x,x\rangle=\sum x_i^2$이라 (iii)이 성립한다.
 
-**Example (function space).** $C[a,b]$에서 $\langle f,g\rangle:=\int_a^b f(x)g(x)\,dx$도 내적이다. $\langle f,f\rangle=\int_a^b f^2\ge0$이고, $f$가 연속이므로 이 적분이 $0$이면 $f\equiv0$이다. 유한차원이 아닌 vector space에도 내적이 얹힌다는 것을 보여 주는 예다.
+**Example (function space).** $C[a,b]$에서 $\langle f,g\rangle:=\int_a^b f(x)g(x)\,dx$도 inner product이다. $\langle f,f\rangle=\int_a^b f^2\ge0$이고, $f$가 연속이므로 이 적분이 $0$이면 $f\equiv0$이다. 유한차원이 아닌 vector space에도 inner product이 얹힌다는 것을 보여 주는 예다.
 
 복소수 위에서는 켤레를 넣어야 length가 산다. $\mathbb{C}^n$에서 $\sum x_i^2$은 $x=(1,i)$에서 $1+i^2=0$이 되어 양의 정부호가 될 수 없기 때문이다.
 
-**Definition (Complex Inner Product).** $\mathbb{C}$ 위의 vector space $V$에서 $\langle\cdot,\cdot\rangle:V\times V\to\mathbb{C}$가 (i) 켤레대칭성 $\langle u,v\rangle=\overline{\langle v,u\rangle}$, (ii) 첫 인수 선형성, (iii) 양의 정부호성($\langle v,v\rangle$은 (i)에 의해 실수이며 $\ge0$, 등호는 $v=0$일 때뿐)을 만족하면 (Hermitian) 내적이라 한다. (i)과 (ii)에서 둘째 인수에는 켤레선형 $\langle u,\alpha v\rangle=\overline\alpha\langle u,v\rangle$이 따라 나오며, 이런 형식을 sesquilinear라 한다.
+**Definition (Complex Inner Product).** $\mathbb{C}$ 위의 vector space $V$에서 $\langle\cdot,\cdot\rangle:V\times V\to\mathbb{C}$가 (i) 켤레대칭성 $\langle u,v\rangle=\overline{\langle v,u\rangle}$, (ii) 첫 인수 선형성, (iii) 양의 정부호성($\langle v,v\rangle$은 (i)에 의해 실수이며 $\ge0$, 등호는 $v=0$일 때뿐)을 만족하면 (Hermitian) inner product이라 한다. (i)과 (ii)에서 둘째 인수에는 켤레선형 $\langle u,\alpha v\rangle=\overline\alpha\langle u,v\rangle$이 따라 나오며, 이런 형식을 sesquilinear라 한다.
 
-**Example (복소 표준 내적).** $\mathbb{C}^n$에서 $\langle x,y\rangle:=\sum_{i=1}^n x_i\overline{y_i}=y^{*}x$가 표준 내적이다. 여기서 $y^{*}:=\overline{y}^{\mathsf T}$는 conjugate transpose이고, $\langle x,x\rangle=\sum\vert x_i\vert^2\ge0$이다.
+**Example (복소 표준 inner product).** $\mathbb{C}^n$에서 $\langle x,y\rangle:=\sum_{i=1}^n x_i\overline{y_i}=y^{*}x$가 표준 inner product이다. 여기서 $y^{*}:=\overline{y}^{\mathsf T}$는 conjugate transpose이고, $\langle x,x\rangle=\sum\vert x_i\vert^2\ge0$이다.
 
-**Example (반례, Minkowski 형식).** $\mathbb{R}^2$에서 $B(x,y):=x_1y_1-x_2y_2$는 대칭이고 쌍선형이지만 내적이 아니다. $B(v,v)=x_1^2-x_2^2$이 $v=(1,1)\ne0$에서 $0$이 되고 $v=(0,1)$에서는 음수가 되어 양의 정부호성이 깨지기 때문이다. 이 형식은 특수상대성의 시공간 기하에서 쓰인다.
+**Example (반례, Minkowski 형식).** $\mathbb{R}^2$에서 $B(x,y):=x_1y_1-x_2y_2$는 대칭이고 쌍선형이지만 inner product이 아니다. $B(v,v)=x_1^2-x_2^2$이 $v=(1,1)\ne0$에서 $0$이 되고 $v=(0,1)$에서는 음수가 되어 양의 정부호성이 깨지기 때문이다. 이 형식은 특수상대성의 시공간 기하에서 쓰인다.
 
 완비성까지 갖춘 무한차원 inner product space는 Hilbert space라 부르며, Fourier 해석과 함수해석의 무대가 된다. 완비성은 위상적 성질이라 함수해석에서 따로 다루고, 이 글은 유한차원에 집중한다.
 
 ## Norm과 Cauchy–Schwarz inequality
 
-내적은 곧바로 length를 준다.
+길이라는 개념을 공리로 뽑아내면 다음과 같다.
+
+**Definition (Norm).** $\mathbb{R}$ 또는 $\mathbb{C}$ 위의 vector space $V$에서 함수 $\lVert\cdot\rVert:V\to\mathbb{R}$가 (i) 양의 정부호성: $\lVert v\rVert\ge0$이고 등호는 $v=0$일 때뿐, (ii) 절대 동차성: $\lVert cv\rVert=\vert c\vert\,\lVert v\rVert$, (iii) 삼각부등식: $\lVert u+v\rVert\le\lVert u\rVert+\lVert v\rVert$를 만족하면 norm이라 하고, $(V,\lVert\cdot\rVert)$를 normed vector space라 한다.
+
+inner product은 곧바로 이런 norm 하나를 내놓는다.
 
 **Definition (Induced Norm).** $\lVert v\rVert:=\sqrt{\langle v,v\rangle}$.
 
@@ -41,13 +45,27 @@ $$0\le\langle u-tv,\;u-tv\rangle=\langle u,u\rangle-\overline t\langle u,v\rangl
 
 *Proof.* $\lVert u+v\rVert^2=\lVert u\rVert^2+2\operatorname{Re}\langle u,v\rangle+\lVert v\rVert^2\le\lVert u\rVert^2+2\vert\langle u,v\rangle\vert+\lVert v\rVert^2\le(\lVert u\rVert+\lVert v\rVert)^2$이며, 가운데 inequality에 Cauchy–Schwarz를 썼다. $\blacksquare$
 
+곧 induced norm은 실제로 norm이다: 양의 정부호성과 절대 동차성은 inner product의 정의에서 곧바로 나오고, 삼각부등식이 방금 얻은 이 Corollary다.
+
 이 inequality는 조각조각 발견되었다. Cauchy가 1821년 유한합에 대해 세웠고 [1], Bunyakovsky가 1859년 적분 꼴로 [2], Schwarz가 1888년 일반적인 형태로 [3] 다시 얻어, 오늘날 Cauchy–Bunyakovsky–Schwarz inequality라고도 부른다.
 
 실수 위의 inner product space에서는 Cauchy–Schwarz가 $\dfrac{\langle u,v\rangle}{\lVert u\rVert\,\lVert v\rVert}\in[-1,1]$을 보장하므로, 이 값을 $\cos\theta$로 두어 두 벡터 사이의 angle $\theta$를 정의할 수 있다.
 
+모든 norm이 이렇게 inner product에서 나오는 것은 아니다. Induced norm은 다음 항등식을 하나 더 만족한다.
+
+**Proposition (Parallelogram Law).** induced norm은 모든 $u,v$에서
+$$\lVert u+v\rVert^2+\lVert u-v\rVert^2=2\lVert u\rVert^2+2\lVert v\rVert^2$$
+를 만족한다.
+
+*Proof.* $\lVert u+v\rVert^2=\lVert u\rVert^2+2\operatorname{Re}\langle u,v\rangle+\lVert v\rVert^2$이고 $\lVert u-v\rVert^2=\lVert u\rVert^2-2\operatorname{Re}\langle u,v\rangle+\lVert v\rVert^2$이므로 둘을 더하면 된다. $\blacksquare$
+
+**Example (parallelogram law가 깨지는 norm).** $\mathbb{R}^2$ 위의 $$\lVert(x,y)\rVert_\infty:=\max(\vert x\vert,\vert y\vert)$$은 norm의 세 조건을 모두 만족하지만(직접 확인된다), $u=(1,0)$, $v=(0,1)$에서
+$$\lVert u+v\rVert_\infty^2+\lVert u-v\rVert_\infty^2=1+1=2\ne4=2\lVert u\rVert_\infty^2+2\lVert v\rVert_\infty^2$$
+이라 parallelogram law가 깨진다. 그러므로 이 norm은 어떤 inner product에서도 유도될 수 없다. 실은 거꾸로, parallelogram law를 만족하는 norm은 반드시 (극화항등식으로 복원되는) 어떤 inner product에서 유도된다는 것을 Pascual Jordan과 John von Neumann이 1935년에 보였다 [8].
+
 ## Orthogonality와 orthonormal 집합
 
-angle이 $90^\circ$인 경우, 곧 내적이 $0$인 경우가 특별하다.
+angle이 $90^\circ$인 경우, 곧 inner product이 $0$인 경우가 특별하다.
 
 **Definition (Orthogonality).** $\langle u,v\rangle=0$이면 $u$와 $v$가 orthogonal이라 하고 $u\perp v$로 쓴다.
 
@@ -61,15 +79,15 @@ length가 $1$이고 서로 orthogonal한 벡터들의 모임이 가장 다루기
 
 **Proposition.** orthonormal set is linearly independent.
 
-*Proof.* 유한개 $e_{i_1},\dots,e_{i_k}$에 대해 $\sum_l c_le_{i_l}=0$의 양변과 $e_{i_m}$의 내적을 취하면 $\sum_l c_l\langle e_{i_l},e_{i_m}\rangle=c_m=0$이다. 모든 $m$에서 $c_m=0$이다. $\blacksquare$
+*Proof.* 유한개 $e_{i_1},\dots,e_{i_k}$에 대해 $\sum_l c_le_{i_l}=0$의 양변과 $e_{i_m}$의 inner product을 취하면 $\sum_l c_l\langle e_{i_l},e_{i_m}\rangle=c_m=0$이다. 모든 $m$에서 $c_m=0$이다. $\blacksquare$
 
-**Example (회전한 basis).** $\mathbb{R}^2$에서 $$\Big\{\tfrac1{\sqrt2}(1,1),\ \tfrac1{\sqrt2}(1,-1)\Big\}$$은 orthonormal basis다. standard basis를 $45^\circ$ 돌린 것으로, 두 벡터의 length가 각각 $1$이고 내적이 $\tfrac12(1\cdot1+1\cdot(-1))=0$이다.
+**Example (회전한 basis).** $\mathbb{R}^2$에서 $$\Big\{\tfrac1{\sqrt2}(1,1),\ \tfrac1{\sqrt2}(1,-1)\Big\}$$은 orthonormal basis다. standard basis를 $45^\circ$ 돌린 것으로, 두 벡터의 length가 각각 $1$이고 inner product이 $\tfrac12(1\cdot1+1\cdot(-1))=0$이다.
 
 **Example (Fourier).** 복소값 함수에 $\langle f,g\rangle:=\frac1{2\pi}\int_0^{2\pi}f(x)\overline{g(x)}\,dx$를 주면, $e_n(x):=e^{inx}$ ($n\in\mathbb{Z}$)들이
 $$\langle e_m,e_n\rangle=\frac1{2\pi}\int_0^{2\pi}e^{i(m-n)x}\,dx=\delta_{mn}$$
 을 만족해 가산 무한 orthonormal 집합을 이룬다. Fourier 급수가 함수를 이 $e_n$들로 펼치는 것으로, Fourier 해석에서 본격적으로 다룬다.
 
-**Example (비가산 orthonormal 집합).** $\mathbb{R}$ 위의 함수들에 평균 내적 $\langle f,g\rangle:=\lim_{T\to\infty}\frac1{2T}\int_{-T}^{T}f(x)\overline{g(x)}\,dx$를 주자. 각 실수 $\lambda$마다 $e_\lambda(x):=e^{i\lambda x}$로 두면, $\lambda\ne\mu$일 때 $\frac1{2T}\int_{-T}^{T}e^{i(\lambda-\mu)x}\,dx=\frac{\sin((\lambda-\mu)T)}{(\lambda-\mu)T}\to0$이고 $\lambda=\mu$이면 값이 늘 $1$이라
+**Example (비가산 orthonormal 집합).** $\mathbb{R}$ 위의 함수들에 평균 inner product $\langle f,g\rangle:=\lim_{T\to\infty}\frac1{2T}\int_{-T}^{T}f(x)\overline{g(x)}\,dx$를 주자. 각 실수 $\lambda$마다 $e_\lambda(x):=e^{i\lambda x}$로 두면, $\lambda\ne\mu$일 때 $\frac1{2T}\int_{-T}^{T}e^{i(\lambda-\mu)x}\,dx=\frac{\sin((\lambda-\mu)T)}{(\lambda-\mu)T}\to0$이고 $\lambda=\mu$이면 값이 늘 $1$이라
 $$\langle e_\lambda,e_\mu\rangle=\delta_{\lambda\mu}$$
 이다. 곧 $$\{e_\lambda\}_{\lambda\in\mathbb{R}}$$가 비가산 orthonormal 집합이다.
 
@@ -101,13 +119,13 @@ Finite linearly independent set에 대한 Gram-Schmidt만 다뤘지만, 같은 �
 
 ## Orthogonal projection
 
-**Definition (Projection).** vector space $V$에서 $P^2=P$인 선형사상 $P:V\to V$를 projection이라 한다.
+**Definition (Projection).** linear map $P:V\to V$가 $P^2=P$를 만족하면 projection(또는 idempotent)이라 한다.
 
-**Proposition.** projection $P$에 대해 $V=\operatorname{im}P\oplus\ker P$이고, $P$는 $\operatorname{im}P$의 벡터를 그대로 두고 $\ker P$를 $0$으로 보낸다.
+**Proposition.** projection $P$에 대해 $V=\operatorname{im}P\oplus\ker P$이다.
 
-*Proof.* $v=Pv+(v-Pv)$에서 $Pv\in\operatorname{im}P$이고 $P(v-Pv)=Pv-P^2v=0$이라 $v-Pv\in\ker P$이며, $x\in\operatorname{im}P\cap\ker P$이면 $x=Px=0$이다. 또 $w\in\operatorname{im}P$면 $w=Pu$라 $Pw=P^2u=w$이다. $\blacksquare$
+*Proof.* 임의의 $v\in V$는 $v=Pv+(v-Pv)$로 쓰이는데 $Pv\in\operatorname{im}P$이고, $P(v-Pv)=Pv-P^2v=Pv-Pv=0$이라 $v-Pv\in\ker P$이므로 $V=\operatorname{im}P+\ker P$이다. $w\in\operatorname{im}P\cap\ker P$이면 $w=Pu$인 $u$가 있어 $0=Pw=P^2u=Pu=w$이므로 $$\operatorname{im}P\cap\ker P=\{0\}$$이다. 따라서 $V=\operatorname{im}P\oplus\ker P$이다. $\blacksquare$
 
-다만 이 direct sum이 orthogonal이라는 보장은 없다. 여기에 내적을 얹어 orthogonality까지 요구한 것이 orthogonal projection이다.
+이 direct sum이 orthogonal이라는 보장은 없다. 여기에 inner product을 얹어 orthogonality까지 요구한 것이 orthogonal projection이다.
 
 **Definition (Orthogonal Projection).** inner product space $V$에서 projection $P$가 모든 $v$에 대해 $v-Pv\perp Pv$를 만족하면 orthogonal projection이라 한다.
 
@@ -207,3 +225,4 @@ $$\operatorname{proj}_W(\sin x)=\frac{\langle\sin x,1\rangle}{\langle 1,1\rangle
 5. Schmidt, E. (1907). Zur Theorie der linearen und nichtlinearen Integralgleichungen. I. *Mathematische Annalen*, 63, 433–476.
 6. Legendre, A.-M. (1805). *Nouvelles méthodes pour la détermination des orbites des comètes*. Paris: Firmin Didot.
 7. Gauss, C. F. (1809). *Theoria motus corporum coelestium in sectionibus conicis solem ambientium*. Hamburg: Perthes & Besser.
+8. Jordan, P., & von Neumann, J. (1935). On Inner Products in Linear, Metric Spaces. *Annals of Mathematics*, 36(3), 719–723.

@@ -168,7 +168,7 @@ $$\left[\begin{array}{ccc}1&0&0\\0&1&0\\0&0&1\end{array}\middle\vert\begin{array
 
 **Proposition.** 실행렬 $A\in\mathbb{R}^{m\times n}$에 대해 $N(A^{\mathsf T}A)=N(A)$이다. 특히 $A$가 full column rank이면 $A^{\mathsf T}A$($n\times n$)는 가역이다.
 
-*Proof.* $Ax=0$이면 당연히 $A^{\mathsf T}Ax=0$이다. 역으로 $A^{\mathsf T}Ax=0$이면 $\lVert Ax\rVert^2=x^{\mathsf T}A^{\mathsf T}Ax=0$이라 $Ax=0$이다(여기서 실수 성분의 표준 내적을 썼다). 따라서 두 null space가 같다. full column rank이면 $$N(A)=\{0\}$$이므로 $$N(A^{\mathsf T}A)=\{0\}$$, 곧 정사각행렬 $A^{\mathsf T}A$가 가역이다. $\blacksquare$
+*Proof.* $Ax=0$이면 당연히 $A^{\mathsf T}Ax=0$이다. 역으로 $A^{\mathsf T}Ax=0$이면 $\lVert Ax\rVert^2=x^{\mathsf T}A^{\mathsf T}Ax=0$이라 $Ax=0$이다(여기서 실수 성분의 표준 inner product을 썼다). 따라서 두 null space가 같다. full column rank이면 $$N(A)=\{0\}$$이므로 $$N(A^{\mathsf T}A)=\{0\}$$, 곧 정사각행렬 $A^{\mathsf T}A$가 가역이다. $\blacksquare$
 
 이 덕분에 full column rank인 행렬의 left inverse 중에 $B=(A^{\mathsf T}A)^{-1}A^{\mathsf T}$라는 명시적 left inverse가 존재한다 ($BA=(A^{\mathsf T}A)^{-1}A^{\mathsf T}A=I_n$). 반대로 full row rank인 행렬의 right inverse 중 하나는 $A^T(AA^T)^{-1}$이다.
 

@@ -4,3 +4,5 @@ CLAUDE.md
 .jekyll-cache
 .jekyll-metadata
 vendor
+.claude/
+scripts/__pycache__

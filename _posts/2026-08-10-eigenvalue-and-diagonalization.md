@@ -41,7 +41,7 @@ eigenvalue는 같지만 eigenvector까지 같을 이유는 없다.
 
 **Definition (Diagonalizable).** $A\in F^{n\times n}$이 어떤 invertible $P$와 diagonal matrix $D$로 $A=PDP^{-1}$로 쓰이면 diagonalizable이라 한다.
 
-$A=PDP^{-1}$은 $A$가 diagonal matrix $D$와 similar하다는 뜻이다. Linear map 글의 기저 변환으로 읽으면, $P$의 열인 eigenvector들을 기저로 잡을 때 그 기저에서 $A$가 $D$로 표현된다는 것이다. 대각화란 결국 선형사상이 diagonal로 보이는 기저를 찾는 일이다.
+즉 어떤 행렬이 diagonalizable하다는 것은 linear map이 diagonal matrix로 표현되는 basis change가 존재한다는 것이다.
 
 **Theorem (eigenvector basis).** $A$가 diagonalizable인 것은 $F^n$이 $A$의 eigenvector로 이루어진 basis를 가지는 것과 동치다.
 
@@ -73,7 +73,7 @@ diagonalizable이 되는 가장 쉬운 충분조건은 eigenvalue가 모두 다�
 
 역은 성립하지 않는다. 서로 다른 eigenvalue가 $n$개보다 적어도 diagonalizable일 수 있다(예: $I$는 eigenvalue가 $1$ 하나뿐이지만 이미 diagonal이다). 반면 아예 diagonalizable이 아닌 행렬도 있다.
 
-diagonalizable이 되는 또 다른 충분조건은 symmetric이라는 것이다. 심지어 eigenvalue가 모두 real이며 eigenvector가 모두 orthogonal이라는 강력한 결과가 성립한다. 이는 다른 포스트에서 다룬다.
+diagonalizable이 되는 또 다른 충분조건은 real symmetric이이다. 심지어 eigenvalue가 모두 real이며 eigenvector가 모두 orthogonal이라는 강력한 결과가 성립한다. 이는 다른 포스트에서 다룬다.
 
 ## Trace, determinant와 eigenvalue
 
@@ -102,14 +102,6 @@ $A^nx$ 하나만 필요할 때는 굳이 $A^n$을 다 구하지 않아도 된다
 **Example (Fibonacci 수열).** $F_0=0$, $F_1=1$, $F_{n+1}=F_n+F_{n-1}$인 Fibonacci 수열을 보자. $$\begin{pmatrix}F_{n+1}\\F_n\end{pmatrix}=\begin{pmatrix}1&1\\1&0\end{pmatrix}\begin{pmatrix}F_n\\F_{n-1}\end{pmatrix}$$이므로, $$A=\begin{pmatrix}1&1\\1&0\end{pmatrix}$$에 대해 $A^n$이 수열을 준다. $A$의 characteristic polynomial은 $\lambda^2-\lambda-1$이라 eigenvalue가 $\varphi=\dfrac{1+\sqrt5}{2}$, $\psi=\dfrac{1-\sqrt5}{2}$로 서로 다르니 $A$는 diagonalizable이다. 그러면 $F_n=c_1\varphi^n+c_2\psi^n$ 꼴이어야 하고, $F_0=0$, $F_1=1$에서 $c_1=\dfrac1{\sqrt5}$, $c_2=-\dfrac1{\sqrt5}$가 나와
 $$F_n=\frac{\varphi^n-\psi^n}{\sqrt5}$$
 이다. 정수 수열이 무리수의 거듭제곱 $\varphi^n,\psi^n$으로 정확히 표현되는 이 식은 흔히 Binet의 공식이라 불리지만, 이미 de Moivre가 1730년에 같은 꼴을 얻었다 [2][3].
-
-## Commuting 행렬의 simultaneous diagonalization
-
-**Theorem (Simultaneous Diagonalization).** diagonalizable 행렬 $A,B$에 대해 다음이 동치다. (i) $AB=BA$이다. (ii) 어떤 invertible $P$로 $P^{-1}AP$와 $P^{-1}BP$가 둘 다 diagonal이다(공통 eigenvector basis).
-
-*Proof.* (ii)$\Rightarrow$(i): $P^{-1}AP=D_1$, $P^{-1}BP=D_2$가 diagonal이면 diagonal끼리는 commute하므로 $AB=PD_1D_2P^{-1}=PD_2D_1P^{-1}=BA$이다.
-
-(i)$\Rightarrow$(ii): $A$가 diagonalizable이라 $F^n=\bigoplus_\lambda E_\lambda(A)$이다. $AB=BA$이면 $B$가 각 $E_\lambda(A)$를 보존한다. 실제로 $x\in E_\lambda(A)$이면 $A(Bx)=B(Ax)=\lambda(Bx)$라 $Bx\in E_\lambda(A)$이다. diagonalizable 행렬의 invariant subspace로의 제한은 다시 diagonalizable이므로 각 $E_\lambda(A)$ 안에서 $B$의 eigenvector로 된 basis를 고를 수 있고, 이들은 $E_\lambda(A)$에 있으니 $A$의 eigenvector이기도 하다. 모든 $\lambda$에서 모으면 $A$와 $B$를 동시에 diagonalize하는 공통 basis다. $\blacksquare$
 
 ## 참고문헌
 

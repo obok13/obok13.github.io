@@ -2,7 +2,7 @@
 layout: post
 title: "Determinant"
 date: 2026-08-09
-mathematicians: [Leibniz, Seki, Cramer, Vandermonde, Laplace, Cauchy]
+mathematicians: [Leibniz, Seki, Cramer, Vandermonde, Laplace, Cauchy, Newton, de Moivre, Lebesgue]
 ---
 
 ## Determinant
@@ -69,6 +69,14 @@ transpose가 determinant를 바꾸지 않으므로, 행에 대해 성립하는 �
 
 *Proof.* $A$가 invertible이면 $AA^{-1}=I$에 multiplicativity를 쓰면 $\det A\,\det(A^{-1})=\det I=1$이라 $\det A\ne0$이고 $\det(A^{-1})=1/\det A$이다. 역으로 $A$가 singular이면 행들이 linearly dependent라 어떤 행이 나머지의 결합이고, 그 행에서 결합을 빼면(row operation, determinant 불변) $0$인 행이 생겨 $\det A=0$이다. $\blacksquare$
 
+multiplicativity 덕분에, 유한차원 벡터공간의 endomorphism에도 기저에 무관하게 determinant를 줄 수 있다.
+
+**Definition (Determinant of an Operator).** 유한차원 $V$의 endomorphism $T$에 대해, 한 기저에서의 행렬 표현 $[T]$의 determinant를 $T$의 determinant $\det T$라 한다.
+
+**Proposition (기저에 무관함).** $\det T$는 기저 선택에 무관하다.
+
+*Proof.* 다른 기저에서의 행렬 표현은 어떤 invertible $P$로 $[T]'=P^{-1}[T]P$이므로, multiplicativity로 $$\det[T]'=\det(P^{-1})\det[T]\det P=\det[T]$$이다($\det(P^{-1})\det P=\det I=1$이기 때문이다). $\blacksquare$
+
 **Proposition (Matrix Determinant Lemma).** $u,v\in F^n$에 대해 $\det(I+uv^{\mathsf T})=1+v^{\mathsf T}u$이다.
 
 *Proof.* $u=0$이면 양변이 $1$이다. $u\ne0$이면 $u$를 첫 벡터로 하는 basis를 잡아 그 coordinate로 옮기면(similarity transform은 multiplicativity로 determinant를 보존한다) $uv^{\mathsf T}$는 첫 행만 $0$이 아닌 행렬이 되고, $I+uv^{\mathsf T}$는 upper triangular처럼 diagonal 아래가 정리되어 diagonal 성분의 곱이 $1+v^{\mathsf T}u$가 된다. $\blacksquare$
@@ -95,11 +103,15 @@ cofactor expansion은 Laplace expansion이라고도 하며, Pierre-Simon Laplace
 
 **Example (second difference 행렬).** diagonal이 모두 $2$, 바로 위와 바로 아래 diagonal이 $-1$이고 나머지가 $0$인 $n\times n$ tridiagonal matrix의 determinant $D_n$은 같은 방식의 cofactor expansion으로 $D_n=2D_{n-1}-D_{n-2}$를 만족한다. $D_1=2$, $$D_2=\det\begin{pmatrix}2&-1\\-1&2\end{pmatrix}=3$$에서 시작하니 $D_n=n+1$이다.
 
-cofactor를 모으면 inverse 공식이 나온다. cofactor를 성분으로 갖는 행렬의 transpose $\operatorname{adj}(A)$($(i,j)$ 성분이 $C_{ji}$)를 adjugate라 한다.
+cofactor를 모으면 inverse 공식이 나온다.
 
-**Theorem (Adjugate).** $A\,\operatorname{adj}(A)=\operatorname{adj}(A)\,A=(\det A)\,I$이다. 따라서 $A$가 invertible이면 $$A^{-1}=\frac{1}{\det A}\operatorname{adj}(A)$$이다.
+**Definition (Cofactor Matrix).** cofactor $C_{ij}$를 $(i,j)$ 성분으로 갖는 $n\times n$ 행렬 $C=(C_{ij})$를 $A$의 cofactor matrix라 한다.
 
-*Proof.* $A\,\operatorname{adj}(A)$의 $(i,i)$ 성분은 $\sum_j a_{ij}C_{ij}=\det A$(cofactor expansion)이다. $i\ne k$인 $(i,k)$ 성분은 $\sum_j a_{ij}C_{kj}$인데, 이는 $A$의 $k$번째 행을 $i$번째 행으로 바꾼 행렬(두 행이 같아 determinant가 $0$)을 $k$행으로 cofactor expansion한 것이라 $0$이다. 그러므로 곱이 $(\det A)I$이다. $\blacksquare$
+**Theorem (Inverse via Cofactor Matrix).** cofactor matrix의 transpose $C^{\mathsf T}$($(i,j)$ 성분이 $C_{ji}$)에 대해 $A\,C^{\mathsf T}=C^{\mathsf T}A=(\det A)\,I$이다. 따라서 $A$가 invertible이면 $$A^{-1}=\frac{1}{\det A}\,C^{\mathsf T}$$이다.
+
+*Proof.* $A\,C^{\mathsf T}$의 $(i,i)$ 성분은 $\sum_j a_{ij}C_{ij}=\det A$(cofactor expansion)이다. $i\ne k$인 $(i,k)$ 성분은 $\sum_j a_{ij}C_{kj}$인데($C^{\mathsf T}$의 $(j,k)$ 성분이 $C_{kj}$이므로), 이는 $A$의 $k$번째 행을 $i$번째 행으로 바꾼 행렬(두 행이 같아 determinant가 $0$)을 $k$행으로 cofactor expansion한 것이라 $0$이다. 그러므로 곱이 $(\det A)I$이다. $\blacksquare$
+
+이 항등식은 $\det A=0$인 경우에도, 또 성분에 미지수가 섞인 행렬에도 (양변이 성분들에 대한 polynomial 항등식이라) 그대로 성립한다.
 
 ## Cramer's Rule
 
@@ -120,7 +132,7 @@ $$\det\begin{pmatrix}1&x_1&x_1^2&\cdots&x_1^{n-1}\\1&x_2&x_2^2&\cdots&x_2^{n-1}\
 
 *Proof.* 이 determinant를 $V(x_1,\dots,x_n)$이라 하면, 마지막 변수 $x_n$의 $n-1$차 polynomial이다. $x_n=x_i$ ($i<n$)이면 두 행이 같아 $0$이 되므로 $V$는 $(x_n-x_1)\cdots(x_n-x_{n-1})$을 인수로 가진다. 최고차항 $x_n^{n-1}$의 계수는 cofactor expansion으로 $V(x_1,\dots,x_{n-1})$이므로 $V(x_1,\dots,x_n)=V(x_1,\dots,x_{n-1})\prod_{i<n}(x_n-x_i)$이고, $n$에 대한 induction으로 공식을 얻는다. $\blacksquare$
 
-특히 Vandermonde determinant는 $x_i$가 서로 다를 때만 $0$이 아니다. 이는 서로 다른 $n$개의 점을 지나는 $n-1$차 polynomial이 유일하게 존재한다는 polynomial interpolation의 근거가 된다. 역사적으로 이 determinant는 Alexandre-Théophile Vandermonde의 이름을 달고 있지만, 정작 그의 1772년 논문에는 이 형태가 등장하지 않는다. Henri Lebesgue가 지적한 유명한 misattribution이다 [4].
+특히 Vandermonde determinant는 $x_i$가 서로 다를 때만 $0$이 아니다. 이는 서로 다른 $n$개의 점을 지나는 $n-1$차 polynomial이 유일하게 존재한다는 polynomial interpolation의 근거가 된다. 역사적으로 이 determinant는 Alexandre-Théophile Vandermonde의 이름을 달고 있지만, 정작 그의 1772년 논문에는 이 형태가 등장하지 않는다는 유명한 misattribution을 Henri Lebesgue가 지적했다 [7]. 실제로 일반적인 $n$에 대해 이 공식을 증명한 것은 앞서 인용한 Cauchy의 1815년 논문 [6]인데, 그 논문이 바로 determinant를 처음으로 정의한 논문이기도 하다. 그보다도 더 앞서서, 이런 계수를 가진 연립방정식 자체는 Newton이 1711년 유작 *Methodus Differentialis*에서 이미 적어 두었고 [8], 그 해를(오늘날 "Lagrange interpolation formula"라 불리는 꼴로) 처음 명시적인 식으로 쓴 것은 Abraham de Moivre였다 [9]. 다만 둘 다 이를 determinant로 인식하지는 못했다. Vandermonde 자신은 1770년 논문에서 $n=3$인 특수한 경우의 이 곱을 직접 전개했고, 1771년 논문에서는 자신의 조합론적 표기에서 index를 지수로 바꾸면 alternating function이 얻어진다는 관찰을 남겼는데 [4], 후자가 Cauchy(와 Jacobi)에게 영감을 준 것으로 여겨진다 [10].
 
 ## 참고문헌
 
@@ -130,3 +142,7 @@ $$\det\begin{pmatrix}1&x_1&x_1^2&\cdots&x_1^{n-1}\\1&x_2&x_2^2&\cdots&x_2^{n-1}\
 4. Vandermonde, A.-T. (1772). Mémoire sur l'élimination. *Histoire de l'Académie Royale des Sciences (Paris)*, année 1772 (2e partie), 516–532.
 5. Laplace, P.-S. (1772). Recherches sur le calcul intégral et sur le système du monde. *Histoire de l'Académie Royale des Sciences (Paris)*, année 1772 (2e partie), 267–376.
 6. Cauchy, A.-L. (1815). Mémoire sur les fonctions qui ne peuvent obtenir que deux valeurs égales et de signes contraires par suite des transpositions opérées entre les variables qu'elles renferment. *Journal de l'École Polytechnique*, 10, 29–112.
+7. Lebesgue, H. (1937/1958). L'œuvre mathématique de Vandermonde. In *Notices d'Histoire des Mathématiques*. Genève: Université de Genève, 18–39.
+8. Newton, I. (1711). Methodus Differentialis. In *Analysis per Quantitatum Series, Fluxiones, ac Differentias*. London: Pearson.
+9. de Moivre, A. (1730). *Miscellanea Analytica de Seriebus et Quadraturis*. London, 33–35.
+10. Ycart, B. (2013). A case of mathematical eponymy: the Vandermonde determinant. *Revue d'histoire des mathématiques*, 19(1), 43–77.

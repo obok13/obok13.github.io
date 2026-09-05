@@ -8,9 +8,9 @@ permalink: /roadmap/
 
 해석학 전체를 향한 계획표다 (커리큘럼 v10, 929개 주제 / 26개 부). 각 포스트 뒤 괄호 숫자는 담당하는 커리큘럼 주제 번호다. 순서와 묶음은 쓰다 보면 바뀔 수 있다.
 
-**전체 진행률: 21 / 191 posts**
+**전체 진행률: 27 / 194 posts**
 
-`██░░░░░░░░░░░░░░░░░░░░░░░` 약 10%
+`███░░░░░░░░░░░░░░░░░░░░░░` 약 13%
 
 실수를 다 만들고 선형대수를 가로지르는 중. 정상은 아직 구름 위. 🧗
 
@@ -38,19 +38,22 @@ permalink: /roadmap/
 - ✅ 멱급수와 Taylor 급수 (29, 52–54, 84–87): Cauchy product·Mertens, Taylor·나머지항, 비해석적 매끄러움·bump, 멱급수·Cauchy–Hadamard, Abel 정리, real-analytic, 매끄러움과 해석성의 간극
 - ✅ 복소수 (91–95): ℂ 구성·대수적 폐포, polar·단위근·de Moivre, 복소수열·급수, exp·sin·cos, Euler 공식·복소로그 문제
 
-## 제3부. 선형대수학 (7/11)
+## 제3부. 선형대수학 (13/14)
 
 - ✅ 벡터공간과 기저 (47, 97–100): field·vector space 공리, 부분공간·직합, 일차독립·기저·차원, Hamel basis, Cauchy 함수방정식
-- ✅ Linear map (101–103): 선형사상·kernel·image, rank–nullity, 행렬표현·transpose·네 부분공간·FTLA
+- ✅ Linear map (101–103, 105–106): 선형사상·kernel·image, rank–nullity, 행렬표현·transpose·네 부분공간·FTLA, quotient space·1·2 isomorphism 정리
 - ✅ Gaussian elimination (104): Ax=b·REF·RREF·Gauss-Jordan, 완전해, LU·PA=LU·PA=LDU, 역행렬·left/right inverse
 - ✅ Inner product space (115–117): real·complex 내적, Cauchy–Schwarz, orthogonality·orthonormal, 직교여공간·정사영, Gram–Schmidt·QR, 최소제곱, 네 부분공간의 직교성
 - ✅ Determinant (108–110): alternating multilinear form, Leibniz big formula, row reduction, multiplicativity·Matrix Determinant Lemma, cofactor·adjugate, Cramer, Vandermonde
 - ✅ Eigenvalue and diagonalization (111–112): characteristic polynomial, eigenspace, 대각화·불변부분공간, symmetric 대각화, trace·det와 eigenvalue, 거듭제곱·commuting·Fibonacci
+- ✅ Endomorphism and Perron–Frobenius (113 일부, 126): GL(V)·idempotent·involution·nilpotent, invariant subspace·nilpotent Jordan basis, Perron–Frobenius·Leontief 조건
 - ✅ Cayley–Hamilton과 Jordan form (113–114): minimal polynomial·Cayley–Hamilton, coprime kernel·diagonalizability 판정, generalized eigenspace·primary decomposition, Jordan canonical form
-- 몫공간과 쌍대공간 (105–107): quotient space, dual space·annihilator, bilinear·multilinear form
-- 유한차원 Riesz와 spectral theorem (118–121): 유한차원 Riesz, adjoint, self-adjoint·unitary·normal, spectral theorem
-- 양작용소와 SVD (122–125): 양작용소·Cholesky, SVD·polar, 저계근사·Eckart–Young, 이차형식·Sylvester
-- 행렬 도구와 텐서 (126–131): 행렬노름·조건수, 행렬지수, Perron–Frobenius, 수치범위 🔓, 텐서곱, exterior algebra·wedge
+- ✅ Dual space and Riesz representation (107 일부, 118): dual space·annihilator·double dual, 유한차원 Riesz representation
+- ✅ Adjoint operator and the spectral theorem (119–121): adjoint·orthogonal complement, self-adjoint·unitary·normal, Schur decomposition·복소 spectral theorem·실수 principal axis theorem
+- ✅ Bilinear forms, quadratic forms, and positive operators (107 일부, 122–123, 125): bilinear·multilinear form·orthogonal via B, 양작용소·특성화·Cholesky, quadratic form·Sylvester's law of inertia
+- ✅ SVD, polar decomposition, and matrix norms (124, 126 일부): SVD·polar decomposition·pseudoinverse, 행렬노름(Frobenius·operator norm·submultiplicativity), Eckart–Young 저계근사
+- ✅ Tensor product and exterior algebra (130–131): 텐서곱과 universal property, exterior algebra·wedge·determinant의 정체
+- 행렬노름의 조건수와 민감도 (126 나머지): condition number, 선형계의 민감도 분석 (행렬지수는 15부 선형계에서 다룬다)
 
 ## 제4부. 거리공간과 일반위상 (0/8)
 
@@ -112,7 +115,7 @@ permalink: /roadmap/
 - 약위상과 Banach–Alaoglu (316–321): 약·약* 위상, Banach–Alaoglu, Eberlein–Šmulian, James, Krein–Milman
 - 위상벡터공간과 고정점 (322–329): 국소볼록·Fréchet, bipolar, Bishop–Phelps, Schauder·Tychonoff 고정점, Leray–Schauder 도수
 - Hilbert 공간 (330–334): 평행사변형, 사영정리, 정규직교기저·Bessel·Parseval, Riesz 표현
-- 작용소와 스펙트럼 (335–339): adjoint, self-adjoint·unitary·normal, 사영, 스펙트럼·resolvent, 스펙트럼반지름
+- 작용소와 스펙트럼 (335–339, 129 예정): adjoint, self-adjoint·unitary·normal, 사영, 스펙트럼·resolvent, 스펙트럼반지름, numerical range·Toeplitz–Hausdorff·Crouzeix의 추측(원래 3부 129, 동기가 부족해 여기로 미룸)
 - 컴팩트 작용소와 Fredholm (340–347): 컴팩트·유한계수, Riesz–Schauder, Fredholm 대안, Calkin·Atkinson, Fredholm 지표, essential spectrum·Weyl, 컴팩트 자기수반 spectral theorem
 - Hilbert–Schmidt·trace class·불변부분공간 (348–351): Hilbert–Schmidt·적분핵, trace class·Lidskii, frame·Kadison–Singer, 불변부분공간 문제 🔓
 
@@ -301,7 +304,7 @@ permalink: /roadmap/
 
 🗿 서술은 초등적인데 아무도 못 푸는 것.
 
-- Crouzeix의 추측 🗿 (3부, 129)
+- Crouzeix의 추측 🗿 (8부, 129, 원래 3부 배정에서 이동)
 - Whitney 문제군 (5부, 182), 매끄러운 4차원 Poincaré (5부, 196)
 - Sendov·Smale 평균값 🗿 (7부, 302)
 - 보충부분공간·분리가능 몫 (8부, 310), 불변부분공간 문제 (8부, 351)
