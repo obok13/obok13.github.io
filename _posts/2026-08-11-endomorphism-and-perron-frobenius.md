@@ -1,11 +1,15 @@
 ---
 layout: post
-title: "Endomorphism and Perron–Frobenius"
+title: "Endomorphism and Perron"
 date: 2026-08-11
-mathematicians: [Perron, Frobenius, Leontief, Hawkins, Simon]
+mathematicians: [Perron, Frobenius, Neumann]
 ---
 
 ## Endomorphism과 $GL(V)$
+
+**Definition (Group).** 집합 $G$와 연산 $\cdot:G\times G\to G$가 결합법칙 $(a\cdot b)\cdot c=a\cdot(b\cdot c)$를 만족하고, 항등원 $e\in G$가 존재해 모든 $g\in G$에서 $g\cdot e=e\cdot g=g$이며, 각 $g\in G$마다 역원 $g^{-1}\in G$가 존재해 $g\cdot g^{-1}=g^{-1}\cdot g=e$이면 $(G,\cdot)$를 group이라 한다. 교환법칙은 요구하지 않는다.
+
+**Definition (Subgroup).** group $G$의 부분집합 $H\subseteq G$가 같은 연산으로 그 자체가 group을 이루면 $H$를 $G$의 subgroup이라 한다.
 
 **Definition (Endomorphism, General Linear Group).** $V$에서 자기 자신으로 가는 linear map 전체 $$\operatorname{End}(V):=\mathcal{L}(V,V)$$를 $V$의 endomorphism이라 한다. 그중 invertible한 것 전체 $$GL(V):=\{\,T\in\operatorname{End}(V):T\text{ is invertible}\,\}$$를 $V$의 general linear group이라 한다. $GL(V)$는 합성을 연산으로 group을 이룬다(결합법칙은 자명하고, 항등원은 $\operatorname{id}$, $T\in GL(V)$의 역원은 $T^{-1}$).
 
@@ -13,21 +17,15 @@ mathematicians: [Perron, Frobenius, Leontief, Hawkins, Simon]
 
 **Proposition.** $\dim V=n$이면, 기저를 하나 고정한 행렬 표현 $T\mapsto[T]$가 $GL(V)\cong GL_n(F)$인 group isomorphism을 준다.
 
-*Proof.* $T\mapsto[T]$는 이미 합성을 행렬곱으로 보내는 linear isomorphism $\mathcal{L}(V,V)\cong F^{n\times n}$이므로, $T$가 invertible인 것과 $[T]$가 invertible인 것이 동치임만 보이면 된다. $T$가 invertible이면 $[T][T^{-1}]=[T\circ T^{-1}]=[\operatorname{id}]=I$이라 $[T]$도 invertible이다. 역으로 $[T]$가 invertible이면 그 역행렬이 나타내는 linear map $S$가 $[S\circ T]=[S][T]=I=[\operatorname{id}]$를 만족해 $S\circ T=\operatorname{id}$이고 마찬가지로 $T\circ S=\operatorname{id}$이므로 $T$도 invertible이다. 이 대응이 전단사이고 합성$\leftrightarrow$곱을 보존하므로 group isomorphism이다. $\blacksquare$
-
 determinant가 $1$인 원소들만 모으면 $GL$ 안의 subgroup이 된다.
 
-**Definition (Special Linear Group).** $$SL_n(F):=\{\,A\in GL_n(F):\det A=1\,\}$$를, 유한차원 $V$에서는 $$SL(V):=\{\,T\in GL(V):\det T=1\,\}$$(Determinant 글의 Definition (Determinant of an Operator))를 special linear group이라 한다.
+**Definition (Special Linear Group).** $$SL_n(F):=\{\,A\in GL_n(F):\det A=1\,\}$$를, 유한차원 $V$에서는 $$SL(V):=\{\,T\in GL(V):\det T=1\,\}$$를 special linear group이라 한다.
 
-**Proposition.** $SL_n(F)$는 $GL_n(F)$의 subgroup이다(같은 논증으로 $SL(V)$도 $GL(V)$의 subgroup이다).
-
-*Proof.* $\det I=1$이라 $I\in SL_n(F)$이다. $A,B\in SL_n(F)$이면 multiplicativity로 $\det(AB)=\det A\,\det B=1$이라 $AB\in SL_n(F)$이고, $\det(A^{-1})=1/\det A=1$이라 $A^{-1}\in SL_n(F)$이다. $\blacksquare$
+**Proposition.** $SL_n(F)$는 $GL_n(F)$의 subgroup이다.
 
 **Example (shear는 언제나 $SL_2$).** 임의의 $t\in\mathbb{R}$에서 shear 행렬 $$\begin{pmatrix}1&t\\0&1\end{pmatrix}$$은 determinant가 $1\cdot1-t\cdot0=1$이라 항상 $SL_2(\mathbb{R})$에 속한다. 회전 행렬도 determinant가 $\cos^2\theta+\sin^2\theta=1$이라 $SL_2(\mathbb{R})$에 속하지만, $2$배로 늘리는 $2I$는 determinant가 $4$라 속하지 않는다. $SL_2(\mathbb{R})$은 넓이와 방향을 그대로 보존하는 선형변환들의 모임이다.
 
 ## Idempotent
-
-Inner product space 글에서 이미 $P^2=P$를 만족하는 linear map $P:V\to V$를 projection이라 정의하고 $V=\operatorname{im}P\oplus\ker P$임을 보였다. inner product이 없는 일반적인 vector space에서는 이런 $T$를 idempotent라고도 부른다.
 
 **Definition (Idempotent).** $T\in\operatorname{End}(V)$가 $T^2=T$를 만족하면 idempotent(또는 projection)라 한다.
 
@@ -43,7 +41,7 @@ Inner product space 글에서 이미 $P^2=P$를 만족하는 linear map $P:V\to 
 
 *Proof.* 앞서 말한 direct sum $V=\operatorname{im}T\oplus\ker T$에서 $\operatorname{im}T$의 basis와 $\ker T$의 basis를 이어붙이면 $V$의 basis가 된다(직합과 기저 명제, Vector space 글). 이 basis에서 $T$는 $\operatorname{im}T$쪽 벡터를 그대로 두고($Tw=w$) $\ker T$쪽 벡터를 $0$으로 보내므로, 행렬은 대각성분이 $1$(그 개수는 $\dim\operatorname{im}T$) 또는 $0$(그 개수는 $\dim\ker T$)인 diagonal 행렬이다. $\blacksquare$
 
-이는 Eigenvalue and diagonalization 글에서 본 "idempotent의 eigenvalue는 $0,1$뿐"이라는 사실을 완성한 것이다: eigenvalue가 그 두 값뿐일 뿐 아니라, 실제로 그 두 eigenspace만으로 공간 전체가 diagonalize된다.
+사실 $Tv=\lambda v$($v\ne0$)이면 $\lambda v=Tv=T^2v=\lambda^2v$에서 $\lambda(\lambda-1)=0$이라, idempotent의 eigenvalue는 $0$ 또는 $1$뿐이다. 하지만 이것만으로는 $T$가 diagonalizable이라는 것까지는 안 나온다. 위 Theorem은 이보다 강한 사실을 준다: eigenvalue가 그 두 값으로 제한될 뿐 아니라, 실제로 그 두 eigenspace $\operatorname{im}T$(eigenvalue $1$)와 $\ker T$(eigenvalue $0$)만으로 공간 전체가 남김없이 분해되어 diagonalize된다.
 
 **Example (좌표축 projection).** $\mathbb{R}^3$에서 $T(x,y,z)=(x,y,0)$은 $T^2=T$인 idempotent다. $\operatorname{im}T$는 $xy$평면, $\ker T$는 $z$축이고, 표준 basis 자체가 이미 이 direct sum에 맞춰 diagonal $\operatorname{diag}(1,1,0)$을 준다.
 
@@ -103,15 +101,17 @@ $A$-invariant인 부분공간이 하나만 있어도 그 basis를 확장한 기�
 
 공간이 여러 invariant subspace의 direct sum으로 쪼개지면 행렬이 block-diagonal이 된다.
 
-**Lemma (invariant 분해와 block-diagonal).** $V=\bigoplus_jW_j$이고 각 $W_j$가 $A$-invariant이면, 이 분해에 맞춘 basis에서 $A$의 행렬은 대각 block이 $A\vert_{W_j}$인 block-diagonal이고, $p_A=\prod_j p_{A\vert_{W_j}}$이다(Eigenvalue and diagonalization 글의 characteristic polynomial $p_A(x)=\det(A-xI)$).
+**Lemma (invariant 분해와 block-diagonal).** $V=\bigoplus_jW_j$이고 각 $W_j$가 $A$-invariant이면, 이 분해에 맞춘 basis에서 $A$의 행렬은 대각 block이 $A\vert_{W_j}$인 block-diagonal이다.
 
-*Proof.* 각 $W_j$의 basis를 이어 붙여 $V$의 basis로 삼는다. $W_j$가 $A$-invariant라 그 basis 벡터의 상이 다시 $W_j$ 안에 있으므로, 이 basis에서 $A$의 행렬은 대각 위치에 $A\vert_{W_j}$의 행렬을 놓고 다른 block 자리는 $0$인 block-diagonal이다. block-diagonal 행렬의 determinant는 각 block determinant의 곱이므로(Determinant 글의 Leibniz formula에서 서로 다른 block을 섞는 permutation은 그 자리 성분이 $0$이라 사라지고, 합이 block별로 갈라진다) $p_A=\det(A-xI)=\prod_j\det(A\vert_{W_j}-xI)=\prod_j p_{A\vert_{W_j}}$이다. $\blacksquare$
+*Proof.* 각 $W_j$의 basis를 이어 붙여 $V$의 basis로 삼는다. $W_j$가 $A$-invariant라 그 basis 벡터의 상이 다시 $W_j$ 안에 있으므로, 이 basis에서 $A$의 행렬은 대각 위치에 $A\vert_{W_j}$의 행렬을 놓고 다른 block 자리는 $0$인 block-diagonal이다. $\blacksquare$
 
-## Perron–Frobenius theorem
+## Perron theorem
 
 **Definition (Positive Matrix).** 모든 성분이 양수인 행렬을 $A>0$이라 쓴다. $x\ge0$은 모든 성분이 $\ge0$, $x>0$은 모든 성분이 $>0$을 뜻한다.
 
-**Theorem (Perron).** $A\in\mathbb{R}^{n\times n}$이 $A>0$이면 다음이 성립한다. (i) $A$는 eigenvalue $\rho>0$과 그에 대한 eigenvector $v>0$을 가진다. (ii) $\rho$는 $A$의 spectral radius다: $A$의 임의의 eigenvalue $\lambda$에서 $\rho\ge\vert\lambda\vert$. (iii) $\vert\lambda\vert=\rho$인 $A$의 eigenvalue $\lambda$는 $\lambda=\rho$뿐이다(곧 $\rho$가 절댓값이 가장 큰 유일한 eigenvalue다). ($\rho$가 simple eigenvalue라는 것과 positive eigenvector가 스칼라배를 빼면 유일하다는 것까지도 성립하는데, 이는 증명하지 않고 참고문헌으로 넘긴다.)
+**Definition (Spectral Radius).** 정사각행렬 $A$의 eigenvalue들의 절댓값의 최댓값을 $A$의 spectral radius라 하고 $\rho(A)$로 쓴다.
+
+**Theorem (Perron).** $A\in\mathbb{R}^{n\times n}$이 $A>0$이면 다음이 성립한다. (i) $A$는 eigenvalue $\rho>0$과 그에 대한 eigenvector $v>0$을 가진다. (ii) $\rho$는 $A$의 spectral radius다, 곧 $\rho=\rho(A)$다: $A$의 임의의 eigenvalue $\lambda$에서 $\rho\ge\vert\lambda\vert$. (iii) $\vert\lambda\vert=\rho$인 $A$의 eigenvalue $\lambda$는 $\lambda=\rho$뿐이다(곧 $\rho$가 절댓값이 가장 큰 유일한 eigenvalue다). (iv) $\rho$는 simple eigenvalue이다. (v) $A$의 eigenvector 중 양수인 것은 스칼라배를 제외하면 $v$뿐이다.
 
 *Proof.* $$\Delta:=\Big\{x\in\mathbb{R}^n:x\ge0,\ \sum_ix_i=1\Big\}$$(simplex)는 컴팩트다(Heine–Borel). $x\in\Delta$에 대해 $$f(x):=\min\{(Ax)_i/x_i : x_i>0\}$$로 정의하자($x\ne0$이라 이 min은 공집합이 아닌 유한집합 위에서 취해져 잘 정의된다).
 
@@ -125,25 +125,32 @@ $Av=\rho v$임을 보이자. $f$의 정의에서 $v_i>0$인 모든 $i$에서 $$(
 
 (ii) $Az=\lambda z$($z\ne0$, 일반적으로 복소수)이라 하자. 각 성분에서 삼각부등식으로 $$\vert\lambda\vert\,\vert z_i\vert=\Big\vert\sum_jA_{ij}z_j\Big\vert\le\sum_jA_{ij}\vert z_j\vert=(A\vert z\vert)_i$$이므로 $A\vert z\vert\ge\vert\lambda\vert\,\vert z\vert$(성분별)이고, 곧 $f(\vert z\vert/\lVert z\rVert_1)\ge\vert\lambda\vert$다. $\rho=\max_\Delta f\ge f(\vert z\vert/\lVert z\rVert_1)\ge\vert\lambda\vert$이다.
 
-(iii) $\vert\lambda\vert=\rho$라 하자. (ii)에서 $A\vert z\vert\ge\rho\vert z\vert$인데 $f(\vert z\vert/\lVert z\rVert_1)\ge\rho=\max_\Delta f$이므로 등호, 곧 $f(\vert z\vert/\lVert z\rVert_1)=\rho$다. (i)에서 쓴 "otherwise" 논증(그 논증은 $f$가 $\rho$에서 최댓값을 가지는 임의의 점에 그대로 적용된다)을 $\vert z\vert/\lVert z\rVert_1$에 적용하면 $A\vert z\vert=\rho\vert z\vert$까지 나온다(등호). 그러면 모든 $i$에서 $$\vert\lambda\vert\,\vert z_i\vert=\rho\vert z_i\vert=(A\vert z\vert)_i=\sum_jA_{ij}\vert z_j\vert=\Big\vert\sum_jA_{ij}z_j\Big\vert$$로 삼각부등식이 등호가 되고, $A_{ij}>0$이 모든 $j$에서 성립하므로(등호 조건) $z_1,\dots,z_n$은 모두 같은 복소수 argument를 가진다: 어떤 $\theta$에서 $z=e^{i\theta}\vert z\vert$다. $Az=\lambda z$에 대입하면 $A\vert z\vert=\lambda\vert z\vert$인데 이미 $A\vert z\vert=\rho\vert z\vert$이고 $\vert z\vert\ne0$이므로 $\lambda=\rho$다. $\blacksquare$
+(iii) $\vert\lambda\vert=\rho$라 하자. (ii)에서 $A\vert z\vert\ge\rho\vert z\vert$인데 $f(\vert z\vert/\lVert z\rVert_1)\ge\rho=\max_\Delta f$이므로 등호, 곧 $f(\vert z\vert/\lVert z\rVert_1)=\rho$다. (i)에서 쓴 "otherwise" 논증(그 논증은 $f$가 $\rho$에서 최댓값을 가지는 임의의 점에 그대로 적용된다)을 $\vert z\vert/\lVert z\rVert_1$에 적용하면 $A\vert z\vert=\rho\vert z\vert$까지 나온다(등호). 그러면 모든 $i$에서 $$\vert\lambda\vert\,\vert z_i\vert=\rho\vert z_i\vert=(A\vert z\vert)_i=\sum_jA_{ij}\vert z_j\vert=\Big\vert\sum_jA_{ij}z_j\Big\vert$$로 삼각부등식이 등호가 되고, $A_{ij}>0$이 모든 $j$에서 성립하므로(등호 조건) $z_1,\dots,z_n$은 모두 같은 복소수 argument를 가진다: 어떤 $\theta$에서 $z=e^{i\theta}\vert z\vert$다. $Az=\lambda z$에 대입하면 $A\vert z\vert=\lambda\vert z\vert$인데 이미 $A\vert z\vert=\rho\vert z\vert$이고 $\vert z\vert\ne0$이므로 $\lambda=\rho$다.
+
+(iv) 먼저 $\rho$의 (실수) eigenspace가 $1$차원임을 보이자. $v$ 말고 $\rho$의 다른 실수 eigenvector $v_2$가 $v$와 일차독립이라 하자(복소수 eigenvector가 있어도 $\rho$가 실수이므로 그 실수부·허수부가 다시 $\rho$의 실수 eigenvector라 실수인 경우만 보면 충분하다). $$t^*:=\sup\{t\in\mathbb{R}:v-tv_2\ge0\}$$로 두면 $v>0$이라 $t=0$ 근방에서 $v-tv_2>0$이고, $v_2$가 $v$의 배수가 아니므로 이 집합은 위로 유계다. $w:=v-t^*v_2$는 $\rho$의 eigenvector이고(두 eigenvector의 일차결합) $w\ge0$이며, $w=0$이면 $v=t^*v_2$로 일차독립에 모순이라 $w\ne0$이다. $A>0$에서 $$(Aw)_i=\sum_jA_{ij}w_j>0$$(어떤 $j$에서 $w_j>0$이므로)이라 $Aw>0$, 곧 $\rho w=Aw>0$이라 $w>0$이다. 그런데 $w$의 모든 성분이 양수라면 $t^*$보다 조금 큰 $t$에서도 $v-tv_2\ge0$이 유지되어 $t^*$가 상한이라는 데 모순이다. 그러므로 그런 $v_2$는 없고, $\rho$의 eigenspace는 $v$가 span하는 $1$차원이다.
+
+다음으로 $v\notin\operatorname{im}(A-\rho I)$임을 보이자. $A^{\mathsf T}$도 성분이 모두 양수이므로 (i)-(iii)을 $A^{\mathsf T}$에 적용하면 $A^{\mathsf T}u=\rho'u$, $u>0$인 eigenvalue $\rho'>0$이 나온다. $\det(A^{\mathsf T}-xI)=\det((A-xI)^{\mathsf T})=\det(A-xI)$(Determinant 글)이라 $A^{\mathsf T}$와 $A$는 characteristic polynomial이 같고, 그중 절댓값이 가장 큰 실수 eigenvalue는 (iii)로 유일하므로 $\rho'=\rho$다. 만약 어떤 $z$가 $(A-\rho I)z=v$를 만족한다면, $u^{\mathsf T}A=(A^{\mathsf T}u)^{\mathsf T}=\rho u^{\mathsf T}$이므로 $$u^{\mathsf T}(A-\rho I)z=u^{\mathsf T}Az-\rho u^{\mathsf T}z=\rho u^{\mathsf T}z-\rho u^{\mathsf T}z=0$$인데, 좌변은 정의상 $u^{\mathsf T}v$이고 $u>0,v>0$이라 $$u^{\mathsf T}v=\sum_iu_iv_i>0$$이므로 모순이다. 그러므로 $v\notin\operatorname{im}(A-\rho I)$다.
+
+geometric multiplicity가 $1$인 eigenvalue에서 이 조건(eigenvector가 $A-\rho I$의 image에 들어가지 않는 것)이 정확히 algebraic multiplicity도 $1$, 곧 $\rho$가 simple eigenvalue라는 것과 동치임은 Jordan form을 다루는 다음 글에서 정확히 정당화된다. (iv)가 증명되었다.
+
+(v) $Az=\lambda z$, $z>0$(실수)이라 하자. $u^{\mathsf T}Az=\lambda u^{\mathsf T}z$인데 동시에 $u^{\mathsf T}Az=(A^{\mathsf T}u)^{\mathsf T}z=\rho u^{\mathsf T}z$이므로 $(\rho-\lambda)u^{\mathsf T}z=0$이고, $u>0,z>0$이라 $$u^{\mathsf T}z=\sum_iu_iz_i>0\ne0$$이므로 $\lambda=\rho$다. 즉 양수인 eigenvector는 반드시 $\rho$의 eigenspace에 속하는데, 그 eigenspace가 $1$차원임은 (iv)에서 이미 보였으므로 $v$의 (양의) 스칼라배뿐이다. $\blacksquare$
 
 **Example.** $$A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$$(모든 성분이 양수)는 Eigenvalue and diagonalization 글에서 이미 다룬 행렬로, eigenvalue $1,3$과 eigenvector $(1,-1),(1,1)$을 가진다. Perron root는 절댓값이 더 큰 $\rho=3$이고, 그 eigenvector $(1,1)$은 실제로 모든 성분이 양수다.
 
 Oskar Perron이 1907년 양의 성분을 가진 행렬에서 이 정리를 증명했고 [1], Georg Frobenius가 1912년 (양수 대신 음이 아니고 "irreducible"인 조건까지 완화해) 일반화했다 [2]. irreducible nonnegative matrix까지 다루는 완전한 Frobenius의 정리는 그 조건을 서술하는 graph 이론적 언어가 필요해 이 글에서는 다루지 않는다.
 
-**Theorem (Neumann series, Leontief 조건).** $A\ge0$(모든 성분이 $\ge0$)인 정사각행렬에 대해, $(I-A)^{-1}$이 존재하고 모든 성분이 $\ge0$인 것은 $A$의 spectral radius $\rho(A)<1$인 것과 동치다. 이때 $$(I-A)^{-1}=\sum_{k=0}^\infty A^k$$(성분별로 수렴)이다.
+$(I-A)^{-1}=\sum_{k=0}^\infty A^k$라는 꼴은 스칼라의 등비급수 $\frac{1}{1-a}=\sum_{k=0}^\infty a^k$($\vert a\vert<1$)를 행렬로 그대로 옮긴 것이다. 이렇게 연산자(행렬)의 거듭제곱 급수로 $(I-T)^{-1}$을 표현하는 방법을 Neumann series라 부르는데, Carl Neumann이 1877년 potential theory(Dirichlet 문제)를 다루면서 도입했다 [3].
+
+**Theorem (Neumann Series).** $A>0$인 정사각행렬에 대해, $(I-A)^{-1}$이 존재하고 모든 성분이 $\ge0$인 것은 $A$의 spectral radius $\rho(A)<1$인 것과 동치다. 이때 $$(I-A)^{-1}=\sum_{k=0}^\infty A^k$$(성분별로 수렴)이다.
 
 *Proof.* ($\Leftarrow$) $\rho(A)<1$이라 하자. $A$의 모든 eigenvalue $\lambda$가 $\vert\lambda\vert\le\rho(A)<1$이라 $1$은 eigenvalue가 아니므로 $\det(I-A)=\prod_i(1-\lambda_i)\ne0$, 곧 $I-A$는 invertible이다.
 
-부분합 $S_N:=\sum_{k=0}^NA^k\ge0$(성분별, $A\ge0$의 거듭제곱과 합이므로)을 보자. Perron eigenvector $v>0$($Av=\rho v$, $\rho=\rho(A)<1$)을 쓰면 $$S_Nv=\sum_{k=0}^NA^kv=\Big(\sum_{k=0}^N\rho^k\Big)v\le\frac{v}{1-\rho}$$이다(실수 등비급수, $\rho<1$). $v>0$이고 $S_N\ge0$이므로 각 성분에서 $$(S_N)_{ij}v_j\le\sum_k(S_N)_{ik}v_k=(S_Nv)_i\le\frac{v_i}{1-\rho},$$ 곧 $$(S_N)_{ij}\le\frac{v_i}{(1-\rho)v_j}$$로 $N$에 무관하게 유계다. $S_N$의 각 성분은 $N$에 대해 단조증가($A^k\ge0$이라 더할수록 커진다)하고 유계이므로 수렴한다(단조수렴정리, 수열의 극한 글). $S_N\to S\ge0$이라 하면 $A^{N+1}=S_{N+1}-S_N\to S-S=0$이고, $(I-A)S_N=I-A^{N+1}\to I$이므로 $(I-A)S=I$다. $I-A$가 이미 invertible이므로 $S=(I-A)^{-1}\ge0$이다.
+부분합 $S_N:=\sum_{k=0}^NA^k\ge0$(성분별, $A>0$의 거듭제곱과 합이므로)을 보자. Perron eigenvector $v>0$($Av=\rho v$, $\rho=\rho(A)<1$)을 쓰면 $$S_Nv=\sum_{k=0}^NA^kv=\Big(\sum_{k=0}^N\rho^k\Big)v\le\frac{v}{1-\rho}$$이다(실수 등비급수, $\rho<1$). $v>0$이고 $S_N\ge0$이므로 각 성분에서 $$(S_N)_{ij}v_j\le\sum_k(S_N)_{ik}v_k=(S_Nv)_i\le\frac{v_i}{1-\rho},$$ 곧 $$(S_N)_{ij}\le\frac{v_i}{(1-\rho)v_j}$$로 $N$에 무관하게 유계다. $S_N$의 각 성분은 $N$에 대해 단조증가($A^k\ge0$이라 더할수록 커진다)하고 유계이므로 수렴한다(단조수렴정리, 수열의 극한 글). $S_N\to S\ge0$이라 하면 $A^{N+1}=S_{N+1}-S_N\to S-S=0$이고, $(I-A)S_N=I-A^{N+1}\to I$이므로 $(I-A)S=I$다. $I-A$가 이미 invertible이므로 $S=(I-A)^{-1}\ge0$이다.
 
 ($\Rightarrow$) $(I-A)^{-1}=:B\ge0$이 존재한다고 하자. Perron eigenvector $v>0$에서 $(I-A)v=(1-\rho)v$이므로 양변에 $B$를 곱하면 $v=(1-\rho)Bv$다. $Bv\ge0$(성분별)인데 $v>0$이라 $$(1-\rho)(Bv)_i=v_i>0$$이 모든 $i$에서 성립해야 하므로 $$(Bv)_i>0$$이고(그렇지 않으면 $v_i\le0$이 되어 모순) $1-\rho$는 모든 $i$에서 같은 부호(양수)여야 한다. 곧 $\rho<1$이다. $\blacksquare$
-
-이는 경제학의 Leontief input-output model에서 그대로 쓰인다: $A$를 산업 간 투입-산출 계수행렬이라 하면, 경제가 유한한 생산으로 모든 수요를 충족시킬 수 있는 것("productive"한 경제)과 $\rho(A)<1$이 동치다. Wassily Leontief가 1936년 이 모형을 도입했고 [3], Hawkins와 Simon이 1949년 이 조건(Hawkins–Simon condition이라 불린다)을 정리했다 [4].
 
 ## 참고문헌
 
 1. Perron, O. (1907). Zur Theorie der Matrices. *Mathematische Annalen*, 64, 248–263.
 2. Frobenius, G. (1912). Über Matrizen aus nicht negativen Elementen. *Sitzungsberichte der Königlich Preussischen Akademie der Wissenschaften*, 456–477.
-3. Leontief, W. (1936). Quantitative Input and Output Relations in the Economic Systems of the United States. *The Review of Economic Statistics*, 18(3), 105–125.
-4. Hawkins, D., & Simon, H. A. (1949). Note: Some Conditions of Macroeconomic Stability. *Econometrica*, 17(3), 245–248.
+3. Neumann, C. (1877). *Untersuchungen über das logarithmische und Newton'sche Potential*. Leipzig: B. G. Teubner.

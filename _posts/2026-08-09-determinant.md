@@ -73,7 +73,7 @@ multiplicativity 덕분에, 유한차원 벡터공간의 endomorphism에도 기�
 
 **Definition (Determinant of an Operator).** 유한차원 $V$의 endomorphism $T$에 대해, 한 기저에서의 행렬 표현 $[T]$의 determinant를 $T$의 determinant $\det T$라 한다.
 
-**Proposition (기저에 무관함).** $\det T$는 기저 선택에 무관하다.
+**Proposition (well-defined).** $\det T$가 잘 정의된다. 즉, basis 선택에 상관 없이 $\det T$의 값이 같다.
 
 *Proof.* 다른 기저에서의 행렬 표현은 어떤 invertible $P$로 $[T]'=P^{-1}[T]P$이므로, multiplicativity로 $$\det[T]'=\det(P^{-1})\det[T]\det P=\det[T]$$이다($\det(P^{-1})\det P=\det I=1$이기 때문이다). $\blacksquare$
 

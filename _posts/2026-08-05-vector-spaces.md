@@ -2,7 +2,7 @@
 layout: post
 title: "Vector space"
 date: 2026-08-05
-mathematicians: [Peano, Grassmann, Steinitz, Hamel, Zorn, Cauchy, Zermelo, Blass]
+mathematicians: [Peano, Grassmann, Steinitz, Hamel, Zorn, Cauchy, Blass, Tarski, Fréchet, Läuchli]
 ---
 
 ## 체와 벡터공간
@@ -73,37 +73,25 @@ $$\operatorname{span}S := \{\,a_1v_1+\cdots+a_kv_k : k\ge0,\ a_i\in F,\ v_i\in S
 
 **Example (span하지 못해 기저가 아님).** $$\{(1,0)\}$$은 $\mathbb{R}^2$에서 일차독립이지만 $(0,1)$을 만들지 못해 $\mathbb{R}^2$를 span하지 않으므로 기저가 아니다. 벡터가 차원보다 적으면 결코 span할 수 없다.
 
-## 차원
-
-기저의 크기가 표현 방식에 무관하게 정해진다는 것이 선형대수의 첫 번째 핵심이다. 그 열쇠가 Steinitz의 Exchange Lemma다 [3].
-
-**Lemma (Steinitz Exchange).** $$\{v_1,\dots,v_m\}$$이 일차독립이고 $$\{w_1,\dots,w_n\}$$이 $V$를 span하면 $m\le n$이다.
-
-*Proof.* $w$들이 span하므로 $v_1=\sum_{j=1}^n c_jw_j$인데, $v_1\ne0$(일차독립 집합은 $0$을 포함하지 않는다)이라 어떤 $c_j\ne0$이다. 번호를 바꿔 $c_1\ne0$이라 하면 $w_1$을 $v_1,w_2,\dots,w_n$의 결합으로 풀 수 있으므로 $$\{v_1,w_2,\dots,w_n\}$$도 $V$를 span한다. 이제 이미 $$\{v_1,\dots,v_k,w_{k+1},\dots,w_n\}$$이 span한다고 하자. $v_{k+1}$을 이 집합의 결합으로 쓰면, $w$들의 계수가 모두 $0$일 수는 없다(그렇다면 $$v_{k+1}\in\operatorname{span}\{v_1,\dots,v_k\}$$가 되어 $v$들의 일차독립에 모순). 그 $w$ 하나를 $v_{k+1}$로 교환하면 $$\{v_1,\dots,v_{k+1},w_{k+2},\dots,w_n\}$$이 다시 span한다. 만약 $m>n$이라면 $n$번의 교환 뒤 $w$가 모두 소진되어 $$\{v_1,\dots,v_n\}$$이 span하게 되고, 그러면 남은 $v_{n+1}$이 앞 $v$들의 결합이 되어 일차독립에 모순이다. 따라서 $m\le n$이다. $\blacksquare$
-
-**Theorem.** 유한 기저를 가지는 벡터공간의 임의의 두 기저는 원소의 개수가 같다.
-
-*Proof.* 기저 $B$(크기 $m$)와 $C$(크기 $n$)에 대해, $B$는 일차독립이고 $C$는 span하므로 Exchange Lemma로 $m\le n$이고, 역할을 바꾸면 $n\le m$이다. 따라서 $m=n$이다. $\blacksquare$
-
-**Definition (Dimension).** 이 공통의 개수를 $V$의 차원 $\dim V$라 한다. 유한 기저가 없으면 $V$를 무한차원이라 한다.
-
-**Example ($\dim F^n=n$).** $F^n$의 표준기저가 $n$개이므로 $\dim F^n=n$이다.
-
-**Example (무한차원).** $\mathbb{R}[x]$는 $1,x,x^2,\dots$가 일차독립이라 유한 기저를 가질 수 없으므로 무한차원이다. 무한차원에서도 임의의 두 기저는 같은 cardinality를 가지지만, 그 증명은 무한 cardinal 산술이 필요하므로 여기서는 넘어간다.
-
 ## 기저의 존재
 
-**Theorem.** 유한개의 벡터로 span되는 벡터공간은 기저를 가진다. 더욱이 임의의 일차독립 집합은 기저로 확장할 수 있고, 임의의 span 집합은 기저를 포함한다.
+**Theorem (유한생성 벡터공간의 기저 존재).** 유한개의 벡터로 span되는 벡터공간은 기저를 가진다.
 
-*Proof.* 유한 span 집합에서 다른 원소들의 결합으로 표현되는 벡터를 하나씩 제거해도 span은 유지되고, 더 제거할 수 없게 되면 남은 집합은 일차독립이라 기저다. 확장의 경우, 일차독립 집합에 span 밖의 벡터를 계속 더하면 독립성이 유지되고, 유한 생성이면 이 과정이 유한 번에 끝나 기저에 도달한다. $\blacksquare$
+*Proof.* $V$가 유한집합 $S$로 span된다고 하자. $S$의 원소 중 나머지의 결합으로 표현되는 것이 있으면 그 원소를 제거해도 남은 집합은 여전히 $V$를 span한다. 이 과정을 더 제거할 원소가 없을 때까지 반복하면(유한집합이라 유한 번에 끝난다), 남은 집합은 $V$를 span하면서 일차독립이므로 기저다. $\blacksquare$
 
-무한차원에서는 이런 유한 절차가 끝나지 않는다. 여기서 선택 공리가 등장한다.
+이 논증은 $S$가 원래 주어진 생성집합이라는 사실과 무관하게 임의의 유한 span 집합에 그대로 적용되므로, 임의의 span 집합은 기저를 포함한다는 사실도 같은 증명으로 곧바로 따라온다.
+
+**Theorem (기저로의 확장).** $V$가 유한개의 벡터로 span된다고 하자. 임의의 일차독립 집합은 기저로 확장할 수 있다.
+
+*Proof.* 일차독립 집합에 span 밖의 벡터를 하나씩 계속 더해도 독립성이 유지된다. $V$가 유한 생성이므로 이 과정은 유한 번 만에 끝나고(전체를 span하는 순간 멈춘다), 그 결과는 기저다. $\blacksquare$
+
+$V$가 유한개의 벡터로 span되지 않으면 이런 유한 절차가 끝나지 않는다. 여기서 선택 공리가 등장한다.
 
 **Theorem (Basis Existence).** 모든 벡터공간은 기저를 가진다.
 
 *Proof.* $V$의 일차독립 부분집합 전체를 포함관계로 정렬하자. 이 정렬에서 chain(전순서 부분집합) $\mathcal{C}$의 합집합 $U=\bigcup\mathcal{C}$는 다시 일차독립이다. $U$의 유한 부분집합이 일차종속이라면 그 유한개의 벡터가 chain의 어느 한 원소에 모두 들어가는데, 그 원소가 일차독립이라는 데 모순이기 때문이다. 따라서 모든 chain이 upper bound를 가지므로, 선택 공리 글에서 다룬 Zorn's Lemma에 의해 maximal 일차독립집합 $M$이 존재한다. 만약 $M$이 $V$를 span하지 않으면 $v\notin\operatorname{span}M$인 $v$가 있고 $$M\cup\{v\}$$가 여전히 일차독립이라 $M$의 maximality에 모순이다. 그러므로 $M$은 $V$를 span하는 일차독립 집합, 곧 기저다. $\blacksquare$
 
-이 정리는 사실 선택 공리와 동치다. "모든 벡터공간이 기저를 가진다"는 명제에서 거꾸로 선택 공리를 이끌어낼 수 있음을 Blass가 1984년에 증명했다 [6]. 즉 무한차원 기저의 존재는 순수한 존재 정리일 뿐, 대개 구체적으로 적어낼 수 없다.
+이 정리는 사실 선택 공리와 동치다. "모든 벡터공간이 기저를 가진다"는 명제에서 거꾸로 선택 공리를 이끌어낼 수 있음을 Blass가 1984년에 증명했다 [6]. 즉 일반적인 기저의 존재는 순수한 존재 정리일 뿐, 대개 구체적으로 적어낼 수 없다.
 
 **Definition (Hamel Basis).** $\mathbb{R}$을 $\mathbb{Q}$ 위의 벡터공간으로 볼 때의 기저를 Hamel basis라 한다 [4]. 위 정리(즉 선택 공리)가 그 존재를 보장하지만, 명시적으로 나열하는 것은 불가능하다.
 
@@ -115,19 +103,41 @@ Hamel basis의 존재는 해석학에 뜻밖의 그림자를 드리운다. Cauch
 
 **Proposition.** additive 함수 $f$는 $\mathbb{Q}$-선형이다. 즉 모든 $q\in\mathbb{Q}$, $x\in\mathbb{R}$에서 $f(qx)=qf(x)$이다. 특히 $f$가 한 점에서라도 연속이면 $f(x)=cx$ ($c=f(1)$) 꼴이다.
 
-*Proof.* $f(0)=f(0)+f(0)$에서 $f(0)=0$이고, 귀납법으로 $f(nx)=nf(x)$ ($n\ge1$), $f(-x)=-f(x)$를 얻는다. 또 $f(x)=f\!\left(n\cdot\tfrac{x}{n}\right)=nf\!\left(\tfrac{x}{n}\right)$이므로 $f(x/n)=f(x)/n$이고, 이 둘을 합치면 $q=m/n$에 대해 $f(qx)=qf(x)$이다. 이제 $f$가 연속이라 하자. 임의의 $x\in\mathbb{R}$에 대해 $x$로 수렴하는 유리수열 $q_k$를 잡으면 $f(q_k)=q_kf(1)$이고, 연속성으로 $k\to\infty$에서 $f(x)=xf(1)$이다. $\blacksquare$
+*Proof.* $f(0)=f(0)+f(0)$에서 $f(0)=0$이고, 귀납법으로 $f(nx)=nf(x)$ ($n\ge1$), $f(-x)=-f(x)$를 얻는다. 또 $f(x)=f\!\left(n\cdot\tfrac{x}{n}\right)=nf\!\left(\tfrac{x}{n}\right)$이므로 $f(x/n)=f(x)/n$이고, 이 둘을 합치면 $q=m/n$에 대해 $f(qx)=qf(x)$이다. 이제 $f$가 어떤 한 점 $x_0$에서 연속이라 하자. 임의의 $h$에 대해 $f(x_0+h)-f(x_0)=f(h)$이므로($f$의 additivity), $h\to0$일 때 $x_0+h\to x_0$이고 $x_0$에서의 연속성으로 $f(x_0+h)\to f(x_0)$, 즉 $f(h)\to0$이다. 그러므로 $f$는 $0$에서 연속이고, 임의의 점 $a$에서도 $f(a+h)-f(a)=f(h)\to0$이므로 $f$는 사실 모든 점에서 연속이다. 이제 임의의 $x\in\mathbb{R}$에 대해 $x$로 수렴하는 유리수열 $q_k$를 잡으면 $f(q_k)=q_kf(1)$이고, 연속성으로 $k\to\infty$에서 $f(x)=xf(1)$이다. $\blacksquare$
 
 연속 조건이 붙으면 이렇게 해가 직선 $f(x)=cx$로 고정된다. 그런데 아무 조건도 없으면 사정이 완전히 달라진다.
 
 **Theorem (Hamel).** $f(x)=cx$ 꼴이 아닌 additive 함수가 존재한다. 그런 $f$는 어떤 점에서도 연속이 아니며, 그 그래프 $$\{(x,f(x)):x\in\mathbb{R}\}$$는 $\mathbb{R}^2$에서 조밀하다.
 
-*Proof.* $\mathbb{R}$의 Hamel basis $H$를 하나 잡는다. 각 $x\in\mathbb{R}$은 $H$의 원소들의 유한 유리계수 결합으로 유일하게 쓰이므로, $H$ 위에서 $f$의 값을 임의로 정하면 $\mathbb{Q}$-선형으로 유일하게 확장되고 이 $f$는 additive다. 이때 서로 다른 $h_1,h_2\in H$에서 $f(h_1)/h_1\ne f(h_2)/h_2$가 되도록 값을 정하자. 만약 모든 $x$에서 $f(x)=cx$라면 특히 모든 $h\in H$에서 $f(h)/h=c$로 일정해야 하므로 모순이다. 따라서 $f$는 $cx$ 꼴이 아니다.
+*Proof.* $\mathbb{R}$의 Hamel basis $H$를 하나 잡는다. 각 $H$의 원소 $h_i$에 대해서 $f$ 값을 자유롭게 정해도 $f\left(\sum q_ih_i\right):=\sum q_if(h_i)$가 항상 잘 정의된다. 따라서 $f(x)=cx$ 꼴이 아니어도 된다.
 
-이제 $f$가 $\mathbb{Q}$-선형이지만 어떤 직선 $y=cx$에도 담기지 않으므로, 그래프 $$G=\{(x,f(x))\}$$는 $\mathbb{R}^2$의 $\mathbb{Q}$-부분공간이면서 한 직선에 들어가지 않는다. 그런 $\mathbb{Q}$-부분공간은 일차독립인 두 벡터 $(x_1,f(x_1))$, $(x_2,f(x_2))$를 포함하고, 그 유리계수 결합 전체가 이미 $\mathbb{R}^2$에서 조밀하다. 조밀한 그래프를 가진 함수는 어느 점에서도 연속일 수 없다(연속이면 그래프가 국소적으로 곡선 근방에 갇혀 조밀할 수 없다). $\blacksquare$
+$f$가 $cx$ 꼴이 아니므로, 앞 Proposition의 대우에 의해 $f$는 어느 점에서도 연속일 수 없다(연속인 점이 하나라도 있었다면 $f(x)=cx$ 꼴이어야 한다). $\blacksquare$
 
 사실 $f$가 measurable이기만 해도, 혹은 양의 measure를 갖는 어떤 집합에서 유계이기만 해도 $f(x)=cx$임이 알려져 있다(Fréchet, Sierpiński). 이 방향은 측도론이 필요하므로 뒤의 측도론 글로 미룬다.
 
 비선형 additive 함수는 Vitali 집합이나 Banach–Tarski 분해처럼, 선택 공리가 낳지만 결코 손으로 그릴 수 없는 대상이다.
+
+## 차원
+
+기저의 크기가 표현 방식에 무관하게 정해진다는 것이 선형대수의 첫 번째 핵심이다. 그 열쇠가 Steinitz의 Exchange Lemma다 [3].
+
+**Lemma (Steinitz Exchange).** $$\{v_1,\dots,v_m\}$$이 일차독립이고 $$\{w_1,\dots,w_n\}$$이 $V$를 span하면 $m\le n$이다.
+
+*Proof.* $w$들이 span하므로 $v_1=\sum_{j=1}^n c_jw_j$인데, $v_1\ne0$(일차독립 집합은 $0$을 포함하지 않는다)이라 어떤 $c_j\ne0$이다. 번호를 바꿔 $c_1\ne0$이라 하면 $w_1$을 $v_1,w_2,\dots,w_n$의 결합으로 풀 수 있으므로 $$\{v_1,w_2,\dots,w_n\}$$도 $V$를 span한다. 이제 이미 $$\{v_1,\dots,v_k,w_{k+1},\dots,w_n\}$$이 span한다고 하자. $v_{k+1}$을 이 집합의 결합으로 쓰면, $w$들의 계수가 모두 $0$일 수는 없다(그렇다면 $$v_{k+1}\in\operatorname{span}\{v_1,\dots,v_k\}$$가 되어 $v$들의 일차독립에 모순). 그 $w$ 하나를 $v_{k+1}$로 교환하면 $$\{v_1,\dots,v_{k+1},w_{k+2},\dots,w_n\}$$이 다시 span한다. 만약 $m>n$이라면 $n$번의 교환 뒤 $w$가 모두 소진되어 $$\{v_1,\dots,v_n\}$$이 span하게 되고, 그러면 남은 $v_{n+1}$이 앞 $v$들의 결합이 되어 일차독립에 모순이다. 따라서 $m\le n$이다. $\blacksquare$
+
+**Theorem (차원의 불변성).** 벡터공간의 임의의 두 기저는 같은 cardinality를 가진다.
+
+*Proof.* 두 기저 $B,C$ 중 하나, 이를테면 $B$가 유한(크기 $m$)이라 하자. $C$의 임의의 유한부분집합 $C_0$은 일차독립이고 $B$는 $V$를 span하므로 Steinitz Exchange로 $\vert C_0\vert\le m$이다. 이는 $C$의 모든 유한부분집합의 크기가 $m$ 이하라는 뜻이므로 $C$ 자신도 유한하고 $\vert C\vert\le m$이다(그렇지 않다면 $C$가 크기 $m+1$인 유한부분집합을 가져 모순). $B,C$의 역할을 바꾸면 같은 논증으로 $\vert B\vert\le\vert C\vert$도 얻어 $\vert B\vert=\vert C\vert$.
+
+$B,C$가 모두 무한인 경우를 보자. $C$가 $V$를 span하므로 각 $b\in B$는 $C$의 어떤 유한부분집합 $C_b\subseteq C$의 결합으로 표현되고, $C$가 일차독립이므로 이 표현은 유일하다. $C' := \bigcup_{b\in B}C_b\subseteq C$라 두면, $B$가 $V$를 span하고 모든 $b\in B$가 $C'$의 결합이므로 $C'$도 $V$를 span한다. 그런데 어떤 $c\in C\setminus C'$가 있다면 $c$가 $$C'\subseteq C\setminus\{c\}$$의 결합으로 쓰이는 셈이라 $C$의 일차독립성에 모순이다. 따라서 $C'=C$, 즉 $C$는 무한집합 $B$로 인덱스된 유한집합들 $$\{C_b\}_{b\in B}$$의 합집합이다. 무한 cardinal $\kappa=\vert B\vert$에 대해 $\kappa\cdot\aleph_0=\kappa$이므로 $\vert C\vert\le\vert B\vert\cdot\aleph_0=\vert B\vert$. $B,C$의 역할을 바꾸면 같은 논증으로 $\vert B\vert\le\vert C\vert$도 얻어, Cantor–Schröder–Bernstein으로 $\vert B\vert=\vert C\vert$. $\blacksquare$
+
+사실 위 증명에서 basis의 크기가 무한일 때는 증명에 선택공리가 쓰였다. "무한 cardinal $\kappa$에 대해 $\kappa\cdot\aleph_0=\kappa$" 부분이다. 선택공리가 이 명제의 충분조건이다. 참고로 필요충분조건은 이보다 더 강한 명제인 "모든 무한 cardinal의 제곱이 자기 자신과 같다"는 것이고 Tarski가 증명했다 [7]. 위 정리는 실제로 선택공리 없이는 성립하지 않을 수 있다. Läuchli는 선택공리가 완전히 실패하는 ZF의 한 모델에서, 서로 다른 cardinality의 두 기저를 가지는 벡터공간이 존재함을 보였다 [8].
+
+**Definition (Dimension).** 이 공통의 cardinality를 $V$의 차원 $\dim V$라 한다. 이것이 유한이면 $V$를 유한차원, 아니면 무한차원이라 한다.
+
+**Example ($\dim F^n=n$).** $F^n$의 표준기저가 $n$개이므로 $\dim F^n=n$이다.
+
+**Example (무한차원).** $\mathbb{R}[x]$는 $1,x,x^2,\dots$가 일차독립이라 유한 기저를 가질 수 없으므로 무한차원이다.
 
 ## 부분공간의 합
 
@@ -206,3 +216,5 @@ $$c_i\prod_{j\ne i}(i\lambda_i-i\lambda_j)\,e_{\lambda_i}=0$$
 4. Hamel, G. (1905). Eine Basis aller Zahlen und die unstetigen Lösungen der Funktionalgleichung $f(x+y)=f(x)+f(y)$. *Mathematische Annalen*, 60, 459–462.
 5. Cauchy, A.-L. (1821). *Cours d'analyse de l'École royale polytechnique*. Paris.
 6. Blass, A. (1984). Existence of bases implies the axiom of choice. In *Axiomatic Set Theory*, Contemporary Mathematics 31, 31–33. American Mathematical Society.
+7. Tarski, A. (1924). Sur quelques théorèmes qui équivalent à l'axiome du choix. *Fundamenta Mathematicae*, 5, 147–154.
+8. Läuchli, H. (1962). Auswahlaxiom in der Algebra. *Commentarii Mathematici Helvetici*, 37, 1–18.

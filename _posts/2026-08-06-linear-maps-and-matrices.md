@@ -52,6 +52,8 @@ span: 임의의 $v=\sum a_iu_i+\sum b_jw_j$에 대해 $T(u_i)=0$이므로 $T(v)=
 
 *Proof.* $T$가 단사 $\iff\operatorname{nullity}T=0\iff\operatorname{rank}T=\dim V=\dim W\iff\operatorname{im}T=W\iff T$가 전사. $\blacksquare$
 
+**Definition (Isomorphism).** 벡터공간 $V,W$ 사이의 linear map $T:V\to W$가 bijective(단사이며 전사)이면 isomorphism이라 하고, $V\cong W$로 쓴다.
+
 ## Quotient space
 
 rank-nullity를 좌표 없이 다시 보는 방법이 있다. kernel을 통째로 $0$인 coset으로 뭉개면, 그 quotient space가 곧바로 image와 같아진다.
@@ -66,9 +68,13 @@ rank-nullity를 좌표 없이 다시 보는 방법이 있다. kernel을 통째�
 
 $V/W$는 이 연산으로 vector space가 되고 영벡터는 $0+W=W$다.
 
+**Example (trace로 몫공간 보기).** $V=F^{n\times n}$(모든 $n\times n$ 행렬), $$W=\{A\in F^{n\times n}:\operatorname{tr}A=0\}$$(trace가 $0$인 행렬 전체, $V$의 부분공간)이라 하자. 두 행렬 $A,B$가 같은 coset에 속하는 것과 $\operatorname{tr}A=\operatorname{tr}B$인 것은 동치이므로, coset $A+W$는 $\operatorname{tr}A$라는 숫자 하나로 완전히 결정된다.
+
 **Theorem (Dimension).** $V$가 유한차원이면 $$\dim(V/W)=\dim V-\dim W.$$
 
 *Proof.* $W$의 basis $w_1,\dots,w_k$를 $V$의 basis $w_1,\dots,w_k,u_1,\dots,u_r$로 확장한다($\dim V=k+r$). $u_1+W,\dots,u_r+W$가 $V/W$의 basis임을 보이면 된다. 임의의 $v=\sum a_iw_i+\sum b_ju_j$에서 $\sum a_iw_i\in W$이라 $v+W=\sum b_j(u_j+W)$이니 이들이 생성한다. 또 $\sum b_j(u_j+W)=W$이면 $\sum b_ju_j\in W$인데 $w_i,u_j$가 일차독립이라 모든 $b_j=0$이다. 따라서 $\dim(V/W)=r=\dim V-\dim W$이다. $\blacksquare$
+
+**Example (symmetric matrix를 diagonal matrix로 나눔).** $V=$ $3\times3$ symmetric matrix 전체($\dim V=6$), $W=$ diagonal matrix 전체($\dim W=3$, $V$의 부분공간)라 하자. Dimension 정리로 $\dim(V/W)=6-3=3$인데, 이는 symmetric matrix의 대각선 위쪽 세 성분($a_{12},a_{13},a_{23}$)의 자유도와 정확히 일치한다. 대각선분만 다른 두 symmetric matrix는 같은 coset에 속하기 때문이다.
 
 coset으로 보내는 map이 quotient space의 뼈대다.
 
@@ -84,7 +90,9 @@ quotient는 "$W$를 $0$으로 만드는 map"을 가장 경제적으로 담는다
 
 *Proof.* universal property를 $W=\ker T$에 적용하면 $\bar T:V/\ker T\to U$가 나오고 그 상은 $\operatorname{im}T$다. $\bar T$는 injective다: $\bar T(v+\ker T)=0$이면 $T(v)=0$이라 $v\in\ker T$, 곧 $v+\ker T=\ker T$이다. 따라서 $V/\ker T\to\operatorname{im}T$가 isomorphism이다. $\blacksquare$
 
-First Isomorphism은 $V$가 무한차원이어도 그대로 성립하는 순수한 구조적 명제이므로, 유한차원이라는 가정과 "차원을 센다"는 수치화를 걷어내고 보면 이 정리 자체가 rank-nullity의 일반화라 할 수 있다. 실제로 $V$가 유한차원이어서 이 isomorphism에 차원을 셀 수 있으면 $\dim(V/\ker T)=\dim\operatorname{im}T$, 곧 $\dim V-\dim\ker T=\operatorname{rank}T$를 얻어 rank-nullity가 다시 나온다.
+First Isomorphism은 $V$가 무한차원이어도 성립하므로 rank-nullity의 일반화라 할 수 있다. 실제로 $V$가 유한차원이어서 이 isomorphism에 차원을 셀 수 있으면 $\dim(V/\ker T)=\dim\operatorname{im}T$, 곧 $\dim V-\dim\ker T=\operatorname{rank}T$를 얻어 rank-nullity가 다시 나온다.
+
+**Example (trace map).** $T=\operatorname{tr}:F^{n\times n}\to F$는 linear map이고 $$\ker T=\{A:\operatorname{tr}A=0\}$$은 앞서 본 $W$와 같다. $T$는 surjective다: 임의의 $c\in F$가 $(1,1)$ 성분만 $c$이고 나머지는 $0$인 행렬의 trace이기 때문이다. First Isomorphism은 $$F^{n\times n}/W\;\cong\;F$$를 주는데, 이는 앞에서 coset이 $\operatorname{tr}A$ 하나로 결정된다고 본 것을 정확히 다시 확인해준다.
 
 두 subspace의 합과 교집합도 quotient로 비교할 수 있다.
 
@@ -92,11 +100,7 @@ First Isomorphism은 $V$가 무한차원이어도 그대로 성립하는 순수�
 
 *Proof.* $\pi:V\to V/W$의 $U$로의 restriction $\pi\vert_U:U\to V/W$를 생각하자. 그 image는 $$\{\,u+W:u\in U\,\}=(U+W)/W$$이다($U+W$의 임의의 원소 $u+w$가 주는 coset이 $u+W$와 같기 때문이다). 또 kernel은 $$\{\,u\in U:u\in W\,\}=U\cap W$$이다. First Isomorphism Theorem을 $\pi\vert_U$에 적용하면 $$U/(U\cap W)=U/\ker(\pi\vert_U)\;\cong\;\operatorname{im}(\pi\vert_U)=(U+W)/W$$이다. $\blacksquare$
 
-**Example (평면 속 두 직선).** $V=\mathbb{R}^3$에서 $$U=\{(a,b,0):a,b\in\mathbb{R}\}$$($xy$평면), $$W=\{(a,0,c):a,c\in\mathbb{R}\}$$($xz$평면)를 보면 $U+W=\mathbb{R}^3$이고 $$U\cap W=\{(a,0,0):a\in\mathbb{R}\}$$($x$축)이다. Second Isomorphism은 $\mathbb{R}^3/W\cong U/(x\text{축})$을 주는데, 양쪽 모두 차원이 $3-2=1$인 것으로 확인된다.
-
-**Example (직선으로 나눈 평면).** $V=\mathbb{R}^2$, $$W=\{\,(t,0):t\in\mathbb{R}\,\}$$(가로축)이면 coset $(a,b)+W$는 높이 $b$인 수평선이고, $V/W$는 이 수평선들이라 $b$ 하나로 결정된다. 따라서 $\mathbb{R}^2/W\cong\mathbb{R}$이다.
-
-**Example (상수항으로 나눔).** $V=\mathbb{R}[x]$(모든 polynomial)에서 $$W=\{\,p:p(0)=0\,\}$$(상수항이 $0$인 것)을 보자. $p(0)=q(0)$이면 $p-q\in W$라 coset은 상수항 하나로 결정되어 $V/W\cong\mathbb{R}$이다. First Isomorphism으로 읽으면 값매김 $\operatorname{ev}_0:p\mapsto p(0)$이 kernel $W$, image $\mathbb{R}$을 가져 곧바로 나온다.
+**Example (두 점에서의 소멸조건).** $V=P_2(\mathbb{R})$(차수 $2$ 이하 다항식, $\dim V=3$), $$U=\{p\in V:p(0)=0\}$$($\dim U=2$), $$W=\{p\in V:p(1)=0\}$$($\dim W=2$)라 하자. $$U\cap W=\{p\in V:p(0)=p(1)=0\}$$은 $x(x-1)$의 스칼라배뿐이라 $\dim(U\cap W)=1$이고, Grassmann's Dimension Formula로 $\dim(U+W)=2+2-1=3=\dim V$이니 $U+W=V$다. Second Isomorphism은 $$V/W\;\cong\;U/(U\cap W)$$를 주는데, 양쪽 모두 차원이 $3-2=2-1=1$로 일치한다.
 
 quotient space와 isomorphism 정리를 대수 구조의 기본 도구로 끌어올린 것은 1920년대 Emmy Noether를 중심으로 한 추상대수학이며, 그 관점은 van der Waerden의 《Moderne Algebra》(1930)로 정리되어 널리 퍼졌다 [1].
 
@@ -151,8 +155,6 @@ $$A'=P^{-1}AP$$
 rank뿐 아니라 determinant, trace, characteristic polynomial, 그리고 eigenvalue도 similar 행렬끼리 모두 같다. 이들은 좌표(기저) 선택과 무관한 선형사상 자체의 양이며, 각 개념을 세우는 뒤 글들에서 곧바로 확인된다.
 
 ## Direct sum of linear maps
-
-앞 글의 직합 개념은 linear map에도 확장된다.
 
 **Definition (External Direct Sum, Direct Sum of Linear Maps).** 벡터공간 $V_1,V_2$에 대해 집합 $V_1\times V_2$에 성분별 연산 $$(v_1,v_2)+(v_1',v_2'):=(v_1+v_1',v_2+v_2'),\qquad c(v_1,v_2):=(cv_1,cv_2)$$을 주면 벡터공간이 되고, 이를 $V_1\oplus V_2$로도 쓴다($V_1,V_2$를 $$V_1\times\{0\}$$, $$\{0\}\times V_2$$로 동일시하면 앞 글에서 다룬 직합과 같은 뜻이 된다). linear map $T_1:V_1\to W_1$, $T_2:V_2\to W_2$에 대해 $$(T_1\oplus T_2)(v_1,v_2):=(T_1v_1,T_2v_2)$$로 정의한 $T_1\oplus T_2:V_1\oplus V_2\to W_1\oplus W_2$를 $T_1$과 $T_2$의 direct sum이라 한다.
 
