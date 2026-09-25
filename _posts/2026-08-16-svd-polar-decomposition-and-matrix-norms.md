@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SVD, polar decomposition, and matrix norms"
+title: "Singular value decomposition"
 date: 2026-08-16
 mathematicians: [Beltrami, Jordan, Autonne, Moore, Penrose, Eckart, Young, Mirsky, Weyl]
 ---

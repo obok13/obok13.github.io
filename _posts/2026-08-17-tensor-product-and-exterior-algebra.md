@@ -11,7 +11,7 @@ mathematicians: [Samuel, Eilenberg, Mac Lane, Grassmann]
 
 **Proposition (Universal Object는 canonical하게 유일하다).** $(Y,\iota)$, $(Y',\iota')$가 모두 $X$에 대한 universal object면, $\Phi\circ\iota=\iota'$인 isomorphism $\Phi:Y\to Y'$가 유일하게 존재한다.
 
-*Proof.* $\iota'$가 $P$를 만족하는 $X\to Y'$인 map이므로 $Y$의 universal property를 적용해 $\iota'=\Phi\circ\iota$인 linear map $\Phi:Y\to Y'$를 얻는다. 대칭적으로 $\iota=\Psi\circ\iota'$인 linear map $\Psi:Y'\to Y$를 얻는다. $\Psi\circ\Phi$(linear map들의 합성이라 linear map이다)와 $\mathrm{id}_Y$가 둘 다 $\iota=(\cdot)\circ\iota$를 만족하므로, $Y$의 universal property의 유일성(적용 대상 $Z=Y$, $g=\iota$)으로 $\Psi\circ\Phi=\mathrm{id}_Y$이고 마찬가지로 $\Phi\circ\Psi=\mathrm{id}_{Y'}$다.$\blacksquare$
+*Proof.* $\iota'$가 $P$를 만족하는 $X\to Y'$인 map이므로 $Y$의 universal property를 적용해 $\iota'=\Phi\circ\iota$인 linear map $\Phi:Y\to Y'$를 얻는다. 대칭적으로 $\iota=\Psi\circ\iota'$인 linear map $\Psi:Y'\to Y$를 얻는다. $\Psi\circ\Phi$(linear map들의 합성이라 linear map이다)와 $$\mathrm{id}_Y$$가 둘 다 $\iota=(\cdot)\circ\iota$를 만족하므로, $Y$의 universal property의 유일성(적용 대상 $Z=Y$, $g=\iota$)으로 $$\Psi\circ\Phi=\mathrm{id}_Y$$이고 마찬가지로 $$\Phi\circ\Psi=\mathrm{id}_{Y'}$$다.$\blacksquare$
 
 Universal property는 사실 vector space와 linear map 뿐 아니라 다른 일반적인 수학 객체에도 적용할 수 있다. Pierre Samuel의 1948년 논문에서 topological space와 continuous map에 대해서 이러한 universal property가 처음으로 체계적으로 다뤄졌다. 이후 Samuel Eilenberg와 Saunders Mac Lane이 만든([Dual space and Riesz representation]({% post_url 2026-08-13-dual-space-and-riesz-representation %})에서 이미 본 두 사람이다) category theory 언어로, 이 schema는 "$X$에서 나가는(혹은 들어오는) $P$-map들의 category에서의 initial(혹은 terminal) object"로 완전히 일반화된다.
 
@@ -77,7 +77,7 @@ $V$가 유한차원인 경우: basis $v_1,\dots,v_m$과 dual basis $v_1^\ast ,\d
 
 $W$가 유한차원인 경우: basis $w_1,\dots,w_n$을 택하면 $V^\ast \otimes W$의 임의의 원소는 $\sum_j\varphi_j\otimes w_j$(유일한 $\varphi_1,\dots,\varphi_n\in V^\ast $) 꼴로 유일하게 쓰이고, $\Phi\big(\sum_j\varphi_j\otimes w_j\big)$는 $v\mapsto\sum_j\varphi_j(v)w_j$인 linear map이다. 역으로 임의의 linear map $S:V\to W$는 $w_j$가 basis이므로 $S(v)=\sum_j\varphi_j(v)w_j$인 유일한 좌표함수 $\varphi_1,\dots,\varphi_n:V\to F$를 주는데, 각 $\varphi_j$는 $S$와 $j$번째 좌표사영의 합성이라 linear이므로 $V^\ast $의 원소다. 곧 $S\leftrightarrow(\varphi_1,\dots,\varphi_n)$이 서로 역인 대응이라 $\Phi$는 bijective하다. $\blacksquare$
 
-**Example ($V,W$가 모두 무한차원이면 실패한다).** $V=W$가 무한차원이고 basis $e_1,e_2,\dots$라 하자. $\operatorname{id}_V\in\operatorname{Hom}(V,V)$는 $\Phi$의 image에 들지 않는다: $\Phi\big(\sum_{k=1}^N\varphi_k\otimes w_k\big)$의 image는 언제나 유한차원 부분공간 $\operatorname{span}(w_1,\dots,w_N)$에 들어 있는데, $\operatorname{id}_V$의 image는 무한차원인 $V$ 전체이기 때문이다. 곧 $V,W$가 모두 무한차원이면 위 Proposition은 일반적으로 성립하지 않는다.
+**Example ($V,W$가 모두 무한차원이면 실패한다).** $V=W$가 무한차원이고 basis $e_1,e_2,\dots$라 하자. $$\operatorname{id}_V\in\operatorname{Hom}(V,V)$$는 $\Phi$의 image에 들지 않는다: $$\Phi\big(\sum_{k=1}^N\varphi_k\otimes w_k\big)$$의 image는 언제나 유한차원 부분공간 $\operatorname{span}(w_1,\dots,w_N)$에 들어 있는데, $$\operatorname{id}_V$$의 image는 무한차원인 $V$ 전체이기 때문이다. 곧 $V,W$가 모두 무한차원이면 위 Proposition은 일반적으로 성립하지 않는다.
 
 **Proposition (trace는 evaluation pairing이다).** $V$가 유한차원이고 $T\in\operatorname{Hom}(V,V)$이면, $T$를 어떤 basis에서 나타낸 행렬 $A$의 (basis에 무관한) trace $\operatorname{tr}(T):=\sum_iA_{ii}$는, 위 Proposition의 isomorphism $\operatorname{Hom}(V,V)\cong V^\ast \otimes V$($W=V$인 경우) 아래 $T$에 대응하는 tensor를 evaluation pairing $$V^\ast \otimes V\to F,\qquad\varphi\otimes v\mapsto\varphi(v)$$으로 보낸 값과 정확히 같다.
 

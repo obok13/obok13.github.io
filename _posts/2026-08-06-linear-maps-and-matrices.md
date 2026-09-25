@@ -17,7 +17,7 @@ $a=b=0$을 넣으면 $T(0)=0$이 곧바로 나온다. 즉 선형사상은 원점
 
 **Example (회전).** 평면의 원점 중심 $\theta$ 회전 $R_\theta:\mathbb{R}^2\to\mathbb{R}^2$은 선형사상이고, $R_\theta(x,y)=(x\cos\theta-y\sin\theta,\ x\sin\theta+y\cos\theta)$로 주어진다.
 
-**Example (평가사상).** 한 점 $c$에서의 값매김 $\operatorname{ev}_c:\mathbb{R}[x]\to\mathbb{R}$, $p\mapsto p(c)$은 선형사상이다.
+**Example (평가사상).** 한 점 $c$에서의 값매김 $$\operatorname{ev}_c:\mathbb{R}[x]\to\mathbb{R}$$, $p\mapsto p(c)$은 선형사상이다.
 
 **Example (선형이 아닌 것: 평행이동).** $b\ne0$인 평행이동 $T(x)=x+b$는 $T(0)=b\ne0$이므로 선형사상이 아니다. 그래프가 원점을 지나는 직선이라도 그것이 원점을 안 지나면 선형이 아니다.
 

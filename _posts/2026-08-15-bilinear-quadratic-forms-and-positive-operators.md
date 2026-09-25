@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Bilinear forms, quadratic forms, and positive operators"
+title: "Bilinear forms and positive definite operator"
 date: 2026-08-15
 mathematicians: [Grassmann, Cholesky, Sylvester, Strang]
 ---
@@ -223,7 +223,7 @@ Real vector space 버전은 다음과 같다.
 
 *Proof.* $A$가 positive definite이므로 위 (a)$\Rightarrow$(d)로 $A$는 행 교환 없이 소거되어 $A=LDU'$이 되고, 위 Proposition(Hermitian 행렬의 LDU)로 $U'=L^\ast$이고 $D$가 실수 대각이라 $A=LDL^\ast$를 얻으며, 모든 pivot이 $d_i>0$(실수)이다. $$L':=L\cdot\operatorname{diag}(\sqrt{d_1},\dots,\sqrt{d_n})$$(곧 $L$의 $i$번째 열을 $\sqrt{d_i}$배, $d_i$가 실수 양수라 $\sqrt{d_i}$도 실수)로 두면 $L'$은 대각성분이 $\sqrt{d_i}>0$인 lower triangular이고 $$L'L'^\ast=L\operatorname{diag}(d_1,\dots,d_n)L^\ast=LDL^\ast=A$$이다.
 
-유일성. $L''$이 대각성분이 양의 실수인 또 다른 lower triangular이고 $L''L''^\ast=A$라 하자. $\tilde L$을 $L''$의 각 열을 그 대각성분으로 나눈(unit lower triangular) 행렬, $\tilde D:=\operatorname{diag}(L''_{11},\dots,L''_{nn})$(대각성분이 양의 실수)이라 하면 $L''=\tilde L\tilde D$이므로 $$A=L''L''^\ast=\tilde L\tilde D^2\tilde L^\ast$$인데, 이는 $A$의 또 다른 $LDU$ 분해($\tilde D^2$이 대각, $\tilde L,\tilde L^\ast$가 unit triangular)이므로 유일성으로 $\tilde L=L$, $\tilde D^2=D$다. $\tilde D$의 대각성분이 양의 실수이므로 $\tilde D=\operatorname{diag}(\sqrt{d_1},\dots,\sqrt{d_n})$로 유일하게 정해지고, 곧 $L''=\tilde L\tilde D=L'$이다. $\blacksquare$
+유일성. $L''$이 대각성분이 양의 실수인 또 다른 lower triangular이고 $L''L''^\ast=A$라 하자. $\tilde L$을 $L''$의 각 열을 그 대각성분으로 나눈(unit lower triangular) 행렬, $$\tilde D:=\operatorname{diag}(L''_{11},\dots,L''_{nn})$$(대각성분이 양의 실수)이라 하면 $L''=\tilde L\tilde D$이므로 $$A=L''L''^\ast=\tilde L\tilde D^2\tilde L^\ast$$인데, 이는 $A$의 또 다른 $LDU$ 분해($\tilde D^2$이 대각, $\tilde L,\tilde L^\ast$가 unit triangular)이므로 유일성으로 $\tilde L=L$, $\tilde D^2=D$다. $\tilde D$의 대각성분이 양의 실수이므로 $\tilde D=\operatorname{diag}(\sqrt{d_1},\dots,\sqrt{d_n})$로 유일하게 정해지고, 곧 $L''=\tilde L\tilde D=L'$이다. $\blacksquare$
 
 앞서 (e)의 $R$은 유일하지 않다고 했지만, $R$을 정사각 lower triangular(대각성분이 양의 실수)로 제한하면 유일해진다는 것이 바로 위 Theorem이 보여주는 내용이다.
 

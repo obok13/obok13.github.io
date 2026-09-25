@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Endomorphism and Perron"
+title: "Endomorphism"
 date: 2026-08-11
 mathematicians: [Perron, Frobenius, Neumann]
 ---
@@ -121,7 +121,7 @@ $A$-invariant인 부분공간이 하나만 있어도 그 basis를 확장한 기�
 
 *Proof.* $$\Delta:=\Big\{x\in\mathbb{R}^n:x\ge0,\ \sum_ix_i=1\Big\}$$(simplex)는 컴팩트다(Heine–Borel). $x\in\Delta$에 대해 $$f(x):=\min\{(Ax)_i/x_i : x_i>0\}$$로 정의하자($x\ne0$이라 이 min은 공집합이 아닌 유한집합 위에서 취해져 잘 정의된다).
 
-$f$가 $\Delta$ 위에서 upper semicontinuous임을 보이자(Semicontinuity 글). $x^{(k)}\to x$라 하자. $f(x)$를 이루는 첨자를 $i_0$라 하면($x_{i_0}>0$이고 $$f(x)=\frac{(Ax)_{i_0}}{x_{i_0}}$$), $x^{(k)}_{i_0}\to x_{i_0}>0$이라 충분히 큰 $k$에서 $x^{(k)}_{i_0}>0$이고 $$f(x^{(k)})\le\frac{(Ax^{(k)})_{i_0}}{x^{(k)}_{i_0}}\longrightarrow\frac{(Ax)_{i_0}}{x_{i_0}}=f(x)$$이다(연속성, $x_{i_0}>0$이므로). 곧 $\limsup_kf(x^{(k)})\le f(x)$라 $f$는 upper semicontinuous다.
+$f$가 $\Delta$ 위에서 upper semicontinuous임을 보이자(Semicontinuity 글). $x^{(k)}\to x$라 하자. $f(x)$를 이루는 첨자를 $i_0$라 하면($x_{i_0}>0$이고 $$f(x)=\frac{(Ax)_{i_0}}{x_{i_0}}$$), $$x^{(k)}_{i_0}\to x_{i_0}>0$$이라 충분히 큰 $k$에서 $$x^{(k)}_{i_0}>0$$이고 $$f(x^{(k)})\le\frac{(Ax^{(k)})_{i_0}}{x^{(k)}_{i_0}}\longrightarrow\frac{(Ax)_{i_0}}{x_{i_0}}=f(x)$$이다(연속성, $x_{i_0}>0$이므로). 곧 $\limsup_kf(x^{(k)})\le f(x)$라 $f$는 upper semicontinuous다.
 
 $f$는 위로 유계다: 임의의 $x\in\Delta$에서(pigeonhole로) 어떤 $i$가 $x_i\ge1/n$을 만족하고 $M:=\max_{a,b}A_{ab}$라 하면 $$\frac{(Ax)_i}{x_i}\le\frac{M\sum_jx_j}{1/n}=Mn$$이므로 $f(x)\le Mn$이다.
 

@@ -61,11 +61,11 @@ $B$에서 $F$로 가는 임의의 함수가 $B$가 basis라는 사실 덕에 유
 
 $V$에 dual을 두 번 취한 double dual을 생각해보면 특정 basis나 inner product 없이도 $V$에서 $V^{\ast\ast}$로 가는 자연스러운 injection을 생각해볼 수 있다.
 
-**Definition (Double Dual, Evaluation Map).** $v\in V$에 대해 $\operatorname{ev}_v:V^\ast \to F$, $\operatorname{ev}_v(\varphi)=\varphi(v)$는 $V^\ast $ 위의 functional, 곧 $V^{\ast \ast }$의 원소다. 이로써 map $$\Phi:V\to V^{**},\qquad \Phi(v)=\operatorname{ev}_v$$가 정해진다.
+**Definition (Double Dual, Evaluation Map).** $v\in V$에 대해 $$\operatorname{ev}_v:V^\ast \to F$$, $$\operatorname{ev}_v(\varphi)=\varphi(v)$$는 $V^\ast $ 위의 functional, 곧 $V^{\ast \ast }$의 원소다. 이로써 map $$\Phi:V\to V^{**},\qquad \Phi(v)=\operatorname{ev}_v$$가 정해진다.
 
 **Theorem.** $\Phi$는 injective linear map이고, $V$가 유한차원이면 isomorphism이다. 게다가 그 정의에는 basis가 개입하지 않는다.
 
-*Proof.* linear는 명백하다. $v\ne0$이면 $v$를 basis로 확장해 $\varphi(v)=1$인 functional $\varphi$를 만들 수 있어 $\operatorname{ev}_v(\varphi)=1\ne0$, 곧 $\Phi(v)\ne0$이라 injective다. 유한차원에서는 $\dim V^{\ast \ast }=\dim V^\ast =\dim V$라 injective가 곧 isomorphism이다. $\blacksquare$
+*Proof.* linear는 명백하다. $v\ne0$이면 $v$를 basis로 확장해 $\varphi(v)=1$인 functional $\varphi$를 만들 수 있어 $$\operatorname{ev}_v(\varphi)=1\ne0$$, 곧 $\Phi(v)\ne0$이라 injective다. 유한차원에서는 $\dim V^{\ast \ast }=\dim V^\ast =\dim V$라 injective가 곧 isomorphism이다. $\blacksquare$
 
 $V$와 dual의 대응은 basis를 필요로 하고 double dual은 그렇지 않다는 이 대비는 수학사에서 중요한 역할을 했다. Samuel Eilenberg와 Saunders Mac Lane은 1945년 논문에서 바로 이 double dual isomorphism을 "자연스러운" 동형의 표준 예로 삼아 category theory의 natural transformation 개념을 정의했다 [3].
 

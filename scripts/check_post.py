@@ -70,8 +70,8 @@ def check_text(text):
         for seg in SINGLE_DOLLAR.findall(masked):
             if BS + "{" in seg or BS + "}" in seg:
                 errors.append((i, r"단일 $ 안에 \{ 또는 \} → \lbrace, \rbrace 로 치환", seg))
-            if re.search(r"[)\]]_", seg):
-                errors.append((i, r"단일 $ 안에 )_ 또는 ]_ → 그 밑줄만 \_ 로 escape", seg))
+            if re.search(r"[)\]}]_", seg):
+                errors.append((i, r"단일 $ 안에 )_ ]_ 또는 }_ → 그 밑줄만 \_ 로 escape", seg))
             if re.search(r"(?<!\\)\*", seg):
                 errors.append((i, r"단일 $ 안의 별표 * → \ast 로 치환", seg))
             if MATRIX_ENV.search(seg) or ROWBREAK in seg:
@@ -126,11 +126,12 @@ def _fix_braces(inner):
 
 
 def _fix_subscript_after_bracket(inner):
-    """단일 $ 안의 )_ ]_ -> )\\_ ]\\_. [렌더링-아래첨자]
+    """단일 $ 안의 )_ ]_ }_ -> )\\_ ]\\_ }\\_. [렌더링-아래첨자]
     (밑줄을 escape하면 kramdown이 backslash만 지우고 밑줄 문자 하나를 그대로
     출력하므로, 그 밑줄은 더 이상 kramdown 이탤릭 델리미터 후보가 아니게 되고
-    MathJax는 평범한 아래첨자로 읽는다.)"""
-    return re.sub(r"([)\]])_", lambda m: m.group(1) + BS + "_", inner)
+    MathJax는 평범한 아래첨자로 읽는다. }_ 도 )_ ]_ 와 같은 이유로 위험하다 -
+    kramdown에게는 그냥 비-단어문자 뒤에 오는 밑줄일 뿐이다, 예: \\operatorname{ev}_c.)"""
+    return re.sub(r"([)\]}])_", lambda m: m.group(1) + BS + "_", inner)
 
 
 def _fix_asterisk(inner):
