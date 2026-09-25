@@ -9,11 +9,20 @@ mathematicians: [Leibniz, Seki, Cramer, Vandermonde, Laplace, Cauchy, Newton, de
 
 체 $F$(예: $\mathbb{R}$, $\mathbb{C}$) 위의 정사각행렬 $A\in F^{n\times n}$에 대해서 행을 $r_1,\dots,r_n$이라고 하자.
 
-**Definition (Determinant).** 각 행에 대한 함수 $D:F^{n\times n}\to F$가 다음을 만족하면 determinant라 하고 $\det$로 쓴다. (i) **multilinear**: 각 행에 대해 따로따로 linear이다, 곧 $D(\cdots,\alpha r+\beta r',\cdots)=\alpha D(\cdots,r,\cdots)+\beta D(\cdots,r',\cdots)$. (ii) **alternating**: 두 행이 같으면 $D=0$이다. (iii) **normalized**: $D(I)=1$.
+**Definition (Determinant).** 각 행에 대한 함수 $D:F^{n\times n}\to F$가 다음을 만족하면 determinant라 하고 $\det$로 쓴다.
+
+- (i) **multilinear**: 각 행에 대해 따로따로 linear이다, 곧 $D(\cdots,\alpha r+\beta r',\cdots)=\alpha D(\cdots,r,\cdots)+\beta D(\cdots,r',\cdots)$.
+- (ii) **alternating**: 두 행이 같으면 $D=0$이다.
+- (iii) **normalized**: $D(I)=1$.
 
 정의에서 곧바로 계산 규칙 몇 가지가 따라 나온다.
 
-**Proposition (elementary row operation의 효과).** determinant는 다음을 만족한다. (a) 두 행을 맞바꾸면 sign이 바뀐다. (b) 한 행에 스칼라 $c$를 곱하면 값도 $c$배가 된다. (c) 한 행에 다른 행의 스칼라배를 더해도 값은 변하지 않는다. (d) 어떤 행이 $0$이면 $\det A=0$이다.
+**Proposition (elementary row operation의 효과).** determinant는 다음을 만족한다.
+
+- (a) 두 행을 맞바꾸면 sign이 바뀐다.
+- (b) 한 행에 스칼라 $c$를 곱하면 값도 $c$배가 된다.
+- (c) 한 행에 다른 행의 스칼라배를 더해도 값은 변하지 않는다.
+- (d) 어떤 행이 $0$이면 $\det A=0$이다.
 
 *Proof.* (b)는 multilinearity 그 자체다. (d)는 그 행에 $0=0\cdot0$을 넣어 (b)에서 나온다. (a): 두 행 $r,s$ 자리에 $r+s$를 함께 넣으면 alternating으로 $0$인데, multilinearity로 펼치면 $D(\cdots,r,\cdots,r,\cdots)+D(\cdots,r,\cdots,s,\cdots)+D(\cdots,s,\cdots,r,\cdots)+D(\cdots,s,\cdots,s,\cdots)$이고 양 끝 두 항이 alternating으로 $0$이라 $D(\cdots,r,\cdots,s,\cdots)=-D(\cdots,s,\cdots,r,\cdots)$이다. (c): 행 $r_i$에 $c\,r_j$를 더하면 multilinearity로 $\det A+c\,D(\cdots,r_j,\cdots,r_j,\cdots)$인데 뒤 항은 두 행이 같아 $0$이다. $\blacksquare$
 

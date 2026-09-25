@@ -33,6 +33,10 @@ CLAUDE.md "자동 검사·수정" 절의 규칙을 그대로 구현한 것이다
     - [표현-비속어]     "죽이다" 류 속어/비격식 은유 -> 정확한 수학적 표현으로
     - [정합성-참고문헌 번호] 본문 [n] 인용 <-> 참고문헌 항목 번호 불일치
     - [정합성-mathematicians] front matter 이름과 본문/참고문헌 불일치 (substring 매칭 힌트일 뿐)
+    - [정합성-포스트링크] "OOO 글" 텍스트 인용이 markdown link로 안 바뀐 채 남은 곳 (휴리스틱 힌트일 뿐)
+    - [서식-나열] Definition/Theorem/Proposition/Corollary/Lemma 진술이 (a)(b)... 또는
+      (i)(ii)... 나열을 인라인 한 문장에 욱여넣은 곳 (휴리스틱 힌트일 뿐 — "(x,0)" 같은
+      순서쌍이나 우연한 수식 겹침으로 오탐할 수 있어 Claude가 실제 나열인지 확인한다)
 
 [용어-한영 변환](한국어/영어 수학 용어 처리)는 문맥 판단이 필요해 여기서 다루지 않는다
 -- CLAUDE.md의 "용어" 절에서 Claude가 직접 판단해서 처리한다.
@@ -172,6 +176,48 @@ REF_ENTRY_RE = re.compile(r"^(\d+)\.\s")
 MATHEMATICIANS_RE = re.compile(r"mathematicians:\s*\[(.*?)\]")
 REFERENCES_HEADING_RE = re.compile(r"^##\s*참고문헌\s*$", re.MULTILINE)
 
+# "OOO 글" 텍스트 인용 휴리스틱. 링크로 바뀌면 "글"이라는 단어 자체가 사라지므로
+# (예: "[Foo]({% post_url ... %})의"), 남아 있는 "글"은 아직 안 바뀐 후보다.
+# "이 글"/"앞 절" 같은 자기지시는 제목이 아니라서 걸러진다.
+POST_REF_RE = re.compile(r"([A-Za-z가-힣][\w가-힣\-–—' ]{0,60}?)\s글(?:에서|의|을|이|은|에|로)?")
+POST_REF_SELF = {
+    "이", "그", "저", "이번", "다음", "앞", "위", "같은", "어떤", "그런", "이런", "본", "나중",
+}
+
+
+def check_post_links(text):
+    reviews = []
+    for m in POST_REF_RE.finditer(text):
+        title = m.group(1).strip()
+        last_word = title.split()[-1] if title.split() else title
+        if last_word in POST_REF_SELF or len(title) < 2:
+            continue
+        line_no = text.count("\n", 0, m.start()) + 1
+        reviews.append(f'L{line_no}: "{title} 글" 텍스트 인용 → 다른 포스트면 [{title}]({{% post_url ... %}}) 링크로')
+    return reviews
+
+
+BOLD_HEADER_RE = re.compile(r"^\*\*(?:Definition|Theorem|Proposition|Corollary|Lemma|Axiom)\b")
+# "(a)...(b)", "(i)...(ii)", "(1)...(2)" 처럼 실제 나열 순서로 이어지는 경우만 잡는다
+# (임의의 (x) 2개를 세면 "\sigma(1)"이 두 번 나오는 것 같은 수식 우연으로 오탐하기 쉽다).
+ENUM_SEQUENCE_RES = [
+    re.compile(r"\(a\).*\(b\)"),
+    re.compile(r"\(i\).*\(ii\)"),
+    re.compile(r"\(1\).*\(2\)"),
+]
+
+
+def check_inline_lists(text):
+    """[서식-나열] Definition/Theorem/... 진술이 (a)(b)... 나열을 한 문장에 인라인으로
+    담고 있으면 REVIEW. 실제로 불렛으로 쪼갤지, 오탐(순서쌍 등)인지는 Claude가 판단한다."""
+    reviews = []
+    for i, line in enumerate(text.split("\n"), 1):
+        if not BOLD_HEADER_RE.match(line):
+            continue
+        if any(p.search(line) for p in ENUM_SEQUENCE_RES):
+            reviews.append(f'L{i}: Definition/Theorem 등의 진술이 (a)(b)... 나열을 인라인으로 담고 있음 → 불렛 목록으로 (리드 문장만 남기고 각 항목을 "- (a) ..." 줄로)')
+    return reviews
+
 
 def strip_math(text):
     text = MATH_BLOCK_RE.sub(" ", text)
@@ -280,7 +326,8 @@ def main():
                 text = fixed
         errors = check_text(text)
         narrative, references = split_sections(text)
-        reviews = check_citations(narrative, references) + check_mathematicians(text, p)
+        reviews = (check_citations(narrative, references) + check_mathematicians(text, p)
+                   + check_post_links(text) + check_inline_lists(text))
         if not errors and not reviews:
             continue
         print(f"[check_post] {os.path.basename(p)}", file=sys.stderr)

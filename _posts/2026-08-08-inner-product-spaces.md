@@ -9,7 +9,13 @@ mathematicians: [Cauchy, Bunyakovsky, Schwarz, Gram, Schmidt, Legendre, Gauss, H
 
 먼저 실수 위에서 정의한다.
 
-**Definition (Real Inner Product).** $\mathbb{R}$ 위의 vector space $V$에서 $\langle\cdot,\cdot\rangle:V\times V\to\mathbb{R}$가 다음을 만족하면 inner product이라 한다. (i) 대칭성 $\langle u,v\rangle=\langle v,u\rangle$. (ii) 첫 인수에 대한 선형성 $\langle\alpha u+\beta u',v\rangle=\alpha\langle u,v\rangle+\beta\langle u',v\rangle$. (iii) 양의 정부호성(positive-definiteness) $\langle v,v\rangle\ge0$이고 등호는 $v=0$일 때뿐. 대칭성과 (ii)를 합치면 둘째 인수에 대해서도 선형이다.
+**Definition (Real Inner Product).** $\mathbb{R}$ 위의 vector space $V$에서 $\langle\cdot,\cdot\rangle:V\times V\to\mathbb{R}$가 다음을 만족하면 inner product이라 한다.
+
+- (i) 대칭성 $\langle u,v\rangle=\langle v,u\rangle$.
+- (ii) 첫 인수에 대한 선형성 $\langle\alpha u+\beta u',v\rangle=\alpha\langle u,v\rangle+\beta\langle u',v\rangle$.
+- (iii) 양의 정부호성(positive-definiteness) $\langle v,v\rangle\ge0$이고 등호는 $v=0$일 때뿐.
+
+대칭성과 (ii)를 합치면 둘째 인수에 대해서도 선형이다.
 
 **Example (dot product).** $\mathbb{R}^n$에서 $\langle x,y\rangle:=x^{\mathsf T}y=\sum_{i=1}^n x_iy_i$가 표준 inner product이다. $\langle x,x\rangle=\sum x_i^2$이라 (iii)이 성립한다.
 
@@ -17,9 +23,15 @@ mathematicians: [Cauchy, Bunyakovsky, Schwarz, Gram, Schmidt, Legendre, Gauss, H
 
 복소수 위에서는 켤레를 넣어야 length가 산다. $\mathbb{C}^n$에서 $\sum x_i^2$은 $x=(1,i)$에서 $1+i^2=0$이 되어 양의 정부호가 될 수 없기 때문이다.
 
-**Definition (Complex Inner Product).** $\mathbb{C}$ 위의 vector space $V$에서 $\langle\cdot,\cdot\rangle:V\times V\to\mathbb{C}$가 (i) 켤레대칭성 $\langle u,v\rangle=\overline{\langle v,u\rangle}$, (ii) 첫 인수 선형성, (iii) 양의 정부호성($\langle v,v\rangle$은 (i)에 의해 실수이며 $\ge0$, 등호는 $v=0$일 때뿐)을 만족하면 (Hermitian) inner product이라 한다. (i)과 (ii)에서 둘째 인수에는 켤레선형 $\langle u,\alpha v\rangle=\overline\alpha\langle u,v\rangle$이 따라 나오며, 이런 형식을 sesquilinear라 한다.
+**Definition (Complex Inner Product).** $\mathbb{C}$ 위의 vector space $V$에서 $\langle\cdot,\cdot\rangle:V\times V\to\mathbb{C}$가 다음을 만족하면 (Hermitian) inner product이라 한다.
 
-**Example (복소 표준 inner product).** $\mathbb{C}^n$에서 $\langle x,y\rangle:=\sum_{i=1}^n x_i\overline{y_i}=y^{*}x$가 표준 inner product이다. 여기서 $y^{*}:=\overline{y}^{\mathsf T}$는 conjugate transpose이고, $\langle x,x\rangle=\sum\vert x_i\vert^2\ge0$이다.
+- (i) 켤레대칭성 $\langle u,v\rangle=\overline{\langle v,u\rangle}$.
+- (ii) 첫 인수 선형성.
+- (iii) 양의 정부호성($\langle v,v\rangle$은 (i)에 의해 실수이며 $\ge0$, 등호는 $v=0$일 때뿐).
+
+(i)과 (ii)에서 둘째 인수에는 켤레선형 $\langle u,\alpha v\rangle=\overline\alpha\langle u,v\rangle$이 따라 나오며, 이런 형식을 sesquilinear라 한다.
+
+**Example (복소 표준 inner product).** $\mathbb{C}^n$에서 $\langle x,y\rangle:=\sum_{i=1}^n x_i\overline{y_i}=y^{\ast }x$가 표준 inner product이다. 여기서 $y^{\ast }:=\overline{y}^{\mathsf T}$는 conjugate transpose이고, $\langle x,x\rangle=\sum\vert x_i\vert^2\ge0$이다.
 
 **Example (반례, Minkowski 형식).** $\mathbb{R}^2$에서 $B(x,y):=x_1y_1-x_2y_2$는 대칭이고 쌍선형이지만 inner product이 아니다. $B(v,v)=x_1^2-x_2^2$이 $v=(1,1)\ne0$에서 $0$이 되고 $v=(0,1)$에서는 음수가 되어 양의 정부호성이 깨지기 때문이다. 이 형식은 특수상대성의 시공간 기하에서 쓰인다.
 
@@ -29,7 +41,11 @@ mathematicians: [Cauchy, Bunyakovsky, Schwarz, Gram, Schmidt, Legendre, Gauss, H
 
 길이라는 개념을 공리로 뽑아내면 다음과 같다.
 
-**Definition (Norm).** $\mathbb{R}$ 또는 $\mathbb{C}$ 위의 vector space $V$에서 함수 $\lVert\cdot\rVert:V\to\mathbb{R}$가 (i) 양의 정부호성: $\lVert v\rVert\ge0$이고 등호는 $v=0$일 때뿐, (ii) 절대 동차성: $\lVert cv\rVert=\vert c\vert\,\lVert v\rVert$, (iii) 삼각부등식: $\lVert u+v\rVert\le\lVert u\rVert+\lVert v\rVert$를 만족하면 norm이라 하고, $(V,\lVert\cdot\rVert)$를 normed vector space라 한다.
+**Definition (Norm).** $\mathbb{R}$ 또는 $\mathbb{C}$ 위의 vector space $V$에서 함수 $\lVert\cdot\rVert:V\to\mathbb{R}$가 다음을 만족하면 norm이라 하고, $(V,\lVert\cdot\rVert)$를 normed vector space라 한다.
+
+- (i) 양의 정부호성: $\lVert v\rVert\ge0$이고 등호는 $v=0$일 때뿐.
+- (ii) 절대 동차성: $\lVert cv\rVert=\vert c\vert\,\lVert v\rVert$.
+- (iii) 삼각부등식: $\lVert u+v\rVert\le\lVert u\rVert+\lVert v\rVert$.
 
 inner product은 곧바로 이런 norm 하나를 내놓는다.
 
@@ -153,7 +169,7 @@ Finite dimensional vector space에서는 projection이 orthogonal한 것과 symm
 $$P_W(v):=\sum_{i=1}^{r}\langle v,e_i\rangle e_i$$
 로 두면, 각 $e_j$에서 $\langle v-P_Wv,e_j\rangle=\langle v,e_j\rangle-\langle v,e_j\rangle=0$이라 $v-P_Wv\perp W=\operatorname{im}P_W$이고 $P_W^2=P_W$임이 바로 확인되어 $P_W$가 $W$ 위로의 orthogonal projection이다. $\mathbb{R}^n$에서 $e_i$를 열벡터로 보면 $\langle v,e_i\rangle e_i=(e_ie_i^{\mathsf T})v$이므로
 $$P_W=\sum_{i=1}^{r}e_ie_i^{\mathsf T}=QQ^{\mathsf T}\qquad(Q=[\,e_1\ \cdots\ e_r\,])$$
-로, rank-1 조각 $e_ie_i^{\mathsf T}$(각각 $e_i$ 방향 line 위로의 orthogonal projection)들의 합이다 (복소수에서는 $e_ie_i^{*}$, $QQ^{*}$). 이렇게 만든 $P_W$가 $\operatorname{im}P_W=W$, $\ker P_W=W^{\perp}$이라는 사실이 곧바로 공간의 분해를 준다.
+로, rank-1 조각 $e_ie_i^{\mathsf T}$(각각 $e_i$ 방향 line 위로의 orthogonal projection)들의 합이다 (복소수에서는 $e_ie_i^{\ast }$, $QQ^{\ast }$). 이렇게 만든 $P_W$가 $\operatorname{im}P_W=W$, $\ker P_W=W^{\perp}$이라는 사실이 곧바로 공간의 분해를 준다.
 
 **Theorem (orthogonal decomposition).** 유한차원 inner product space $V$의 subspace $W$에 대해 $V=W\oplus W^{\perp}$이다.
 

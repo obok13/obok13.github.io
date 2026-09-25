@@ -111,7 +111,13 @@ $A$-invariant인 부분공간이 하나만 있어도 그 basis를 확장한 기�
 
 **Definition (Spectral Radius).** 정사각행렬 $A$의 eigenvalue들의 절댓값의 최댓값을 $A$의 spectral radius라 하고 $\rho(A)$로 쓴다.
 
-**Theorem (Perron).** $A\in\mathbb{R}^{n\times n}$이 $A>0$이면 다음이 성립한다. (i) $A$는 eigenvalue $\rho>0$과 그에 대한 eigenvector $v>0$을 가진다. (ii) $\rho$는 $A$의 spectral radius다, 곧 $\rho=\rho(A)$다: $A$의 임의의 eigenvalue $\lambda$에서 $\rho\ge\vert\lambda\vert$. (iii) $\vert\lambda\vert=\rho$인 $A$의 eigenvalue $\lambda$는 $\lambda=\rho$뿐이다(곧 $\rho$가 절댓값이 가장 큰 유일한 eigenvalue다). (iv) $\rho$는 simple eigenvalue이다. (v) $A$의 eigenvector 중 양수인 것은 스칼라배를 제외하면 $v$뿐이다.
+**Theorem (Perron).** $A\in\mathbb{R}^{n\times n}$이 $A>0$이면 다음이 성립한다.
+
+- (i) $A$는 eigenvalue $\rho>0$과 그에 대한 eigenvector $v>0$을 가진다.
+- (ii) $\rho$는 $A$의 spectral radius다, 곧 $\rho=\rho(A)$다: $A$의 임의의 eigenvalue $\lambda$에서 $\rho\ge\vert\lambda\vert$.
+- (iii) $\vert\lambda\vert=\rho$인 $A$의 eigenvalue $\lambda$는 $\lambda=\rho$뿐이다(곧 $\rho$가 절댓값이 가장 큰 유일한 eigenvalue다).
+- (iv) $\rho$는 simple eigenvalue이다.
+- (v) $A$의 eigenvector 중 양수인 것은 스칼라배를 제외하면 $v$뿐이다.
 
 *Proof.* $$\Delta:=\Big\{x\in\mathbb{R}^n:x\ge0,\ \sum_ix_i=1\Big\}$$(simplex)는 컴팩트다(Heine–Borel). $x\in\Delta$에 대해 $$f(x):=\min\{(Ax)_i/x_i : x_i>0\}$$로 정의하자($x\ne0$이라 이 min은 공집합이 아닌 유한집합 위에서 취해져 잘 정의된다).
 
@@ -127,7 +133,7 @@ $Av=\rho v$임을 보이자. $f$의 정의에서 $v_i>0$인 모든 $i$에서 $$(
 
 (iii) $\vert\lambda\vert=\rho$라 하자. (ii)에서 $A\vert z\vert\ge\rho\vert z\vert$인데 $f(\vert z\vert/\lVert z\rVert_1)\ge\rho=\max_\Delta f$이므로 등호, 곧 $f(\vert z\vert/\lVert z\rVert_1)=\rho$다. (i)에서 쓴 "otherwise" 논증(그 논증은 $f$가 $\rho$에서 최댓값을 가지는 임의의 점에 그대로 적용된다)을 $\vert z\vert/\lVert z\rVert_1$에 적용하면 $A\vert z\vert=\rho\vert z\vert$까지 나온다(등호). 그러면 모든 $i$에서 $$\vert\lambda\vert\,\vert z_i\vert=\rho\vert z_i\vert=(A\vert z\vert)_i=\sum_jA_{ij}\vert z_j\vert=\Big\vert\sum_jA_{ij}z_j\Big\vert$$로 삼각부등식이 등호가 되고, $A_{ij}>0$이 모든 $j$에서 성립하므로(등호 조건) $z_1,\dots,z_n$은 모두 같은 복소수 argument를 가진다: 어떤 $\theta$에서 $z=e^{i\theta}\vert z\vert$다. $Az=\lambda z$에 대입하면 $A\vert z\vert=\lambda\vert z\vert$인데 이미 $A\vert z\vert=\rho\vert z\vert$이고 $\vert z\vert\ne0$이므로 $\lambda=\rho$다.
 
-(iv) 먼저 $\rho$의 (실수) eigenspace가 $1$차원임을 보이자. $v$ 말고 $\rho$의 다른 실수 eigenvector $v_2$가 $v$와 일차독립이라 하자(복소수 eigenvector가 있어도 $\rho$가 실수이므로 그 실수부·허수부가 다시 $\rho$의 실수 eigenvector라 실수인 경우만 보면 충분하다). $$t^*:=\sup\{t\in\mathbb{R}:v-tv_2\ge0\}$$로 두면 $v>0$이라 $t=0$ 근방에서 $v-tv_2>0$이고, $v_2$가 $v$의 배수가 아니므로 이 집합은 위로 유계다. $w:=v-t^*v_2$는 $\rho$의 eigenvector이고(두 eigenvector의 일차결합) $w\ge0$이며, $w=0$이면 $v=t^*v_2$로 일차독립에 모순이라 $w\ne0$이다. $A>0$에서 $$(Aw)_i=\sum_jA_{ij}w_j>0$$(어떤 $j$에서 $w_j>0$이므로)이라 $Aw>0$, 곧 $\rho w=Aw>0$이라 $w>0$이다. 그런데 $w$의 모든 성분이 양수라면 $t^*$보다 조금 큰 $t$에서도 $v-tv_2\ge0$이 유지되어 $t^*$가 상한이라는 데 모순이다. 그러므로 그런 $v_2$는 없고, $\rho$의 eigenspace는 $v$가 span하는 $1$차원이다.
+(iv) 먼저 $\rho$의 (실수) eigenspace가 $1$차원임을 보이자. $v$ 말고 $\rho$의 다른 실수 eigenvector $v_2$가 $v$와 일차독립이라 하자(복소수 eigenvector가 있어도 $\rho$가 실수이므로 그 실수부·허수부가 다시 $\rho$의 실수 eigenvector라 실수인 경우만 보면 충분하다). $$t^*:=\sup\{t\in\mathbb{R}:v-tv_2\ge0\}$$로 두면 $v>0$이라 $t=0$ 근방에서 $v-tv_2>0$이고, $v_2$가 $v$의 배수가 아니므로 이 집합은 위로 유계다. $w:=v-t^\ast v_2$는 $\rho$의 eigenvector이고(두 eigenvector의 일차결합) $w\ge0$이며, $w=0$이면 $v=t^\ast v_2$로 일차독립에 모순이라 $w\ne0$이다. $A>0$에서 $$(Aw)_i=\sum_jA_{ij}w_j>0$$(어떤 $j$에서 $w_j>0$이므로)이라 $Aw>0$, 곧 $\rho w=Aw>0$이라 $w>0$이다. 그런데 $w$의 모든 성분이 양수라면 $t^\ast $보다 조금 큰 $t$에서도 $v-tv_2\ge0$이 유지되어 $t^\ast $가 상한이라는 데 모순이다. 그러므로 그런 $v_2$는 없고, $\rho$의 eigenspace는 $v$가 span하는 $1$차원이다.
 
 다음으로 $v\notin\operatorname{im}(A-\rho I)$임을 보이자. $A^{\mathsf T}$도 성분이 모두 양수이므로 (i)-(iii)을 $A^{\mathsf T}$에 적용하면 $A^{\mathsf T}u=\rho'u$, $u>0$인 eigenvalue $\rho'>0$이 나온다. $\det(A^{\mathsf T}-xI)=\det((A-xI)^{\mathsf T})=\det(A-xI)$(Determinant 글)이라 $A^{\mathsf T}$와 $A$는 characteristic polynomial이 같고, 그중 절댓값이 가장 큰 실수 eigenvalue는 (iii)로 유일하므로 $\rho'=\rho$다. 만약 어떤 $z$가 $(A-\rho I)z=v$를 만족한다면, $u^{\mathsf T}A=(A^{\mathsf T}u)^{\mathsf T}=\rho u^{\mathsf T}$이므로 $$u^{\mathsf T}(A-\rho I)z=u^{\mathsf T}Az-\rho u^{\mathsf T}z=\rho u^{\mathsf T}z-\rho u^{\mathsf T}z=0$$인데, 좌변은 정의상 $u^{\mathsf T}v$이고 $u>0,v>0$이라 $$u^{\mathsf T}v=\sum_iu_iv_i>0$$이므로 모순이다. 그러므로 $v\notin\operatorname{im}(A-\rho I)$다.
 

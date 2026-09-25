@@ -55,7 +55,7 @@ RREF는 해를 통째로 읽게 해준다. augmented matrix $$[\,A\mid b\,]$$를
 $$x = x_p + t_1s_1 + \cdots + t_{n-r}s_{n-r}$$
 꼴이다. 여기서 $x_p$는 free variable을 모두 $0$으로 둔 particular solution이고, $s_1,\dots,s_{n-r}$은 free variable을 하나씩만 $1$로 두어 얻는 $N(A)$의 기저(special solution)다.
 
-*Proof.* RREF에서 pivot variable을 free variable로 풀어낸 것이 곧 위 표현이며, $x_p$는 particular solution, $\operatorname{span}\{s_i\}=N(A)$이므로 앞 Proposition의 $x_p+N(A)$와 일치한다. $\blacksquare$
+*Proof.* RREF에서 pivot variable을 free variable로 풀어낸 것이 곧 위 표현이며, $x_p$는 particular solution, $\operatorname{span}\lbrace s_i\rbrace =N(A)$이므로 앞 Proposition의 $x_p+N(A)$와 일치한다. $\blacksquare$
 
 **Example (general solution).** $$A=\begin{pmatrix}1&2&1\\2&4&3\end{pmatrix}$$, $b=(3,7)$을 보자. augmented matrix를 소거하면 둘째 행이 $(0,0,1\mid 1)$이 되어 $x_3=1$이고, 첫째 행에서 $x_1+2x_2+x_3=3$, 즉 $x_1=2-2x_2$이다. $x_2$가 free variable이므로 general solution은
 $$x = (2,0,1) + x_2\,(-2,1,0)$$
@@ -89,6 +89,10 @@ $$U'=\begin{pmatrix}1&\tfrac12&\tfrac12\\0&1&1\\0&0&1\end{pmatrix}, \qquad A=\be
 
 *Proof.* $L_1D_1U_1'=L_2D_2U_2'$이라 하자. $L_2^{-1}L_1=D_2U_2'U_1'^{-1}D_1^{-1}$인데 좌변은 unit lower triangular, 우변은 upper triangular이므로 양변은 대각이 $1$인 diagonal, 곧 $I$다. 따라서 $L_1=L_2$이고, 남은 $D_1U_1'=D_2U_2'$에서 양변의 대각(= $U'$의 대각이 $1$이므로 각각 $D_1,D_2$)을 비교하면 $D_1=D_2$, 이어 $U_1'=U_2'$이다. $\blacksquare$
 
+**Corollary (Symmetric 행렬의 LDU).** $A$가 symmetric이고 행 교환 없이 $A=LDU'$로 분해되면 $U'=L^{\mathsf T}$다. 곧 $A=LDL^{\mathsf T}$.
+
+*Proof.* $A^{\mathsf T}=A$이므로 $$A=A^{\mathsf T}=(LDU')^{\mathsf T}=U'^{\mathsf T}D^{\mathsf T}L^{\mathsf T}=U'^{\mathsf T}DL^{\mathsf T}$$($D$는 diagonal이라 $D^{\mathsf T}=D$)이다. $U'^{\mathsf T}$는 unit lower triangular이고 $L^{\mathsf T}$는 unit upper triangular이므로 이 역시 $A$의 LDU 분해이고, 위 Proposition(LDU의 유일성)으로 $L=U'^{\mathsf T}$, 곧 $U'=L^{\mathsf T}$다. $\blacksquare$
+
 ## PA=LU와 PA=LDU
 
 pivot 자리에 $0$이 나오면 행을 바꿔야 한다. 소거 중에 필요한 행 교환들을 하나의 permutation matrix $P$로 모으면 다음이 성립한다.
@@ -119,9 +123,16 @@ RREF가 identity matrix이면 $A$가 역행렬은 갖게 된다.
 
 *Proof.* $B,B'$이 모두 $A$의 역행렬이면 $B'=B'(AB)=(B'A)B=B$이다. $\blacksquare$
 
-**Theorem (가역성 동치조건).** 정사각행렬 $A\in F^{n\times n}$에 대해 다음은 모두 동치다. (a) $A$가 가역이다. (b) $$N(A)=\{0\}$$. (c) $\operatorname{rank}A=n$. (d) $A$의 열이 $F^n$의 기저다. (e) 모든 $b$에 대해 $Ax=b$가 유일한 해를 가진다 ($x=A^{-1}b$). (f) $A$의 RREF가 $I$다.
+**Theorem (가역성 동치조건).** 정사각행렬 $A\in F^{n\times n}$에 대해 다음은 모두 동치다.
 
-*Proof.* (b)$\iff$(c)는 rank-nullity($n=\operatorname{rank}A+\dim N(A)$)에서, (c)$\iff$(d)는 $n$개의 일차독립인 열이 곧 기저라는 데서 나온다. (c)$\iff$(f)는 pivot이 $n$개면 RREF가 $I$이기 때문이다. (e)는 앞 Proposition에서 존재($C(A)=F^n$)와 유일($N(A)=\{0\}$)을 합친 것이라 (b),(c)와 동치다. 끝으로 RREF가 $I$이면 소거에 쓴 가역행렬들의 곱 $E_k\cdots E_1$이 $A$의 양쪽 역행렬이 되어 (a)가 나오고, 역으로 가역이면 (e)가 성립한다. $\blacksquare$
+- (a) $A$가 가역이다.
+- (b) $$N(A)=\{0\}$$.
+- (c) $\operatorname{rank}A=n$.
+- (d) $A$의 열이 $F^n$의 기저다.
+- (e) 모든 $b$에 대해 $Ax=b$가 유일한 해를 가진다 ($x=A^{-1}b$).
+- (f) $A$의 RREF가 $I$다.
+
+*Proof.* (b)$\iff$(c)는 rank-nullity($n=\operatorname{rank}A+\dim N(A)$)에서, (c)$\iff$(d)는 $n$개의 일차독립인 열이 곧 기저라는 데서 나온다. (c)$\iff$(f)는 pivot이 $n$개면 RREF가 $I$이기 때문이다. (e)는 앞 Proposition에서 존재($C(A)=F^n$)와 유일($N(A)=\lbrace 0\rbrace $)을 합친 것이라 (b),(c)와 동치다. 끝으로 RREF가 $I$이면 소거에 쓴 가역행렬들의 곱 $E_k\cdots E_1$이 $A$의 양쪽 역행렬이 되어 (a)가 나오고, 역으로 가역이면 (e)가 성립한다. $\blacksquare$
 
 $(AB)^{-1}=B^{-1}A^{-1}$, $(A^{-1})^{-1}=A$, $(A^{\mathsf T})^{-1}=(A^{-1})^{\mathsf T}$도 정의에서 곧바로 확인된다.
 
@@ -152,11 +163,11 @@ $$\left[\begin{array}{ccc}1&0&0\\0&1&0\\0&0&1\end{array}\middle\vert\begin{array
 정사각이 아니면 양쪽 역행렬은 불가능하지만, 한쪽 역행렬은 존재할 수 있다. 그 조건은 지난 글의 injective/surjective와 정확히 맞물린다.
 
 **Theorem (한쪽 역행렬).** $A\in F^{m\times n}$에 대해:
-1. left inverse($BA=I_n$인 $B$)가 존재 $\iff x\mapsto Ax$가 injective $\iff N(A)=\{0\}\iff\operatorname{rank}A=n$ (full column rank).
+1. left inverse($BA=I_n$인 $B$)가 존재 $\iff x\mapsto Ax$가 injective $\iff N(A)=\lbrace 0\rbrace \iff\operatorname{rank}A=n$ (full column rank).
 2. right inverse($AC=I_m$인 $C$)가 존재 $\iff x\mapsto Ax$가 surjective $\iff C(A)=F^m\iff\operatorname{rank}A=m$ (full row rank).
 3. 양쪽 역행렬이 모두 존재 $\iff m=n=\operatorname{rank}A$, 곧 $A$가 정사각이면서 가역이다.
 
-*Proof.* (1) $BA=I_n$이면 $Ax=0$에서 $x=BAx=0$이라 injective다. 역으로 injective, 즉 $A$가 $F^n$을 $C(A)$로 일대일 대응시키면, 이 대응의 역을 $C(A)$ 위에서 정의하고 $F^m$의 나머지 방향으로는 아무렇게나 선형 확장한 $B$가 $BA=I_n$을 만족한다. injective $\iff N(A)=\{0\}\iff\operatorname{rank}A=n$은 지난 글에서 보았다. (2) $AC=I_m$이면 임의의 $b$가 $A(Cb)=b$로 상에 있어 surjective다. 역으로 surjective이면 $F^m$의 standard basis 각각의 원상을 골라 열로 세운 $C$가 $AC=I_m$을 준다. (3)은 (1)과 (2)를 합치면 $n=\operatorname{rank}A=m$이다. $\blacksquare$
+*Proof.* (1) $BA=I_n$이면 $Ax=0$에서 $x=BAx=0$이라 injective다. 역으로 injective, 즉 $A$가 $F^n$을 $C(A)$로 일대일 대응시키면, 이 대응의 역을 $C(A)$ 위에서 정의하고 $F^m$의 나머지 방향으로는 아무렇게나 선형 확장한 $B$가 $BA=I_n$을 만족한다. injective $\iff N(A)=\lbrace 0\rbrace \iff\operatorname{rank}A=n$은 지난 글에서 보았다. (2) $AC=I_m$이면 임의의 $b$가 $A(Cb)=b$로 상에 있어 surjective다. 역으로 surjective이면 $F^m$의 standard basis 각각의 원상을 골라 열로 세운 $C$가 $AC=I_m$을 준다. (3)은 (1)과 (2)를 합치면 $n=\operatorname{rank}A=m$이다. $\blacksquare$
 
 정사각이 아닌 경우 한쪽 역행렬은 유일하지 않다(확장의 자유가 있기 때문이다). 양쪽 역행렬만 유일하다.
 

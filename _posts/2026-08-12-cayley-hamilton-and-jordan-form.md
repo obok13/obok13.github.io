@@ -65,7 +65,10 @@ Endomorphism and Perron–Frobenius 글에서 invariant subspace의 정의($AW\s
 
 *Proof.* $A$가 diagonalizable이면 criterion으로 $m_A$가 중근 없는 일차식들의 곱이다. invariant subspace $W$에 대해 위 Proposition으로 $m_{A\vert_W}\mid m_A$라 $m_{A\vert_W}$도 중근이 없고, 다시 criterion으로 $A\vert_W$가 diagonalizable이다. $\blacksquare$
 
-**Corollary (Simultaneous Diagonalization).** diagonalizable 행렬 $A,B$에 대해 다음이 동치다. (i) $AB=BA$이다. (ii) 어떤 invertible $P$로 $P^{-1}AP$와 $P^{-1}BP$가 둘 다 diagonal이다(공통 eigenvector basis).
+**Corollary (Simultaneous Diagonalization).** diagonalizable 행렬 $A,B$에 대해 다음이 동치다.
+
+- (i) $AB=BA$이다.
+- (ii) 어떤 invertible $P$로 $P^{-1}AP$와 $P^{-1}BP$가 둘 다 diagonal이다(공통 eigenvector basis).
 
 *Proof.* (ii)$\Rightarrow$(i): $P^{-1}AP=D_1$, $P^{-1}BP=D_2$가 diagonal이면 diagonal끼리는 commute하므로 $AB=PD_1D_2P^{-1}=PD_2D_1P^{-1}=BA$이다. (i)$\Rightarrow$(ii): $A$가 diagonalizable이라 $F^n=\bigoplus_\lambda E_\lambda(A)$이다. $AB=BA$이면 각 $x\in E_\lambda(A)$에서 $A(Bx)=B(Ax)=\lambda(Bx)$라 $Bx\in E_\lambda(A)$, 곧 $B$가 각 $E_\lambda(A)$를 보존한다. 위 corollary로 $B$를 $E_\lambda(A)$로 제한한 것이 다시 diagonalizable이므로 각 $E_\lambda(A)$ 안에서 $B$의 eigenvector로 된 basis를 고를 수 있고, 이들은 $E_\lambda(A)$에 있으니 $A$의 eigenvector이기도 하다. 모든 $\lambda$에서 모으면 $A$와 $B$를 동시에 diagonalize하는 공통 basis다. $\blacksquare$
 

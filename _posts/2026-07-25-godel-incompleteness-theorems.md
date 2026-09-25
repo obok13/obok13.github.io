@@ -41,7 +41,13 @@ True arithmetic은 형태만 형식체계일 뿐, 실제로 증명이라는 절�
 
 그렇다면 recursive하고 primitive recursive function을 표현할 수 있는 체계 중에 완전하고 무모순한 체계가 있을까? 그것이 불가능함을 보인 것이 괴델의 제1불완전성 정리이다.
 
-**Theorem (Gödel's First Incompleteness Theorem, 1931 [4]).** Let $F$ be a formal system such that (i) the set of axioms of $F$ is recursive, (ii) $F$ is $\omega$-consistent, and (iii) $F$ contains enough elementary arithmetic to represent primitive recursive functions and relations. Then there is a closed formula $G_F$ in the language of $F$ such that neither $F \vdash G_F$ nor $F \vdash \lnot G_F$.
+**Theorem (Gödel's First Incompleteness Theorem, 1931 [4]).** Let $F$ be a formal system such that
+
+- (i) the set of axioms of $F$ is recursive,
+- (ii) $F$ is $\omega$-consistent, and
+- (iii) $F$ contains enough elementary arithmetic to represent primitive recursive functions and relations.
+
+Then there is a closed formula $G_F$ in the language of $F$ such that neither $F \vdash G_F$ nor $F \vdash \lnot G_F$.
 
 여기서 *$\omega$-consistent*하다는 조건은 단순한 consistency보다 강하다. $F$가 $\omega$-inconsistent하다는 것은, 어떤 논리식 $A(x)$가 있어서 각 자연수 $n$마다 $F \vdash \lnot A(n)$이면서(즉 "$n$은 $A$를 만족하지 않는다"가 개별적으로 모두 증명되면서) 동시에 $F \vdash \exists x\, A(x)$인 경우("$A$를 만족하는 무언가가 있다"도 증명되는 경우)를 말한다. $\omega$-consistent란 이런 상황이 없다는 것이다. 단순 consistency는 어떤 하나의 명제와 그 부정이 동시에 증명되지만 않으면 충족되므로, $\omega$-consistency가 더 강한 조건이다.
 
